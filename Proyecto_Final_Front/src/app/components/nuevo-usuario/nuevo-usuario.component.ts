@@ -31,7 +31,7 @@ export class NuevoUsuarioComponent {
 
   onSubmit() {
     this.UsuarioService.create(this.formulario.value)
-    this.router.navigateByUrl('cursos')
+    this.router.navigateByUrl('home')
   }
 
 }

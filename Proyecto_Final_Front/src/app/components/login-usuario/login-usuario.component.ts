@@ -20,7 +20,20 @@ export class LoginUsuarioComponent {
   })
 
 
+  async onSubmit() {
+    const response = await this.usuariosService.login(this.formulario.value);
 
+    // Comprobamos la respuesta
+    if (response.success) {
+      Swal.fire('Login correcto', 'Tu datos son correctos', 'success');
+      // Guardo el TOKEN en LocalStorage
+      localStorage.setItem('token_crm', response.token!);
+
+
+    } else {
+      Swal.fire('Error', 'Revisa la información de login', 'error');
+    }
+  }
 
 }
 

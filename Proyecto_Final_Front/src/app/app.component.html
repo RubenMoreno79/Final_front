@@ -1,5 +1,6 @@
 <div class="container ">
-    <h1 class="text-warning ">Cursos Online</h1>
+    <h1 class="text-warning text-center" [routerLink]="['/home']" routerLinkActive="activo"
+        [routerLinkActiveOptions]="{ exact: true }">Cursos Online</h1>
 
 
 
@@ -18,18 +19,23 @@
                 routerLinkActive="activo" [routerLinkActiveOptions]="{ exact: true }">
                 Nuevo Usuario
             </li>
+            <li class="btn btn-outline-dark mt-3 p-2 col-lg-3" [routerLink]="['/usuarios', 'login']"
+                routerLinkActive="activo" [routerLinkActiveOptions]="{ exact: true }">
+                Login
+            </li>
         </ul>
     </nav>
+
     <router-outlet></router-outlet>
 
 </div>
 
-<login-usuario></login-usuario>
 
 
 
 
-<div class="text-white bg-black p-4 text-center">
+
+<div class="text-white bg-black p-4 mt-4 text-center">
     <div class="row">
         <div class="col-3">
             Copyigth ©
