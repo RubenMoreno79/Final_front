@@ -1,0 +1,19 @@
+<div class="filtros">
+    <select (change)="onChange($event)">
+        <option value="todas">Categorias</option>
+        <option value="Nombre1">Nombre1</option>
+        <option value="Nombre2">Nombre2</option>
+
+    </select>
+</div>
+
+
+<div class="cursos">
+    @for (curso of arrCursos; track curso.id) {
+    <div class="curso">
+        <h3>{{ curso.nombre }}</h3>
+        <p>Horas: {{ curso.horas }}</p>
+        <p>Categorias: {{ curso.categoria }}</p>
+    </div>
+    }
+</div>

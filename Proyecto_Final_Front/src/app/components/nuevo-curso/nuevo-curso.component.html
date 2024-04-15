@@ -1,0 +1,25 @@
+<div class="container">
+    <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+        <div class="descripcion text-warning text-center">
+
+            <div class="col-12 col-lg-2">
+                <label class="form-label">nombre</label>
+                <input type="text" class="form-control" formControlName="nombre" />
+            </div>
+            <div class="col-12 col-lg-2">
+                <label class="form-label">horas</label>
+                <input type="number" class="form-control" formControlName="horas" />
+            </div>
+            <div class="col-12 col-lg-2">
+                <label class="form-label">categoria</label>
+                <input type="text" class="form-control" formControlName="categoria" />
+            </div>
+
+
+        </div>
+
+        <div class="boton">
+            <input type="submit" value="Enviar" class="btn btn-light" />
+        </div>
+    </form>
+</div>
