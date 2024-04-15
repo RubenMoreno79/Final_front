@@ -1,0 +1,8 @@
+<div class="usuarios">
+    @for (usuario of arrUsuarios; track usuario.id) {
+    <div class="usuario">
+        <p>nombre: {{ usuario.nombre }}</p>
+        <p>apellidos: {{ usuario.apellidos }}</p>
+    </div>
+    }
+</div>
