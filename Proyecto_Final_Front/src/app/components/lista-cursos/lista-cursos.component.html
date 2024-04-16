@@ -1,3 +1,5 @@
+<h2 class="mt-4">Lista de Cursos Disponibles</h2>
+
 <div class="filtros">
     <select (change)="onChange($event)">
         <option value="todas">Todas las Categorias</option>
@@ -8,6 +10,7 @@
     </select>
 </div>
 
+<hr>
 
 <div class="cursos row ">
     @for (curso of arrCursos; track curso.id) {

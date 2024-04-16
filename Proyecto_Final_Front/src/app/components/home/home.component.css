@@ -1,11 +1,11 @@
 .carousel-inner {
     width: auto;
-    height: 300px;
+    height: 600px;
     overflow: hidden;
 }
 
 img {
     width: auto;
-    height: 300px;
+    height: 600px;
     display: block;
 }
