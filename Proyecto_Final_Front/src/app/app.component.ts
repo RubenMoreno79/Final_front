@@ -8,12 +8,15 @@ import { CardUsuarioComponent } from './components/card-usuario/card-usuario.com
 import { ListaUsuarioComponent } from './components/lista-usuario/lista-usuario.component';
 import { NuevoUsuarioComponent } from './components/nuevo-usuario/nuevo-usuario.component';
 import { LoginUsuarioComponent } from './components/login-usuario/login-usuario.component';
+import { HomeAlumnoComponent } from './components/home-alumno/home-alumno.component';
+import { HomeProfesorComponent } from './components/home-profesor/home-profesor.component';
+import { DetalleCursoComponent } from './components/detalle-curso/detalle-curso.component';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ListaCursosComponent, FormsModule, NuevoCursoComponent, RouterLink, RouterLinkActive, CardUsuarioComponent, ListaUsuarioComponent, NuevoUsuarioComponent, LoginUsuarioComponent],
+  imports: [RouterOutlet, ListaCursosComponent, FormsModule, NuevoCursoComponent, RouterLink, RouterLinkActive, CardUsuarioComponent, ListaUsuarioComponent, NuevoUsuarioComponent, LoginUsuarioComponent, HomeAlumnoComponent, HomeProfesorComponent, DetalleCursoComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

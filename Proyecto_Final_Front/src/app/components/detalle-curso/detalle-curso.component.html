@@ -1,0 +1,19 @@
+@if (curso) {
+
+<div class="curso">
+    <h2>{{ curso.nombre }}</h2>
+    <div clase="imagen">
+
+        <img [src]="curso.imagen" class="img-fluid" alt="Responsive image">
+    </div>
+    <h3 class="mt-3">Horas de Duración: {{ curso.horas }}h</h3>
+    <p>Descripción del curso {{ curso.descripcion }}</p>
+
+
+
+
+
+</div>
+}@else {
+<p>El curso NO EXISTE</p>
+}

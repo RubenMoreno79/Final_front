@@ -23,7 +23,7 @@
                 <p class="card-title">Categorias: {{ curso.categoria }}</p>
                 <p class="card-title">Contenido: {{ curso.descripcion }}</p>
 
-                <a href="#" class="btn btn-primary mt-3">Ir al Curso</a>
+                <a [routerLink]="['/cursos',curso.id]" class="btn btn-primary mt-3">Ir al Curso</a>
             </div>
         </div>
 

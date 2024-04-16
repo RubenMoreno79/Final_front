@@ -6,16 +6,23 @@ import { ListaUsuarioComponent } from './components/lista-usuario/lista-usuario.
 import { NuevoUsuarioComponent } from './components/nuevo-usuario/nuevo-usuario.component';
 import { LoginUsuarioComponent } from './components/login-usuario/login-usuario.component';
 import { HomeComponent } from './components/home/home.component';
+import { HomeAlumnoComponent } from './components/home-alumno/home-alumno.component';
+import { HomeProfesorComponent } from './components/home-profesor/home-profesor.component';
+import { DetalleCursoComponent } from './components/detalle-curso/detalle-curso.component';
 
 
 export const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: 'home' },
     { path: 'home', component: HomeComponent },
     { path: 'cursos', component: ListaCursosComponent },
-    { path: 'cursos/nuevo', component: NuevoCursoComponent },
+    { path: 'cursos/:cursoId', component: DetalleCursoComponent },
+    { path: 'curso/nuevo', component: NuevoCursoComponent },
     { path: 'usuarios', component: ListaUsuarioComponent },
     { path: 'usuarios/nuevo', component: NuevoUsuarioComponent },
     { path: 'usuarios/login', component: LoginUsuarioComponent },
+    { path: 'usuarios/alumno', component: HomeAlumnoComponent },
+    { path: 'usuarios/profesor', component: HomeProfesorComponent },
+
 
 
 
