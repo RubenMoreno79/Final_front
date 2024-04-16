@@ -4,11 +4,14 @@
     <h2>{{ curso.nombre }}</h2>
     <div clase="imagen">
 
-        <img [src]="curso.imagen" class="img-fluid" alt="Responsive image">
+        <img [src]="curso.imagen" class="img-fluid rounded mx-auto d-block" alt="Responsive image">
     </div>
-    <h3 class="mt-3">Horas de Duración: {{ curso.horas }}h</h3>
-    <p>Descripción del curso {{ curso.descripcion }}</p>
-
+    <h3 class="mt-3">Horas de Duración:</h3>
+    <p>Tiempo estimado de realización {{ curso.horas }}h</p>
+    <h3>Descripción del curso: </h3>
+    <p>{{ curso.descripcion }}</p>
+    <h3>Contenido del curso </h3>
+    <p class="contenido">{{ curso.contenido }}</p>
 
 
 

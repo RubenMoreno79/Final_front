@@ -5,7 +5,8 @@ export interface Curso {
     categoria: string,
     examen: string,
     imagen: string,
-    descripcion: string
+    descripcion: string,
+    contenido: string,
 
 
 }

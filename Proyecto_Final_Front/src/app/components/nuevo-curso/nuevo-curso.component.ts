@@ -19,6 +19,7 @@ export class NuevoCursoComponent {
     categoria: new FormControl(),
     examen: new FormControl(),
     descripcion: new FormControl(),
+    contenido: new FormControl(),
     imagen: new FormControl(),
   })
 

@@ -2,4 +2,11 @@
     width: 300px;
     height: 200px;
     overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.contenido {
+    text-align: justify;
 }

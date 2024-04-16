@@ -12,8 +12,13 @@
         <input type="text" class="form-control" formControlName="username" />
     </div>
     <div class="mb-3">
-        <label class="form-label">Alumno/Profesor</label>
-        <input type="text" class="form-control" formControlName="rol" />
+        <label class="form-label">Rol</label>
+        <select class="form-select" formControlName="rol">
+            <option selected>Selecciona Rol</option>
+            <option value="alumno">Alumno</option>
+            <option value="profesor">Profesor</option>
+
+        </select>
     </div>
     <div class="mb-3">
         <label class="form-label">Teléfono</label>
@@ -25,11 +30,17 @@
     </div>
     <div class="mb-3">
         <label class="form-label">Genero</label>
-        <input type="text" class="form-control" formControlName="genero" />
+        <select class="form-select" formControlName="genero">
+            <option selected>Selecciona un género</option>
+            <option value="hombre">Hombre</option>
+            <option value="mujer">Mujer</option>
+            <option value="otro">Otro</option>
+
+        </select>
     </div>
     <div class="mb-3">
-        <label class="form-label">PassWord</label>
-        <input type="text" class="form-control" formControlName="password" />
+        <label class="form-label">Contraseña</label>
+        <input type="password" class="form-control" formControlName="password" />
     </div>
     <input type="submit" value="Enviar" class="btn btn-primary col-12 col-lg-2" />
 </form>
