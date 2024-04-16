@@ -1,8 +1,9 @@
 <div class="filtros">
     <select (change)="onChange($event)">
-        <option value="nombre1">nombre1</option>
-        <option value="nombre2">nombre2</option>
-        <option value="nombre3">nombre3</option>
+        <option value="todas">Todas las Categorias</option>
+        <option value="Nombre1">Nombre1</option>
+        <option value="Nombre2">Nombre2</option>
+        <option value="Nombre3">Nombre3</option>
 
     </select>
 </div>
@@ -10,7 +11,7 @@
 
 <div class="cursos row ">
     @for (curso of arrCursos; track curso.id) {
-    <div class="curso col-3">
+    <div class="curso col-lg-3 mt-2">
         <div class="card ">
 
             <img src="curso.imagen" class="card-img-top" alt="">
@@ -19,10 +20,10 @@
                 <h5 class="card-title">{{ curso.nombre }}</h5>
                 <p class="card-title">Horas: {{ curso.horas }}</p>
 
-                <p class="card-body">Categorias: {{ curso.categoria }}</p>
-                <p class="card-body">Contenido: {{ curso.descripcion }}</p>
+                <p class="card-title">Categorias: {{ curso.categoria }}</p>
+                <p class="card-title">Contenido: {{ curso.descripcion }}</p>
 
-                <a href="#" class="btn btn-primary">Ir al Curso</a>
+                <a href="#" class="btn btn-primary mt-3">Ir al Curso</a>
             </div>
         </div>
 

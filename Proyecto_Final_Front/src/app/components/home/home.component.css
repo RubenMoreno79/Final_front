@@ -1,0 +1,11 @@
+.carousel-inner {
+    width: auto;
+    height: 300px;
+    overflow: hidden;
+}
+
+img {
+    width: auto;
+    height: 300px;
+    display: block;
+}
