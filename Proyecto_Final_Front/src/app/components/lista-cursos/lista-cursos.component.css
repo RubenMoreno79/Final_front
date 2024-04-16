@@ -8,12 +8,13 @@ img {
 }
 
 .card {
-    height: 550px;
+    min-height: 480px;
 }
+
 
 section {
     width: 100%;
-    height: 200px;
+    height: auto;
 }
 
 article {
