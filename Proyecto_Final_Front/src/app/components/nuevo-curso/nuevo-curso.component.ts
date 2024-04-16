@@ -18,6 +18,8 @@ export class NuevoCursoComponent {
     horas: new FormControl(),
     categoria: new FormControl(),
     examen: new FormControl(),
+    descripcion: new FormControl(),
+    imagen: new FormControl(),
   })
 
   CursoService = inject(CursosService);
@@ -25,6 +27,6 @@ export class NuevoCursoComponent {
 
   onSubmit() {
     this.CursoService.create(this.formulario.value)
-    this.router.navigateByUrl('cursos/nuevo')
+    this.router.navigateByUrl('cursos')
   }
 }

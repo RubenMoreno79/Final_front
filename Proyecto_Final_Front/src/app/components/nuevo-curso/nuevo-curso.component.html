@@ -1,20 +1,48 @@
 <div class="container">
     <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
-        <div class="descripcion text-warning text-center">
+        <div class="descripcion text-warning ">
 
-            <div class="col-12 col-lg-2">
-                <label class="form-label">nombre</label>
+            <div class="col-12 col-lg-2 text-center">
+                <label class="form-label">Título del Curso</label>
                 <input type="text" class="form-control" formControlName="nombre" />
             </div>
-            <div class="col-12 col-lg-2">
-                <label class="form-label">horas</label>
+            <div class="col-12 col-lg-2 text-center">
+                <label class="form-label">Horas Estimadas </label>
                 <input type="number" class="form-control" formControlName="horas" />
             </div>
-            <div class="col-12 col-lg-2">
-                <label class="form-label">categoria</label>
+
+
+
+
+            <div class="col-12 col-lg-2 text-center">
+                <label class="form-label">Categoría</label>
+                <select class="form-select">
+                    <option selected>Selecciona Categoría</option>
+                    <option value="nombre1">nombre1</option>
+                    <option value="nombre2">nombre2</option>
+                    <option value="nombre3">nombre3</option>
+                </select>
+            </div>
+
+
+
+
+
+            <div class="col-12 col-lg-2 text-center">
+                <label class="form-label">Examen Final</label>
                 <input type="text" class="form-control" formControlName="categoria" />
             </div>
 
+            <div class="col-12 col-lg-2 text-center">
+                <label class="form-label">Imagen del curso</label>
+                <input type="text" class="form-control" formControlName="imagen" placeholder="url imagen..." />
+            </div>
+            <div class=" texto  col-lg-12 max-width-lg-71% ">
+                <label class="form-label">Descripcion del curso</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="descripcion"
+                    placeholder="Escribe aquí..."></textarea>
+
+            </div>
 
         </div>
 

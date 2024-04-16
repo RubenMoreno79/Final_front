@@ -1,0 +1,11 @@
+img {
+    display: block;
+    height: auto;
+    width: 100%;
+    margin-bottom: 15px;
+    border-radius: 20px;
+}
+
+.card {
+    max-height: 700px;
+}

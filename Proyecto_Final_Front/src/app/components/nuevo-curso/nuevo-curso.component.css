@@ -1,0 +1,23 @@
+.descripcion {
+    display: flex;
+    flex: wrap;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+
+}
+
+.texto {
+
+
+
+
+    & .form-control {
+        height: 500px;
+    }
+}
+
+.boton {
+    margin-top: 20px;
+
+}
