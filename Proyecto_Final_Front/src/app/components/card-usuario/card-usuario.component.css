@@ -1,0 +1,38 @@
+.profile-card {
+    width: 300px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.profile-img img {
+    width: 100%;
+    height: auto;
+}
+
+.profile-info {
+    padding: 20px;
+}
+
+.profile-info h2 {
+    margin-top: 0;
+}
+
+.profile-info p {
+    margin: 10px 0;
+}
+
+.edit-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.edit-button:hover {
+    background-color: #45a049;
+}
