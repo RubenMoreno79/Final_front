@@ -13,3 +13,5 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
 
     return next(req);
 };
+console.log('hola')
+//prueba hola
