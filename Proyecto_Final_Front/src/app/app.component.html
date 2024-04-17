@@ -1,26 +1,28 @@
+<h1 class="text-white text-center bg-success p-3" [routerLink]="['/home']" routerLinkActive="activo"
+    [routerLinkActiveOptions]="{ exact: true }">Cursos Online</h1>
 <div class="container ">
-    <h1 class="text-warning text-center" [routerLink]="['/home']" routerLinkActive="activo"
-        [routerLinkActiveOptions]="{ exact: true }">Cursos Online</h1>
 
 
 
-    <hr class="text-warning">
     <nav>
-        <ul>
-            <li class="btn btn-outline-dark mt-3 p-2 col-12 col-lg-3" [routerLink]="['/cursos']"
+        <ul class="botones text-center">
+            <li class="btn btn-light mt-3 p-2 col-12 col-lg-2 mx-1 border border-success" [routerLink]="['/cursos']"
                 routerLinkActive="activo" [routerLinkActiveOptions]="{ exact: true }">
                 Lista de Cursos
             </li>
-            <li class="btn btn-outline-dark mt-3 p-2 col-12 col-lg-3" [routerLink]="['/curso', 'nuevo']"
-                routerLinkActive="activo" [routerLinkActiveOptions]="{ exact: true }">
+            <li class="btn btn-light mt-3 p-2 col-12 col-lg-3 mx-1 border border-success"
+                [routerLink]="['/curso', 'nuevo']" routerLinkActive="activo"
+                [routerLinkActiveOptions]="{ exact: true }">
                 Nuevo Curso
             </li>
-            <li class="btn btn-outline-dark mt-3 p-2 col-12 col-lg-3" [routerLink]="['/usuarios', 'nuevo']"
-                routerLinkActive="activo" [routerLinkActiveOptions]="{ exact: true }">
+            <li class="btn btn-light mt-3 p-2 col-12 col-lg-3 mx-1 border border-success"
+                [routerLink]="['/usuarios', 'nuevo']" routerLinkActive="activo"
+                [routerLinkActiveOptions]="{ exact: true }">
                 Nuevo Usuario
             </li>
-            <li class="btn btn-outline-dark mt-3 p-2 col-12 col-lg-3" [routerLink]="['/usuarios', 'login']"
-                routerLinkActive="activo" [routerLinkActiveOptions]="{ exact: true }">
+            <li class="btn btn-light mt-3 p-2 col-12 col-lg-2 mx-1 border border-success"
+                [routerLink]="['/usuarios', 'login']" routerLinkActive="activo"
+                [routerLinkActiveOptions]="{ exact: true }">
                 Login
             </li>
         </ul>
@@ -29,7 +31,6 @@
     <router-outlet></router-outlet>
 
 </div>
-
 
 
 

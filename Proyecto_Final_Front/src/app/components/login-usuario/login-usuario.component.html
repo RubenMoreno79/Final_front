@@ -1,11 +1,11 @@
 <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
-    <div class="mb-3">
-        <label class="form-label">Email</label>
-        <input type="text" class="form-control" formControlName="email" />
+    <div class="mb-3 text-success ">
+        <label class="form-label ">Email</label>
+        <input type="text" class="form-control border border-success" formControlName="email" />
     </div>
-    <div class="mb-3">
+    <div class="mb-3 text-success">
         <label class="form-label">Password</label>
-        <input type="password" class="form-control" formControlName="password" />
+        <input type="password" class="form-control border border-success" formControlName="password" />
     </div>
-    <input type="submit" value="Enviar" class="btn btn-primary col-12 col-lg-2" />
+    <input type="submit" value="Enviar" class="btn btn-light col-12 col-lg-2 border border-success" />
 </form>
