@@ -37,7 +37,7 @@ export class UsuariosService {
     }
 
 
-    private baseUrl: string = '';
+    private baseUrl: string = 'http://localhost:3000/api/usuarios';
 
     private httpClient = inject(HttpClient);
 

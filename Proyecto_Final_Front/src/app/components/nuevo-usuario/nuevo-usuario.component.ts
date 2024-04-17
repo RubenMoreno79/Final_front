@@ -20,7 +20,7 @@ export class NuevoUsuarioComponent {
     rol: new FormControl(),
     nombre: new FormControl(),
     apellidos: new FormControl(),
-    fechaNacimiento: new FormControl(),
+    fecha_nacimiento: new FormControl(),
     updafechaRegisto: new FormControl(),
     genero: new FormControl(),
     telefono: new FormControl(),
@@ -29,9 +29,10 @@ export class NuevoUsuarioComponent {
   UsuarioService = inject(UsuariosService)
   router = inject(Router);
 
-  onSubmit() {
-    this.UsuarioService.create(this.formulario.value)
-    this.router.navigateByUrl('home')
+  async onSubmit() {
+    const respuesta = await this.UsuarioService.register(this.formulario.value)
+    //this.router.navigateByUrl('home')
+    console.log(respuesta)
   }
 
 }

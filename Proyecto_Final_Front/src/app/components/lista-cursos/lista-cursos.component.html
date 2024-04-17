@@ -1,7 +1,7 @@
-<h2 class="mt-4">Lista de Cursos Disponibles</h2>
+<h2 class="mt-4 text-success">Lista de Cursos Disponibles</h2>
 
-<div class="filtros">
-    <select (change)="onChange($event)">
+<div class="filtros ">
+    <select (change)="onChange($event)" class="rounded col-12 col-lg-4 border border-success">
         <option value="todas">Todas las Categorias</option>
         <option value="Nombre1">Nombre1</option>
         <option value="Nombre2">Nombre2</option>
@@ -14,8 +14,8 @@
 
 <div class="cursos row ">
     @for (curso of arrCursos; track curso.id) {
-    <div class="curso col-lg-3 mt-2">
-        <div class="card ">
+    <div class="curso col-lg-3 mt-2 ">
+        <div class="card rounded">
 
             <img src="curso.imagen" class="card-img-top" alt="">
             <div class="card-body">
@@ -26,7 +26,7 @@
                 <p class="card-title">Categorias: {{ curso.categoria }}</p>
                 <p class="card-title">Contenido: {{ curso.descripcion }}</p>
 
-                <a [routerLink]="['/cursos',curso.id]" class="btn btn-primary mt-3">Ir al Curso</a>
+                <a [routerLink]="['/cursos',curso.id]" class="btn btn-success mt-3">Ir al Curso</a>
             </div>
         </div>
 

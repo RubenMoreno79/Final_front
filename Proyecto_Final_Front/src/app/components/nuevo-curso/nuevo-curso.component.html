@@ -1,19 +1,19 @@
-<div class="container">
+<div class="container ">
     <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
-        <div class="descripcion text-warning ">
+        <div class="descripcion text-success ">
 
             <div class="col-12 col-lg-3 ">
                 <label class="form-label">Título del Curso</label>
-                <input type="text" class="form-control" formControlName="nombre" />
+                <input type="text" class="form-control border border-success" formControlName="nombre" />
             </div>
             <div class="col-12 col-lg-2 ">
                 <label class="form-label">Horas Estimadas </label>
-                <input type="number" class="form-control" formControlName="horas" />
+                <input type="number" class="form-control border border-success" formControlName="horas" />
             </div>
 
             <div class="col-12 col-lg-3 ">
                 <label class="form-label">Categoría</label>
-                <select class="form-select" formControlName="categoria">
+                <select class="form-select border border-success" formControlName="categoria">
                     <option selected>Selecciona Categoría</option>
                     <option value="nombre1">nombre1</option>
                     <option value="nombre2">nombre2</option>
@@ -23,16 +23,17 @@
 
             <div class="col-12 col-lg-3 ">
                 <label class="form-label">Imagen del curso</label>
-                <input type="text" class="form-control" formControlName="imagen" placeholder="url imagen..." />
+                <input type="text" class="form-control border border-success" formControlName="imagen"
+                    placeholder="url imagen..." />
             </div>
             <div class="col-12 ">
                 <label class="form-label">Descripción del Curso</label>
-                <input type="text" placeholder="Escribe máximo 50 palabras" class="form-control"
+                <input type="text" placeholder="Escribe máximo 50 palabras" class="form-control border border-success"
                     formControlName="descripcion" />
             </div>
             <div class=" texto  col-12  ">
                 <label class="form-label">Contenido del curso</label>
-                <textarea class="form-control" rows="3" formControlName="contenido"
+                <textarea class="form-control border border-success" rows="3" formControlName="contenido"
                     placeholder="Escribe el contenido completo del curso..."></textarea>
 
             </div>
@@ -40,7 +41,7 @@
         </div>
 
         <div class="boton ">
-            <input type="submit" value="Enviar" class="btn btn-primary col-12 col-lg-2" />
+            <input type="submit" value="Enviar" class="btn btn-light border border-success col-12 col-lg-2" />
         </div>
     </form>
 </div>
