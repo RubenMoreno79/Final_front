@@ -4,12 +4,10 @@
     <p>Apellidos: {{ usuario.apellidos }}</p>
     <p>Username: {{ usuario.username }}</p>
     <p>Email: {{ usuario.email }}</p>
-    <p>Password: {{ usuario.password }}</p>
     <p>Alumno/Profesor: {{ usuario.rol }}</p>
     <p>Fecha Nacimiento: {{ usuario.fecha_nacimiento }}</p>
     <p>Telefono: {{ usuario.telefono }}</p>
     <p>Genero: {{ usuario.genero }}</p>
+    <input type="submit" value="Editar" class="btn btn-light border border-success col-12 col-lg-2" />
 </div>
-}@else {
-<h2>No existe el usuario con ese </h2>
 }
