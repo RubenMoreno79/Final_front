@@ -11,6 +11,7 @@ import { HomeProfesorComponent } from './components/home-profesor/home-profesor.
 import { DetalleCursoComponent } from './components/detalle-curso/detalle-curso.component';
 import { TemarioCursoComponent } from './components/temario-curso/temario-curso.component';
 import { CardCursoComponent } from './components/card-curso/card-curso.component';
+import { CardUsuarioComponent } from './components/card-usuario/card-usuario.component';
 
 
 export const routes: Routes = [
@@ -26,6 +27,7 @@ export const routes: Routes = [
     { path: 'usuarios/profesor', component: HomeProfesorComponent },
     { path: 'temario', component: TemarioCursoComponent },
     { path: 'leccion/:temarioId', component: CardCursoComponent },
+    {path:'usuarios/card',component: CardUsuarioComponent},
 
 
 
