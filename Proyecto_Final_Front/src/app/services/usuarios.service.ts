@@ -57,15 +57,15 @@ export class UsuariosService {
         return localStorage.getItem('token_crm') ? true : false;
     }
 
-    isAdmin() {
-        // El role del usuario está codificado dentro del TOKEN
-        const decoded: JwtPayloadCustom = jwtDecode(localStorage.getItem('token_crm')!);
+    // isAdmin() {
+    //     // El role del usuario está codificado dentro del TOKEN
+    //     const decoded: JwtPayloadCustom = jwtDecode(localStorage.getItem('token_crm')!);
 
-        if (decoded.user_role === 'admin') {
-            return true;
-        }
-        return false;
-    }
+    //     if (decoded.user_role === 'admin') {
+    //         return true;
+    //     }
+    //     return false;
+    // }
 
 
 
