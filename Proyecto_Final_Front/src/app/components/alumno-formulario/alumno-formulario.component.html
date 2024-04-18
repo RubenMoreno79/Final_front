@@ -1,0 +1,38 @@
+<div class="container ">
+
+    <h3 class="text-success text-center mt-4">COMPLETA TU PERFIL COMO ALUMNO</h3>
+    <form class="mt-4" [formGroup]="formulario" (ngSubmit)="onSubmit()">
+        <div class="descripcion text-success ">
+
+
+
+
+            <div class="col-12  ">
+                <label class="form-label">Campo en el que estas interesado</label>
+                <select class="form-select border border-success" formControlName="campoInteres">
+                    <option selected>Selecciona Categoría</option>
+                    <option value="nombre1">nombre1</option>
+                    <option value="nombre2">nombre2</option>
+                    <option value="nombre3">nombre3</option>
+                </select>
+            </div>
+
+            <div class="col-12  ">
+                <label class="form-label">Carga una foto para tu perfil</label>
+                <input type="text" class="form-control border border-success" formControlName="foto"
+                    placeholder="url imagen..." />
+            </div>
+
+
+        </div>
+
+        <div class="boton mt-4">
+            <input type="submit" value="Finalizar Perfil" class="btn btn-light border border-success col-12 col-lg-2" />
+        </div>
+    </form>
+
+    <div class="text-center">
+        <img src="https://img.freepik.com/vector-gratis/colegial-pie-sobre-libros-levantando-mano-hablando-ilustracion-vector-plano-informe-tarea-casa-lectura-alumno-escuela-educacion-conocimiento_74855-8576.jpg"
+            class="rounded" alt="...">
+    </div>
+</div>

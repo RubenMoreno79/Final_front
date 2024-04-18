@@ -8,10 +8,6 @@
 }
 
 .texto {
-
-
-
-
     & .form-control {
         height: 500px;
     }
@@ -19,5 +15,14 @@
 
 .boton {
     margin-top: 20px;
+
+}
+
+
+
+.img {
+    width: 100%;
+    height: auto;
+    display: block;
 
 }
