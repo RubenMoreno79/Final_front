@@ -1,0 +1,58 @@
+<div class="container">
+    @if (temario) {
+
+    <button class="btn btn-success border border-success d-grid gap-2 col-12 col-lg-6 mx-auto" type="button"
+        data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+        Menú del Curso
+    </button>
+
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title " id="offcanvasExampleLabel">Menú</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+
+
+
+            <div class="list-group mt-4">
+                <a href="" class="list-group-item list-group-item-action list-group-item-light">Volver a mi Perfil</a>
+                <a href="" class="list-group-item list-group-item-action list-group-item-light">TEMA 1</a>
+                <a href="" class="list-group-item list-group-item-action list-group-item-light">TEMA 2</a>
+                <a href="" class="list-group-item list-group-item-action list-group-item-light">TEMA 3</a>
+                <a href="" class="list-group-item list-group-item-action list-group-item-light">TEMA 4</a>
+            </div>
+
+        </div>
+    </div>
+    <div class="curso">
+        <h2 class="mt-4 text-center">{{ temario.tema }}</h2>
+        <div clase="imagen">
+            <div class="ratio ratio-16x9 mb-4">
+                <iframe [src]="urlSafe" width="300" height="200" frameborder="0"></iframe>
+            </div>
+
+        </div>
+
+        <h4 class="mt-4 mb-4">Contenido de la Lección</h4>
+        <p>{{ temario.texto }}</p>
+        <img [src]="temario.imagen" class="img-fluid rounded mx-auto d-block mt-4 mb-4" alt="Responsive image">
+
+
+        <nav aria-label="text-success mt-4">
+            <ul class="pagination justify-content-center">
+                <li class="page-item "><a class="page-link" href="#">Anterior</a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">Siguiente</a></li>
+            </ul>
+        </nav>
+
+    </div>
+    }@else {
+    <p>El curso NO EXISTE</p>
+    }
+
+</div>

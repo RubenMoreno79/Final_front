@@ -12,11 +12,14 @@ import { HomeAlumnoComponent } from './components/home-alumno/home-alumno.compon
 import { HomeProfesorComponent } from './components/home-profesor/home-profesor.component';
 import { DetalleCursoComponent } from './components/detalle-curso/detalle-curso.component';
 
+import { TemarioCursoComponent } from './components/temario-curso/temario-curso.component';
+
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ListaCursosComponent, FormsModule, NuevoCursoComponent, RouterLink, RouterLinkActive, CardUsuarioComponent, ListaUsuarioComponent, NuevoUsuarioComponent, LoginUsuarioComponent, HomeAlumnoComponent, HomeProfesorComponent, DetalleCursoComponent],
+  imports: [RouterOutlet, ListaCursosComponent, FormsModule, NuevoCursoComponent, RouterLink, RouterLinkActive, CardUsuarioComponent, ListaUsuarioComponent, NuevoUsuarioComponent, LoginUsuarioComponent, HomeAlumnoComponent, HomeProfesorComponent, DetalleCursoComponent, TemarioCursoComponent, CardUsuarioComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

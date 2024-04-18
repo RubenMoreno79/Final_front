@@ -6,7 +6,7 @@ export interface Usuario {
     rol: string;
     nombre: string;
     apellidos: string;
-    fecha_nacimiento?: Date;
+    fecha_nacimiento?: string;
     updafechaRegisto?: Date;
     genero: string;
     telefono: string;

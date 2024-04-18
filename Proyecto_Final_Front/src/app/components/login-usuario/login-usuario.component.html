@@ -1,11 +1,22 @@
-<form [formGroup]="formulario" (ngSubmit)="onSubmit()">
-    <div class="mb-3 text-success ">
-        <label class="form-label ">Email</label>
-        <input type="text" class="form-control border border-success" formControlName="email" />
+<div class="row col-12">
+    <div class="col-12 col-lg-5 mt-5 mx-5 px-5">
+        <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+            <div class="mb-3 text-success ">
+                <label class="form-label ">Email</label>
+                <input type="text" class="form-control border border-success" formControlName="email" />
+            </div>
+            <div class="mb-3 text-success">
+                <label class="form-label">Password</label>
+                <input type="password" class="form-control border border-success" formControlName="password" />
+            </div>
+            <input type="submit" value="Enviar" class="btn btn-light col-12 col-lg-4 border border-success" />
+        </form>.
     </div>
-    <div class="mb-3 text-success">
-        <label class="form-label">Password</label>
-        <input type="password" class="form-control border border-success" formControlName="password" />
+
+    <div class="col-12 col-lg-5 mx-3">
+        <img src="https://img.freepik.com/vector-premium/solo-dibujo-linea-nino-arabe-estudiando-computadora-portatil-lampara-estudio-sentado-silla-alrededor-escritorio_533993-18348.jpg?w=900"
+            alt="">
     </div>
-    <input type="submit" value="Enviar" class="btn btn-light col-12 col-lg-2 border border-success" />
-</form>
+
+
+</div>

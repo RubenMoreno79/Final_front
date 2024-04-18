@@ -1,45 +1,13 @@
-<!-- @if (UsuarioPrueba) {
-<div class="usuario">
-    <p>Nombre: {{UsuarioPrueba.nombre }} </p>
-    <p>Apellidos: {{ UsuarioPrueba.apellidos }}</p>
-    <p>Username: {{ UsuarioPrueba.username }}</p>
-    <p>Email: {{ UsuarioPrueba.email }}</p>
-    <p>Password: {{ UsuarioPrueba.password }}</p>
-    <p>Alumno/Profesor: {{ UsuarioPrueba.rol }}</p>
-    <p>Fecha Nacimiento: {{ UsuarioPrueba.fecha_nacimiento }}</p>
-    <p>Telefono: {{ UsuarioPrueba.telefono }}</p>
-    <p>Genero: {{ UsuarioPrueba.genero }}</p>
-
-
-
-</div>
-} -->
-
 @if (usuario) {
 <div class="usuario">
-    <h2>{{ usuario.nombre }} {{ usuario.apellidos }}</h2>
-    <h3>Username: {{ usuario.username }}</h3>
+    <p>Nombre: {{ usuario.nombre }} </p>
+    <p>Apellidos: {{ usuario.apellidos }}</p>
+    <p>Username: {{ usuario.username }}</p>
     <p>Email: {{ usuario.email }}</p>
-    <p>Fecha_nacimiento: {{ usuario.fecha_nacimiento}}</p>
-    <p>Teléfono: {{ usuario.telefono }}</p>
-    <p>Genero:{{usuario.genero}}</p>
+    <p>Password: {{ usuario.password }}</p>
+    <p>Alumno/Profesor: {{ usuario.rol }}</p>
+    <p>Fecha Nacimiento: {{ usuario.fecha_nacimiento }}</p>
+    <p>Telefono: {{ usuario.telefono }}</p>
+    <p>Genero: {{ usuario.genero }}</p>
 </div>
-}@else {
-<h2>No existe el empleado con ese ID</h2>
 }
-
-
-<div class="card">
-    <img src="https://lapi.com.mx/web/image/product.template/5449/image_1024?unique=580e042" alt="Avatar" style="width:20%">
-    <div class="container">
-        <p>Nombre: Ana</p>
-        <p>Apellidos:Rios</p>
-        <p>Username: Anita</p>
-        <p>fecha nacimiento:1988/02/04</p>
-        <p>telefono:602539329</p>
-        <p>genero:M</p>
-
-
-        <button class="edit-button">Editar</button>
-    </div>
-</div>

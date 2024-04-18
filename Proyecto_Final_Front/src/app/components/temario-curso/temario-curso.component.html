@@ -1,0 +1,39 @@
+<div class="container ">
+    <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+        <div class="descripcion text-success ">
+
+            <div class="col-12 mt-3">
+                <label class="form-label">Título del Temario</label>
+                <input type="text" class="form-control border border-success" formControlName="tema" />
+            </div>
+            <div class="col-12 mt-3">
+                <label class="form-label">Título de la lección </label>
+                <input type="text" class="form-control border border-success" formControlName="leccion" />
+            </div>
+
+            <div class="col-12 ">
+                <label class="form-label mt-3">Url del video </label>
+                <input type="text" class="form-control border border-success" formControlName="video"
+                    placeholder="url video..." />
+            </div>
+
+            <div class="col-12 col-12 mt-3">
+                <label class="form-label">Url de la imagen</label>
+                <input type="text" class="form-control border border-success" formControlName="imagen"
+                    placeholder="url imagen..." />
+            </div>
+
+            <div class=" texto  col-12  mt-3">
+                <label class="form-label">Contenido de la lección</label>
+                <textarea class="form-control border border-success" rows="3" formControlName="texto"
+                    placeholder="Escribe el contenido de la leccion..."></textarea>
+
+            </div>
+
+        </div>
+
+        <div class="boton mt-3 ">
+            <input type="submit" value="Enviar" class="btn btn-light border border-success col-12 col-lg-2" />
+        </div>
+    </form>
+</div>

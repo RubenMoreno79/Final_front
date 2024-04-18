@@ -9,7 +9,8 @@ import { HomeComponent } from './components/home/home.component';
 import { HomeAlumnoComponent } from './components/home-alumno/home-alumno.component';
 import { HomeProfesorComponent } from './components/home-profesor/home-profesor.component';
 import { DetalleCursoComponent } from './components/detalle-curso/detalle-curso.component';
-import { CardUsuarioComponent } from './components/card-usuario/card-usuario.component';
+import { TemarioCursoComponent } from './components/temario-curso/temario-curso.component';
+import { CardCursoComponent } from './components/card-curso/card-curso.component';
 
 
 export const routes: Routes = [
@@ -23,7 +24,11 @@ export const routes: Routes = [
     { path: 'usuarios/login', component: LoginUsuarioComponent },
     { path: 'usuarios/alumno', component: HomeAlumnoComponent },
     { path: 'usuarios/profesor', component: HomeProfesorComponent },
-     { path: 'usuarios/card', component: CardUsuarioComponent },
+    { path: 'temario', component: TemarioCursoComponent },
+    { path: 'leccion/:temarioId', component: CardCursoComponent },
+
+
+
 
 
 

@@ -28,6 +28,6 @@ export class NuevoCursoComponent {
 
   onSubmit() {
     this.CursoService.create(this.formulario.value)
-    this.router.navigateByUrl('cursos')
+    this.router.navigateByUrl('temario')
   }
 }
