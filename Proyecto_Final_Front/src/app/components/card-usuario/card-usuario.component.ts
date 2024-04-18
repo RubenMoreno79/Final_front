@@ -10,4 +10,6 @@ import { Usuario } from '../../interfaces/usuarios.interfaces';
 })
 export class CardUsuarioComponent {
   @Input() usuario: Usuario | null = null;
+
+  
 }
