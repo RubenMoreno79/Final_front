@@ -1,9 +1,9 @@
 import { Injectable, inject } from '@angular/core';
 import { Usuario } from '../interfaces/usuarios.interfaces';
 import { USUARIOS } from '../data/usuario.data';
-import { JwtPayload, jwtDecode } from 'jwt-decode';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs/internal/firstValueFrom';
+import { JwtPayload, jwtDecode } from 'jwt-decode';
 
 
 export type JwtPayloadCustom = JwtPayload & { user_role: string, user_id: string };
@@ -11,13 +11,13 @@ export type JwtPayloadCustom = JwtPayload & { user_role: string, user_id: string
 type RegistroResponse = {
     success?: string,
     error?: string
-}
-type LoginType = { email: string, password: string }
+};
+type LoginType = { email: string, password: string };
 type LoginResponse = {
     success?: string,
     token?: string,
     error?: string
-}
+};
 
 
 @Injectable({
