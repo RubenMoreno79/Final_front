@@ -27,7 +27,7 @@ export const routes: Routes = [
     { path: 'usuarios/profesor', component: HomeProfesorComponent },
     { path: 'temario', component: TemarioCursoComponent },
     { path: 'leccion/:temarioId', component: CardCursoComponent },
-    {path:'usuarios/card',component: CardUsuarioComponent},
+    { path:'usuarios/card',component: CardUsuarioComponent},
 
 
 
