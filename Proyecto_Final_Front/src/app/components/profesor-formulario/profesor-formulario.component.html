@@ -1,0 +1,49 @@
+<div class="container ">
+
+    <h3 class="text-success text-center mt-4">COMPLETA TU PERFIL COMO PROFESOR</h3>
+    <form class="mt-4" [formGroup]="formulario" (ngSubmit)="onSubmit()">
+        <div class="descripcion text-success ">
+
+            <div class="col-12 ">
+                <label class="form-label">Años de Experiencia</label>
+                <input type="number" class="form-control border border-success" formControlName="    experiencia: new FormControl(),
+                " />
+            </div>
+
+
+            <div class="col-12  ">
+                <label class="form-label">Campo en el que estas especializado</label>
+                <select class="form-select border border-success" formControlName="campoExperiencia">
+                    <option selected>Selecciona Categoría</option>
+                    <option value="nombre1">nombre1</option>
+                    <option value="nombre2">nombre2</option>
+                    <option value="nombre3">nombre3</option>
+                </select>
+            </div>
+
+            <div class="col-12  ">
+                <label class="form-label">Carga una foto para tu perfil</label>
+                <input type="text" class="form-control border border-success" formControlName="foto"
+                    placeholder="url imagen..." />
+            </div>
+            <div class=" texto  ">
+                <label class="form-label"></label>
+                <div class=" texto  ">
+                    <label class="form-label">Describe tu experiencia</label>
+                    <textarea class="form-control border border-success" formControlName=" descripcionExperiencia"
+                        placeholder="Escribe aquí lo más relevante de tu CV..."></textarea>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="boton mt-4">
+            <input type="submit" value="Finalizar Perfil" class="btn btn-light border border-success col-12 col-lg-2" />
+        </div>
+        <div class="text-center">
+            <img src="https://img.freepik.com/vector-premium/ilustracion-mujeres-trabajan-relajan-casa_7737-1870.jpg?size=626&ext=jpg&ga=GA1.1.539837299.1711670400&semt=ais"
+                class="rounded" alt="...">
+        </div>
+    </form>

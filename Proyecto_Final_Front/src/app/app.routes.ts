@@ -12,7 +12,15 @@ import { DetalleCursoComponent } from './components/detalle-curso/detalle-curso.
 import { TemarioCursoComponent } from './components/temario-curso/temario-curso.component';
 import { CardCursoComponent } from './components/card-curso/card-curso.component';
 import { CardUsuarioComponent } from './components/card-usuario/card-usuario.component';
+<<<<<<< HEAD
 import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.component';
+=======
+import { ProfesorFormularioComponent } from './components/profesor-formulario/profesor-formulario.component';
+import { AlumnoFormularioComponent } from './components/alumno-formulario/alumno-formulario.component';
+
+import { ExamenPreguntasComponent } from './components/examen-preguntas/examen-preguntas.component';
+import { ExamenComponent } from './components/examen/examen.component';
+>>>>>>> 130f4c5cc20b31af248e99d1dde3c38683062652
 
 
 export const routes: Routes = [
@@ -29,7 +37,15 @@ export const routes: Routes = [
     { path: 'temario', component: TemarioCursoComponent },
     { path: 'leccion/:temarioId', component: CardCursoComponent },
     { path: 'usuarios/card', component: CardUsuarioComponent },
+<<<<<<< HEAD
     { path: 'alumnos/editar', component: EditarUsuarioComponent }
+=======
+    { path: 'newprofesor', component: ProfesorFormularioComponent },
+    { path: 'newalumno', component: AlumnoFormularioComponent },
+    { path: 'newpregunta', component: ExamenPreguntasComponent },
+    { path: 'examen', component: ExamenComponent },
+
+>>>>>>> 130f4c5cc20b31af248e99d1dde3c38683062652
 
 
 

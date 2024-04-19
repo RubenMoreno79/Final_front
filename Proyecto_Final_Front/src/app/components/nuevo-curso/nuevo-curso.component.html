@@ -1,47 +1,68 @@
 <div class="container ">
+
+
+
     <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
         <div class="descripcion text-success ">
 
-            <div class="col-12 col-lg-3 ">
-                <label class="form-label">Título del Curso</label>
-                <input type="text" class="form-control border border-success" formControlName="nombre" />
-            </div>
-            <div class="col-12 col-lg-2 ">
-                <label class="form-label">Horas Estimadas </label>
-                <input type="number" class="form-control border border-success" formControlName="horas" />
-            </div>
 
-            <div class="col-12 col-lg-3 ">
-                <label class="form-label">Categoría</label>
-                <select class="form-select border border-success" formControlName="categoria">
-                    <option selected>Selecciona Categoría</option>
-                    <option value="nombre1">nombre1</option>
-                    <option value="nombre2">nombre2</option>
-                    <option value="nombre3">nombre3</option>
-                </select>
-            </div>
 
-            <div class="col-12 col-lg-3 ">
-                <label class="form-label">Imagen del curso</label>
-                <input type="text" class="form-control border border-success" formControlName="imagen"
-                    placeholder="url imagen..." />
-            </div>
-            <div class="col-12 ">
-                <label class="form-label">Descripción del Curso</label>
-                <input type="text" placeholder="Escribe máximo 50 palabras" class="form-control border border-success"
-                    formControlName="descripcion" />
-            </div>
-            <div class=" texto  col-12  ">
-                <label class="form-label">Contenido del curso</label>
-                <textarea class="form-control border border-success" rows="3" formControlName="contenido"
-                    placeholder="Escribe el contenido completo del curso..."></textarea>
+
+
+            <div class="container row">
+
+                <div class="dibujo col-0 col-lg-5 mt-3 ">
+
+                    <img src="https://img.freepik.com/vector-gratis/ilustracion-concepto-sesion-movil_114360-135.jpg"
+                        class="img-thumbnail border-0" alt="...">
+                </div>
+                <div class="col-12 col-lg-7 mt-5">
+                    <div class="col-12  ">
+                        <label class="form-label">Título del Curso</label>
+                        <input type="text" class="form-control border border-success" formControlName="nombre" />
+                    </div>
+                    <div class="col-12  ">
+                        <label class="form-label">Horas Estimadas </label>
+                        <input type="number" class="form-control border border-success" formControlName="horas" />
+                    </div>
+
+                    <div class="col-12  ">
+                        <label class="form-label">Categoría</label>
+                        <select class="form-select border border-success" formControlName="categoria">
+                            <option selected>Selecciona Categoría</option>
+                            <option value="nombre1">nombre1</option>
+                            <option value="nombre2">nombre2</option>
+                            <option value="nombre3">nombre3</option>
+                        </select>
+                    </div>
+
+                    <div class="col-12 ">
+                        <label class="form-label">Imagen del curso</label>
+                        <input type="text" class="form-control border border-success" formControlName="imagen"
+                            placeholder="url imagen..." />
+                    </div>
+
+
+                    <label class="form-label">Descripción del Curso</label>
+                    <input type="text" placeholder="Escribe máximo 50 palabras"
+                        class=" form-control border border-success" formControlName="descripcion" />
+                </div>
+                <div class="espacio"></div>
+                <div class="  texto">
+                    <label class="form-label">Contenido del curso</label>
+                    <textarea class="form-control border border-success" rows="3" formControlName="contenido"
+                        placeholder="Escribe el contenido completo del curso..."></textarea>
+
+
+
+                </div>
+
 
             </div>
-
         </div>
-
-        <div class="boton ">
+        <div class="boton mx-4">
             <input type="submit" value="Enviar" class="btn btn-light border border-success col-12 col-lg-2" />
         </div>
+
     </form>
 </div>

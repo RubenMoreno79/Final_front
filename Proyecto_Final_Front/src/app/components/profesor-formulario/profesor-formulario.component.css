@@ -1,0 +1,9 @@
+.texto {
+
+
+
+
+    & .form-control {
+        height: 200px;
+    }
+}

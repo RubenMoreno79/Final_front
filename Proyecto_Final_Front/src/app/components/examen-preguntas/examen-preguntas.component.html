@@ -1,0 +1,46 @@
+<form [formGroup]="Formulario" (ngSubmit)="onSubmit()">
+
+    <h3 class="text-center text-success mt-4">Crea tu Pregunta</h3>
+    <div class="descripcion text-success ">
+        <div class="mb-3 mt-5">
+            <h5>Introduce el nombre de la pregunta</h5>
+            <label for="exampleFormControlTextarea1"></label>
+            <textarea class=" nombre form-control" id="exampleFormControlTextarea1" rows="3"
+                formControlName="titulo"></textarea>
+        </div>
+        <div class="mb-3 mt-5">
+            <h5>Introduce el enunciado de la pregunta</h5>
+            <label for="exampleFormControlTextarea1"></label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                formControlName="enunciado"></textarea>
+        </div>
+        <h5>Introduce las diferentes opciones</h5>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Respuesta 1</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Respuesta CORRECTA"
+                formControlName="respuesta_correcta">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Respuesta 2</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Respuesta INCORRECTA"
+                formControlName="respuesta_incorrecta1">
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Respuesta 3</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Respuesta INCORRECTA"
+                formControlName="respuesta_incorrecta2">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Respuesta 4</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Respuesta INCORRECTA"
+                formControlName="respuesta_incorrecta3">
+        </div>
+
+
+
+        <div class="boton mx-4">
+            <input type="submit" value="Enviar Pregunta" class="btn btn-light border border-success col-12 col-lg-2" />
+        </div>
+    </div>
+</form>
