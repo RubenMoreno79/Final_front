@@ -1,0 +1,34 @@
+<h2 class="mt-4 text-success">Tu Examen</h2>
+
+<div class="filtros ">
+    <select (change)="onChange($event)" class="rounded col-12 col-lg-4 border border-success">
+        <option value="todas">Todas las preguntas</option>
+        <option value="Pregunta 1">Pregunta 1</option>
+        <option value="Pregunta 2">Pregunta 2</option>
+        <option value="Pregunta 3">Pregunta 3</option>
+
+    </select>
+</div>
+
+<hr>
+
+<div>
+    @for (pregunta of arrPreguntas; track pregunta.id) {
+    <div class="pregunta col-12 mt-2 ">
+
+        <h4 class="mt-5 text-center">Enunciado pregunta {{ pregunta.id }}</h4>
+        <hr class="col 6 text-success  col-6">
+        <h5 class="mt-4">{{ pregunta.titulo }}</h5>
+
+        <div class="mt-4 border border-success rounded p-3">
+            <p>Opcion 1: {{ pregunta.opcion1 }}</p>
+            <p>Opcion 2: {{ pregunta.opcion2 }}</p>
+            <p>Opcion 3: {{ pregunta.opcion3 }}</p>
+            <p>Opcion 4: {{ pregunta.opcion4 }}</p>
+        </div>
+
+    </div>
+
+
+    }
+</div>

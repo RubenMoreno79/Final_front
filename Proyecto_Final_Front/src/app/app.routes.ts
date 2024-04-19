@@ -15,6 +15,9 @@ import { CardUsuarioComponent } from './components/card-usuario/card-usuario.com
 import { ProfesorFormularioComponent } from './components/profesor-formulario/profesor-formulario.component';
 import { AlumnoFormularioComponent } from './components/alumno-formulario/alumno-formulario.component';
 
+import { ExamenPreguntasComponent } from './components/examen-preguntas/examen-preguntas.component';
+import { ExamenComponent } from './components/examen/examen.component';
+
 
 export const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -32,6 +35,8 @@ export const routes: Routes = [
     { path: 'usuarios/card', component: CardUsuarioComponent },
     { path: 'newprofesor', component: ProfesorFormularioComponent },
     { path: 'newalumno', component: AlumnoFormularioComponent },
+    { path: 'newpregunta', component: ExamenPreguntasComponent },
+    { path: 'examen', component: ExamenComponent },
 
 
 

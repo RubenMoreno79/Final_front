@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CURSOS } from '../data/curso.data'
 import { Curso } from '../interfaces/cursos.interface';
-import { firstValueFrom } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
