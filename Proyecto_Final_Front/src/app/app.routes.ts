@@ -12,6 +12,7 @@ import { DetalleCursoComponent } from './components/detalle-curso/detalle-curso.
 import { TemarioCursoComponent } from './components/temario-curso/temario-curso.component';
 import { CardCursoComponent } from './components/card-curso/card-curso.component';
 import { CardUsuarioComponent } from './components/card-usuario/card-usuario.component';
+import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.component';
 import { ProfesorFormularioComponent } from './components/profesor-formulario/profesor-formulario.component';
 import { AlumnoFormularioComponent } from './components/alumno-formulario/alumno-formulario.component';
 
@@ -33,6 +34,7 @@ export const routes: Routes = [
     { path: 'temario', component: TemarioCursoComponent },
     { path: 'leccion/:temarioId', component: CardCursoComponent },
     { path: 'usuarios/card', component: CardUsuarioComponent },
+    { path: 'alumnos/editar', component: EditarUsuarioComponent },
     { path: 'newprofesor', component: ProfesorFormularioComponent },
     { path: 'newalumno', component: AlumnoFormularioComponent },
     { path: 'newpregunta', component: ExamenPreguntasComponent },

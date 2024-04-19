@@ -1,0 +1,13 @@
+@import url(https://fonts.googleapis.com/css?family=Mukta:200,300,regular,500,600,700,800);
+
+
+
+h2 {
+    color: darkcyan;
+}
+
+p {
+    color: darkcyan;
+    font-family: mukta;
+    font-style: 500;
+}

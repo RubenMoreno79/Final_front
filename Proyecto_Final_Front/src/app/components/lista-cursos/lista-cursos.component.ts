@@ -14,21 +14,30 @@ import { RouterLink } from '@angular/router';
 
 
 export class ListaCursosComponent {
+
   arrCursos: Curso[] = [];
-  cursosService = inject(CursosService)
-  ngOnInit() {
-    this.arrCursos = this.cursosService.getAll();
-  }
-  onChange($event: any) {
+
+  cursosService = inject(CursosService);
+
+  async ngOnInit() {
+    // this.arrCursos = this.cursosService.getAll();
+    this.arrCursos = await this.cursosService.listaCursos();
+  };
+
+  async onChange($event: any) {
     if ($event.target.value === 'todas') {
-      this.arrCursos = this.cursosService.getAll();
+      this.arrCursos = await this.cursosService.listaCursos();
     } else {
       this.arrCursos = this.cursosService.getByNombre($event.target.value);
     }
-  }
+  };
 
   getNombres(): string[] {
     return [...new Set(CURSOS.map(curso => curso.nombre))]
-  }
+  };
+
+
+
+
 
 }
