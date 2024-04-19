@@ -1,13 +1,13 @@
 @if (usuario) {
 <div class="usuario">
-    <p>Nombre: {{ usuario.nombre }} </p>
-    <p>Apellidos: {{ usuario.apellidos }}</p>
+    <h2>{{ usuario.nombre }} {{ usuario.apellidos }}</h2>
+    <hr>
     <p>Username: {{ usuario.username }}</p>
     <p>Email: {{ usuario.email }}</p>
-    <p>Alumno/Profesor: {{ usuario.rol }}</p>
+    <p>Rol: {{ usuario.rol }}</p>
     <p>Fecha Nacimiento: {{ usuario.fecha_nacimiento }}</p>
     <p>Telefono: {{ usuario.telefono }}</p>
     <p>Genero: {{ usuario.genero }}</p>
-    <button (click)="editarUsuario()" class="btn btn-light border border-success col-12 col-lg-2">Editar</button>
+    <button (click)="editarUsuario()" class="btn btn-light border border-success col-12 col-lg-1">Editar</button>
 </div>
 }
