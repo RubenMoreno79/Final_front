@@ -8,6 +8,6 @@
     <p>Fecha Nacimiento: {{ usuario.fecha_nacimiento }}</p>
     <p>Telefono: {{ usuario.telefono }}</p>
     <p>Genero: {{ usuario.genero }}</p>
-    <input type="submit" value="Editar" class="btn btn-light border border-success col-12 col-lg-2" />
+    <button (click)="editarUsuario()" class="btn btn-light border border-success col-12 col-lg-2">Editar</button>
 </div>
 }

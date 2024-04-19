@@ -30,6 +30,7 @@ export class EditarUsuarioComponent {
     telefono: new FormControl(null),
     genero: new FormControl(null),
   });
+  router: any;
 
 
 
@@ -39,7 +40,6 @@ export class EditarUsuarioComponent {
 
     this.alumno = resupuesta;
 
-    console.log(this.alumno[0].fecha_nacimiento)
     this.formulario.setValue({
 
       nombre: this.alumno[0].nombre,
@@ -57,6 +57,7 @@ export class EditarUsuarioComponent {
   async onSubmit() {
     console.log(this.alumno[0].id)
     const respuesta = await this.usuariosService.editAlumno(this.alumno[0].id, this.formulario.value)
+
     console.log(respuesta)
   }
 
