@@ -36,13 +36,14 @@ export const routes: Routes = [
 
             { path: 'card', component: CardUsuarioComponent },
             { path: 'miscursos', component: MisCursosComponent },
+            { path: 'editar', component: EditarUsuarioComponent },
+
 
         ]
     },
     { path: 'usuarios/profesor', component: HomeProfesorComponent },
     { path: 'temario', component: TemarioCursoComponent },
     { path: 'leccion/:temarioId', component: CardCursoComponent },
-    { path: 'alumnos/editar', component: EditarUsuarioComponent },
     { path: 'newprofesor', component: ProfesorFormularioComponent },
     { path: 'usuarios/profesor', component: HomeProfesorComponent },
     { path: 'newalumno', component: AlumnoFormularioComponent },
