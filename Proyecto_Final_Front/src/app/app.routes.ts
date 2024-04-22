@@ -12,7 +12,7 @@ import { DetalleCursoComponent } from './components/detalle-curso/detalle-curso.
 import { TemarioCursoComponent } from './components/temario-curso/temario-curso.component';
 import { CardCursoComponent } from './components/card-curso/card-curso.component';
 import { CardUsuarioComponent } from './components/card-usuario/card-usuario.component';
-import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.component';
+import { EditarUsuarioComponent } from './components/editar-usuario/editar-usuario.component';
 import { ProfesorFormularioComponent } from './components/profesor-formulario/profesor-formulario.component';
 import { AlumnoFormularioComponent } from './components/alumno-formulario/alumno-formulario.component';
 
