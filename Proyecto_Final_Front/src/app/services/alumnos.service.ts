@@ -21,10 +21,17 @@ export class AlumnosService {
 
   };
 
-  getAll(): Alumno[] {
-    return ALUMNO
+  getCurso(cursoId: Number) {
+    return firstValueFrom(
+      this.httpClient.get(`${this.baseUrl}/info/${cursoId}`)
+    )
   }
 
+  getAlumno() {
+    return firstValueFrom(
+      this.httpClient.get(`${this.baseUrl}/alumnos/alumno`)
+    )
+  }
 
 
   getById(alumnoId: number): Alumno | null {
