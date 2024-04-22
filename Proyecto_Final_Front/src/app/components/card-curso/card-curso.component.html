@@ -18,16 +18,15 @@
 
             <div class="list-group mt-4">
                 <a href="" class="list-group-item list-group-item-action list-group-item-light">Volver a mi Perfil</a>
-                <a href="" class="list-group-item list-group-item-action list-group-item-light">TEMA 1</a>
-                <a href="" class="list-group-item list-group-item-action list-group-item-light">TEMA 2</a>
-                <a href="" class="list-group-item list-group-item-action list-group-item-light">TEMA 3</a>
-                <a href="" class="list-group-item list-group-item-action list-group-item-light">TEMA 4</a>
+                @for(tema of arrTemas; track $index){
+                    <a href="" [routerLink]="'/leccion/' + tema.id" class="list-group-item list-group-item-action list-group-item-light">{{$index}} - {{tema.tema}}</a>
+                }
             </div>
 
         </div>
     </div>
     <div class="curso">
-        <h2 class="mt-4 text-center">{{ temario.tema }}</h2>
+        <h2 class="mt-4 text-center">{{ temario[0].tema }}</h2>
         <div clase="imagen">
             <div class="ratio ratio-16x9 mb-4">
                 <iframe [src]="urlSafe" width="300" height="200" frameborder="0"></iframe>
@@ -36,8 +35,8 @@
         </div>
 
         <h4 class="mt-4 mb-4">Contenido de la Lección</h4>
-        <p>{{ temario.texto }}</p>
-        <img [src]="temario.imagen" class="img-fluid rounded mx-auto d-block mt-4 mb-4" alt="Responsive image">
+        <p>{{ temario[0].texto }}</p>
+        <img [src]="temario[0].imagen" class="img-fluid rounded mx-auto d-block mt-4 mb-4" alt="Responsive image">
 
 
         <nav aria-label="text-success mt-4">

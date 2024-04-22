@@ -16,7 +16,9 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 })
 export class CardCursoComponent {
-  temario: Temario | null = null
+  temario: Temario[] | null = null
+  arrTemas: Temario[] = []
+  curso_id: Number = 16
 
   activatedRoute = inject(ActivatedRoute);
   temariosService = inject(TemariosService)
@@ -26,14 +28,16 @@ export class CardCursoComponent {
   constructor(public sanitizer: DomSanitizer) {
 
   }
-
+  //TODO: Acabar bien toda la funcionalidad de este componente, tanto para alumnos como para profesores.
   ngOnInit() {
-    this.activatedRoute.params.subscribe(params => {
+    this.activatedRoute.params.subscribe(async params => {
       const temarioId = Number(params['temarioId']);
 
-      this.temario = this.temariosService.getById(temarioId);
-      this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.temario!.video)
-
+      this.temario = await this.temariosService.getById(temarioId);
+      console.log(this.temario)
+      this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.temario[0].video)
+      this.arrTemas = await this.temariosService.getAllLeccionesProfesor(this.curso_id)
+      console.log(this.arrTemas)
     });
   }
 }

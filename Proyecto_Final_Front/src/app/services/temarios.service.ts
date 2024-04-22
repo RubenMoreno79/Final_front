@@ -26,13 +26,16 @@ export class TemariosService {
         return TEMARIOS.filter(temario => temario.tema === tema)
     }
 
-    getById(temarioId: number): Temario | null {
-        for (let temario of TEMARIOS) {
-            if (temario.id === temarioId) {
-                return temario;
-            }
-        }
-        return null;
+    getById(temarioId: number) {
+        return firstValueFrom(
+            this.httpClient.get<Temario[]>(`${this.baseUrl}/lecciones/${temarioId}`)
+        )
+    }
+
+    getAllLeccionesProfesor(curso_id: Number) {
+        return firstValueFrom(
+            this.httpClient.get<Temario[]>(`${this.baseUrl}/lecciones/all/profesores/${curso_id}`)
+        )
     }
 
     create(Temario: Temario, cursoId: Number) {
