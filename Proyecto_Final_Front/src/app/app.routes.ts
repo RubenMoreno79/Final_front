@@ -36,6 +36,7 @@ export const routes: Routes = [
     { path: 'usuarios/card', component: CardUsuarioComponent },
     { path: 'alumnos/editar', component: EditarUsuarioComponent },
     { path: 'newprofesor', component: ProfesorFormularioComponent },
+    { path: 'usuarios/profesor', component: HomeProfesorComponent },
     { path: 'newalumno', component: AlumnoFormularioComponent },
     { path: 'newpregunta', component: ExamenPreguntasComponent },
     { path: 'examen', component: ExamenComponent },
