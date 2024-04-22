@@ -1,8 +1,9 @@
 import { Component, inject } from '@angular/core';
 import { Curso } from '../../interfaces/cursos.interface';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CursosService } from '../../services/cursos.service';
 import { AlumnosService } from '../../services/alumnos.service';
+import { TemariosService } from '../../services/temarios.service';
 
 
 @Component({
@@ -15,13 +16,15 @@ import { AlumnosService } from '../../services/alumnos.service';
 export class DetalleCursoComponent {
 
   curso: Curso[] = []
+  leccionId: Number = 0
 
   cursoId: Number = 0;
 
   activatedRoute = inject(ActivatedRoute);
   cursosService = inject(CursosService);
   alumnoService = inject(AlumnosService);
-  router: any;
+  temarioSercice = inject(TemariosService)
+  router = inject(Router)
 
   async ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
@@ -29,7 +32,11 @@ export class DetalleCursoComponent {
 
     })
     this.curso = await this.cursosService.getById(this.cursoId);;
-    console.log(this.curso);
+
+    const respuesta = await this.temarioSercice.getAllLeccionesProfesor(this.cursoId)
+
+    this.leccionId = respuesta[0].id
+
 
   };
 
@@ -38,6 +45,11 @@ export class DetalleCursoComponent {
     const respuesta = await this.alumnoService.addCurso(this.cursoId);
     console.log(respuesta);
   };
+
+  goToLecciones() {
+    console.log('entra')
+    this.router.navigateByUrl(`leccion/${this.leccionId}`)
+  }
 
 
 

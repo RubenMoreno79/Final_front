@@ -18,13 +18,17 @@
 
         <h4 class="mt-5 text-center">Enunciado pregunta {{ pregunta.id }}</h4>
         <hr class="col 6 text-success  col-6">
-        <h5 class="mt-4">{{ pregunta.titulo }}</h5>
+        <h5 class="mt-4">{{ pregunta.enunciado }}</h5>
 
-        <div class="mt-4 border border-success rounded p-3">
-            <p>Opcion 1: {{ pregunta.opcion1 }}</p>
-            <p>Opcion 2: {{ pregunta.opcion2 }}</p>
-            <p>Opcion 3: {{ pregunta.opcion3 }}</p>
-            <p>Opcion 4: {{ pregunta.opcion4 }}</p>
+        <div  class="mt-4 border border-success rounded p-3">
+
+             @for (preguntasMix of mezclar(pregunta.respuesta_correcta, pregunta.respuesta_incorrecta1, pregunta.respuesta_incorrecta2, pregunta.respuesta_incorrecta3); track $index){
+            <p>Opcion {{$index + 1 }}: {{ preguntasMix}}</p>
+            <!-- <p>Opcion 2: {{ pregunta.respuesta_incorrecta1 }}</p>
+            <p>Opcion 3: {{ pregunta.respuesta_incorrecta2 }}</p>
+            <p>Opcion 4: {{ pregunta.respuesta_incorrecta3 }}</p> -->
+             }
+            
         </div>
 
     </div>

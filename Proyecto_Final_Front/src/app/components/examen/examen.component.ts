@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { Pregunta } from '../../interfaces/pregunta.interface';
 import { PreguntasService } from '../../services/pregunta.service';
 import { PREGUNTA } from '../../data/pregunta.data';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-examen',
@@ -12,14 +12,26 @@ import { RouterLink } from '@angular/router';
   styleUrl: './examen.component.css'
 })
 export class ExamenComponent {
+
+  cursoId: Number = 0
+
   arrPreguntas: Pregunta[] = [];
   preguntasService = inject(PreguntasService)
-  ngOnInit() {
-    this.arrPreguntas = this.preguntasService.getAll();
+  activatedRoutes = inject(ActivatedRoute)
+
+
+
+
+  async ngOnInit() {
+    this.activatedRoutes.params.subscribe(params => {
+      this.cursoId = Number(params['cursoid'])
+    })
+    this.arrPreguntas = await this.preguntasService.getAllProfesor(this.cursoId);
+    console.log(this.arrPreguntas)
   }
-  onChange($event: any) {
+  async onChange($event: any) {
     if ($event.target.value === 'todas') {
-      this.arrPreguntas = this.preguntasService.getAll();
+      this.arrPreguntas = await this.preguntasService.getAllProfesor(this.cursoId);
     } else {
       this.arrPreguntas = this.preguntasService.getByNombre($event.target.value);
     }
@@ -28,5 +40,10 @@ export class ExamenComponent {
   getNombres(): string[] {
     return [...new Set(PREGUNTA.map(pregunta => pregunta.titulo))]
   }
+  mezclar(opcion1: string, opcion2: string, opcion3: string, opcion4: string) {
+    let opciones = [opcion1, opcion2, opcion3, opcion4];
+    let opcionesMix = opciones.sort(() => Math.random() - 0.5);
+    return opcionesMix
 
+  }
 }
