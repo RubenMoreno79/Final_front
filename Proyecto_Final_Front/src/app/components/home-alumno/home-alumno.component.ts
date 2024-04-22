@@ -9,5 +9,4 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
   styleUrl: './home-alumno.component.css'
 })
 export class HomeAlumnoComponent {
-
 }

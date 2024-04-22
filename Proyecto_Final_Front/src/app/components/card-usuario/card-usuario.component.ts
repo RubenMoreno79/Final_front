@@ -26,11 +26,14 @@ export class CardUsuarioComponent {
     const alumno: any = await this.usuariosService.getAlumno();
     const alumno2: any = await this.alumnosService.getAlumno();
     this.alumno = alumno2[0];
+    console.log(alumno)
     this.usuario = alumno[0];
 
   }
 
   editarUsuario() {
     this.router.navigateByUrl('/alumnos/editar');
-  }
+  };
+
+  
 }

@@ -33,6 +33,7 @@ export const routes: Routes = [
     {
         path: 'usuarios/alumno', component: HomeAlumnoComponent,
         children: [
+
             { path: 'card', component: CardUsuarioComponent },
             { path: 'miscursos', component: MisCursosComponent },
 

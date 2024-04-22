@@ -22,7 +22,6 @@ export class MisCursosComponent {
   async ngOnInit() {
 
     this.arrCursos = await this.alumnosServices.getMisCursos();
-    console.log(this.arrCursos)
   }
 
 

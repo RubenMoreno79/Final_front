@@ -20,19 +20,17 @@ export class AlumnosService {
 
   };
 
-
   getAlumno() {
     return firstValueFrom(
-      this.httpClient.get(`${this.baseUrl}/alumnos/alumno`)
+      this.httpClient.get(`${this.baseUrl}/alumnos/alumno2`)
     )
   };
-
 
   getMisCursos() {
     return firstValueFrom(
       this.httpClient.get<Curso[]>(`${this.baseUrl}/alumnoscursos/todos`)
     )
-  }
+  };
 
 
 };

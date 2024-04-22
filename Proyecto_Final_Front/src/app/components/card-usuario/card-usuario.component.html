@@ -1,15 +1,25 @@
-@if (usuario) {
-<div class="usuario">
-    <h2>{{ usuario.nombre }} {{ usuario.apellidos }}</h2>
-    <img [src]="alumno!.foto" alt="" />
-    <hr>
-    <p>Username: {{ usuario.username }}</p>
-    <p>Email: {{ usuario.email }}</p>
-    <p>Rol: {{ usuario.rol }}</p>
-    <p>Fecha Nacimiento: {{ usuario.fecha_nacimiento }}</p>
-    <p>Telefono: {{ usuario.telefono }}</p>
-    <p>Genero: {{ usuario.genero }}</p>
-    <p>Interés: {{alumno!.campoInteres}}</p>
-    <button (click)="editarUsuario()" class="btn btn-light border border-success col-12 col-lg-1">Editar</button>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            @if (usuario) {
+            <div class="usuario">
+                <div class="usuario-imagen">
+                    <img [src]="alumno!.foto" alt="" />
+                </div>
+                <div class="contenido">
+                    <h2>{{ usuario.nombre }} {{ usuario.apellidos }}</h2>
+                    <p><strong>Username:</strong> {{ usuario.username }}</p>
+                    <p><strong>Email:</strong> {{ usuario.email }}</p>
+                    <p><strong>Rol:</strong> {{ usuario.rol }}</p>
+                    <p><strong>Fecha Nacimiento:</strong> {{ usuario.fecha_nacimiento }}</p>
+                    <p><strong>Telefono:</strong> {{ usuario.telefono }}</p>
+                    <p><strong>Genero:</strong> {{ usuario.genero }}</p>
+                    <p><strong>Interés:</strong> {{alumno!.campoInteres}}</p>
+                    <button (click)="editarUsuario()"
+                        class="btn btn-light border border-success col-12 col-lg-2">Editar</button>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
 </div>
-}
