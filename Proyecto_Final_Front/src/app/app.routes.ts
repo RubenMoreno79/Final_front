@@ -18,6 +18,7 @@ import { AlumnoFormularioComponent } from './components/alumno-formulario/alumno
 
 import { ExamenPreguntasComponent } from './components/examen-preguntas/examen-preguntas.component';
 import { ExamenComponent } from './components/examen/examen.component';
+import { MisCursosComponent } from './components/mis-cursos/mis-cursos.component';
 
 
 export const routes: Routes = [
@@ -29,11 +30,17 @@ export const routes: Routes = [
     { path: 'usuarios', component: ListaUsuarioComponent },
     { path: 'usuarios/nuevo', component: NuevoUsuarioComponent },
     { path: 'usuarios/login', component: LoginUsuarioComponent },
-    { path: 'usuarios/alumno', component: HomeAlumnoComponent },
+    {
+        path: 'usuarios/alumno', component: HomeAlumnoComponent,
+        children: [
+            { path: 'card', component: CardUsuarioComponent },
+            { path: 'miscursos', component: MisCursosComponent },
+
+        ]
+    },
     { path: 'usuarios/profesor', component: HomeProfesorComponent },
     { path: 'temario', component: TemarioCursoComponent },
     { path: 'leccion/:temarioId', component: CardCursoComponent },
-    { path: 'usuarios/card', component: CardUsuarioComponent },
     { path: 'alumnos/editar', component: EditarUsuarioComponent },
     { path: 'newprofesor', component: ProfesorFormularioComponent },
     { path: 'usuarios/profesor', component: HomeProfesorComponent },

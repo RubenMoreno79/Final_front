@@ -1,6 +1,6 @@
 <nav>
     <ul class="botones text-center">
-        <li class="btn btn-light mt-3 p-2 col-12 col-lg-2 mx-1 border border-success" [routerLink]="['cursos/:cursoId']"
+        <li class="btn btn-light mt-3 p-2 col-12 col-lg-2 mx-1 border border-success" [routerLink]="['cursos']"
             routerLinkActive="activo" [routerLinkActiveOptions]="{ exact: true }">
             Mis Cursos
         </li>
@@ -13,8 +13,11 @@
             Mis Logros
         </li>
         <li class="btn btn-light mt-3 p-2 col-12 col-lg-2 mx-1 border border-success"
-            [routerLink]="['/usuarios', 'card']" routerLinkActive="activo" [routerLinkActiveOptions]="{ exact: true }">
+            [routerLink]="['/usuarios','alumno', 'card']" routerLinkActive="activo"
+            [routerLinkActiveOptions]="{ exact: true }">
             Perfil
         </li>
     </ul>
 </nav>
+
+<router-outlet></router-outlet>

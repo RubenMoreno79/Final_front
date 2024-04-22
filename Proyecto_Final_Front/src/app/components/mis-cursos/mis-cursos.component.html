@@ -1,18 +1,3 @@
-<h2 class="mt-4 text-success">Lista de Cursos Disponibles</h2>
-
-<!-- TODO: lista automática de categorías -->
-<div class="filtros ">
-    <select (change)="onChange($event)" class="rounded col-12 col-lg-4 border border-success">
-        <option value="todas">Todas las Categorias</option>
-        <option value="Nombre1">Nombre1</option>
-        <option value="Nombre2">Nombre2</option>
-        <option value="Nombre3">Nombre3</option>
-
-    </select>
-</div>
-
-<hr>
-
 <div class="cursos row ">
     @for (curso of arrCursos; track curso.id) {
     <div class="curso col-lg-3 mt-2 ">
