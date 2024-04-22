@@ -13,7 +13,7 @@ export class PreguntasService {
     }
 
     getByNombre(nombre: string): Pregunta[] {
-        return PREGUNTA.filter(pregunta => pregunta.nombre === nombre)
+        return PREGUNTA.filter(pregunta => pregunta.titulo === nombre)
     }
 
     getById(preguntaId: number): Pregunta | null {

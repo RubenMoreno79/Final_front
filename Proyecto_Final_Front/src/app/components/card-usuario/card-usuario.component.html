@@ -1,6 +1,7 @@
 @if (usuario) {
 <div class="usuario">
     <h2>{{ usuario.nombre }} {{ usuario.apellidos }}</h2>
+    <img [src]="alumno!.foto" alt="" />
     <hr>
     <p>Username: {{ usuario.username }}</p>
     <p>Email: {{ usuario.email }}</p>
@@ -8,6 +9,7 @@
     <p>Fecha Nacimiento: {{ usuario.fecha_nacimiento }}</p>
     <p>Telefono: {{ usuario.telefono }}</p>
     <p>Genero: {{ usuario.genero }}</p>
+    <p>Interés: {{alumno!.campoInteres}}</p>
     <button (click)="editarUsuario()" class="btn btn-light border border-success col-12 col-lg-1">Editar</button>
 </div>
 }

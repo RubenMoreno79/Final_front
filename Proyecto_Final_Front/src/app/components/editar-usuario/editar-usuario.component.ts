@@ -1,7 +1,7 @@
 import { Component, Input, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { UsuariosService } from '../services/usuarios.service';
+import { UsuariosService } from '../../services/usuarios.service';
 import dayjs from 'dayjs';
 
 @Component({
@@ -25,7 +25,6 @@ export class EditarUsuarioComponent {
     nombre: new FormControl(null),
     apellidos: new FormControl(null),
     username: new FormControl(null),
-    email: new FormControl(null),
     fecha_nacimiento: new FormControl(null),
     telefono: new FormControl(null),
     genero: new FormControl(null),
@@ -41,11 +40,9 @@ export class EditarUsuarioComponent {
     this.alumno = resupuesta;
 
     this.formulario.setValue({
-
       nombre: this.alumno[0].nombre,
       apellidos: this.alumno[0].apellidos,
       username: this.alumno[0].username,
-      email: this.alumno[0].email,
       fecha_nacimiento: dayjs(this.alumno[0].fecha_nacimiento).format('YYYY-MM-DD'),
       telefono: this.alumno[0].telefono,
       genero: this.alumno[0].genero,
