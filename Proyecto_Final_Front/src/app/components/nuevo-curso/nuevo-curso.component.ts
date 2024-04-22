@@ -20,14 +20,22 @@ export class NuevoCursoComponent {
     examen: new FormControl(),
     descripcion: new FormControl(),
     contenido: new FormControl(),
-    imagen: new FormControl(),
+    Imagen: new FormControl(),
   })
 
   CursoService = inject(CursosService);
   router = inject(Router);
 
-  onSubmit() {
-    this.CursoService.create(this.formulario.value)
-    this.router.navigateByUrl('temario')
+  async onSubmit() {
+    const respuesta = await this.CursoService.create(this.formulario.value)
+    console.log(respuesta.insertId);
+
+    this.router.navigateByUrl('')
   }
+
+
+
 }
+
+
+

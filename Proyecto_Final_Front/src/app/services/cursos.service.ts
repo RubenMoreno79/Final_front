@@ -4,6 +4,13 @@ import { Curso } from '../interfaces/cursos.interface';
 import { firstValueFrom } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
+
+type RegistroResponse = {
+  insertId: any;
+  success?: string,
+  error?: string
+};
+
 @Injectable({
   providedIn: 'root'
 })
@@ -21,17 +28,18 @@ export class CursosService {
     return CURSOS.filter(curso => curso.nombre === nombre)
   }
 
-  getById(cursoId: Number): Curso | null {
-    for (let curso of CURSOS) {
-      if (curso.id === cursoId) {
-        return curso;
-      }
-    }
-    return null;
+  getById(cursoId: Number) {
+    return firstValueFrom(
+      this.httpClient.get<Curso[]>(`${this.baseUrl}/cursos/${cursoId}`)
+    )
   };
 
   create(Curso: Curso) {
-    CURSOS.push(Curso);
+    return firstValueFrom(
+      this.httpClient.post<RegistroResponse>(`${this.baseUrl}/cursos/nuevo`, Curso)
+
+    )
+
   };
 
   listaCursos() {
