@@ -21,7 +21,7 @@ export class AlumnosService {
 
   getCurso() {
     return firstValueFrom(
-      this.httpClient
+      this.httpClient.get(`${this.baseUrl}/info/${cursoId}`)
     )
   }
 
