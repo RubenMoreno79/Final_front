@@ -31,7 +31,7 @@ export const routes: Routes = [
     { path: 'usuarios/login', component: LoginUsuarioComponent },
     { path: 'usuarios/alumno', component: HomeAlumnoComponent },
     { path: 'usuarios/profesor', component: HomeProfesorComponent },
-    { path: 'temario/:cursoid', component: TemarioCursoComponent },
+    { path: 'temario/:cursoId', component: TemarioCursoComponent },
     { path: 'leccion/:temarioId', component: CardCursoComponent },
     { path: 'usuarios/card', component: CardUsuarioComponent },
     { path: 'alumnos/editar', component: EditarUsuarioComponent },

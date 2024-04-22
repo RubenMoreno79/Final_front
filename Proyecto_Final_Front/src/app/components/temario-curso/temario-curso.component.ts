@@ -1,7 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CursosService } from '../../services/cursos.service';
+import { TemariosService } from '../../services/temarios.service';
 
 @Component({
   selector: 'temario-curso',
@@ -12,6 +13,14 @@ import { CursosService } from '../../services/cursos.service';
 })
 export class TemarioCursoComponent {
 
+  cursoId: Number = 0;
+
+  activatedRoute = inject(ActivatedRoute);
+  CursoService = inject(CursosService);
+  router = inject(Router);
+  TemarioService = inject(TemariosService)
+
+
   formulario: FormGroup = new FormGroup({
     id: new FormControl(),
     tema: new FormControl(),
@@ -20,11 +29,18 @@ export class TemarioCursoComponent {
     imagen: new FormControl(),
     texto: new FormControl(),
   })
-  CursoService = inject(CursosService);
-  router = inject(Router);
 
-  onSubmit() {
+  async onSubmit() {
+    const respuesta = await this.TemarioService.create(this.formulario.value, this.cursoId)
+    console.log(respuesta);
+    console.log(this.cursoId);
+  }
 
+  ngOnInit() {
+    this.activatedRoute.params.subscribe(params => {
+      this.cursoId = Number(params['cursoId']);
+
+    })
     //this.router.navigateByUrl('cursos')
   }
 }
