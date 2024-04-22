@@ -25,6 +25,6 @@ export class TemarioCursoComponent {
 
   onSubmit() {
 
-    this.router.navigateByUrl('cursos')
+    //this.router.navigateByUrl('cursos')
   }
 }

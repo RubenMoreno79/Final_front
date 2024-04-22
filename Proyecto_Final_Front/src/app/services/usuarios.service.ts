@@ -9,6 +9,7 @@ import { JwtPayload, jwtDecode } from 'jwt-decode';
 export type JwtPayloadCustom = JwtPayload & { user_role: string, user_id: string };
 
 type RegistroResponse = {
+    insertId: any;
     success?: string,
     error?: string
 };

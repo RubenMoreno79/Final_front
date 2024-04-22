@@ -30,12 +30,13 @@ export class NuevoUsuarioComponent {
   router = inject(Router);
 
   async onSubmit() {
-    //const respuesta = await this.UsuarioService.register(this.formulario.value)
-    //console.log(respuesta)
+    const respuesta = await this.UsuarioService.register(this.formulario.value)
+
+    const id = respuesta.insertId
     if (this.formulario.value.rol === 'alumno') {
-      this.router.navigateByUrl('newalumno')
+      this.router.navigateByUrl(`newalumno/${respuesta.insertId}`)
     } else if (this.formulario.value.rol === 'profesor') {
-      this.router.navigateByUrl('newprofesor')
+      this.router.navigateByUrl(`newprofesor/${respuesta.insertId}`)
     }
 
 

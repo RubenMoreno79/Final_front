@@ -14,7 +14,7 @@ import { AlumnosService } from '../../services/alumnos.service';
 })
 export class DetalleCursoComponent {
 
-  curso: Curso | null = null
+  curso: Curso[] = []
 
   cursoId: Number = 0;
 
@@ -23,11 +23,14 @@ export class DetalleCursoComponent {
   alumnoService = inject(AlumnosService);
   router: any;
 
-  ngOnInit() {
+  async ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
       this.cursoId = Number(params['cursoId']);
-      this.curso = this.cursosService.getById(this.cursoId);
-    });
+
+    })
+    this.curso = await this.cursosService.getById(this.cursoId);;
+    console.log(this.curso);
+
   };
 
 
