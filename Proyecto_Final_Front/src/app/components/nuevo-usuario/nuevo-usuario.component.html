@@ -2,49 +2,98 @@
     <div class="mb-3">
         <label class="form-label">Nombre</label>
         <input type="text" class="form-control border border-success" formControlName="nombre" />
+        @if (checkError("nombre", "required")) {
+        <p class="error">Debe introducir el campo nombre</p>
+        }
+
+
     </div>
     <div class="mb-3">
         <label class="form-label">Apellidos</label>
         <input type="text" class="form-control border border-success" formControlName="apellidos" />
+        @if (checkError("apellidos", "required")) {
+        <p class="error">Debe introducir el campo apellidos</p>
+        }
+
+
     </div>
     <div class="mb-3">
         <label class="form-label">Username</label>
         <input type="text" class="form-control border border-success" formControlName="username" />
+        @if (checkError("username", "required")) {
+        <p class="error">Debe introducir un nombre de usuario</p>
+        }
+
+
     </div>
     <div class="mb-3">
+
+        @if (checkError("rol", "required")) {
+        <p class="error">Debe seleccionar un rol</p>
+        }
+
         <label class="form-label">Rol</label>
         <select class="form-select border border-success" formControlName="rol">
             <option selected>Selecciona Rol</option>
             <option value="alumno">Alumno</option>
             <option value="profesor">Profesor</option>
 
+
+
         </select>
     </div>
     <div class="mb-3">
         <label class="form-label">Teléfono</label>
         <input type="text" class="form-control border border-success" formControlName="telefono" />
+        @if (checkError("telefono", "required")) {
+        <p class="error">Debe introducir el campo teléfono</p>
+        }
+
+
     </div>
     <div class="mb-3">
-        <label class="form-label">fecha nacimiento</label>
+        <label class="form-label">Fecha nacimiento</label>
         <input type="text" class="form-control border border-success" formControlName="fecha_nacimiento" />
+        @if (checkError("fecha_nacimiento", "required")) {
+        <p class="error">Debe introducir el campo fecha de nacimiento</p>
+        }
+
+
     </div>
     <div class="mb-3">
         <label class="form-label">Email</label>
         <input type="text" class="form-control border border-success" formControlName="email" />
+        @if (checkError("email", "required")) {
+        <p class="error">Debe introducir el campo Email</p>
+        }
+
+
+
     </div>
     <div class="mb-3">
+        @if (checkError("genero", "required")) {
+        <p class="error">Debe seleccionar el campo genero</p>
+        }
         <label class="form-label">Genero</label>
         <select class="form-select border border-success" formControlName="genero">
+
             <option selected>Selecciona un género</option>
             <option value="h">Hombre</option>
             <option value="m">Mujer</option>
             <option value="o">Otro</option>
+
 
         </select>
     </div>
     <div class="mb-3">
         <label class="form-label ">Contraseña</label>
         <input type="password" class="form-control border border-success" formControlName="password" />
+        @if (checkError("password", "required")) {
+        <p class="error">Debe introducir el campo contraseña</p>
+        }
+
+
     </div>
     <input type="submit" value="Siguiente" class="btn btn-light border border-success col-12 col-lg-2" />
+
 </form>
