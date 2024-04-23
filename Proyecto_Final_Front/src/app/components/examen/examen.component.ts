@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { Pregunta } from '../../interfaces/pregunta.interface';
 import { PreguntasService } from '../../services/pregunta.service';
 import { PREGUNTA } from '../../data/pregunta.data';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-examen',
@@ -18,7 +18,7 @@ export class ExamenComponent {
   arrPreguntas: Pregunta[] = [];
   preguntasService = inject(PreguntasService)
   activatedRoutes = inject(ActivatedRoute)
-
+  router = inject(Router)
 
 
 
@@ -53,5 +53,9 @@ export class ExamenComponent {
   selectRespuesta(pregunta: Pregunta, acertado: boolean) {
     console.log(pregunta, acertado)
 
+  }
+
+  goToPreguntas() {
+    this.router.navigateByUrl('newpregunta/16')
   }
 }

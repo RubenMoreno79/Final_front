@@ -21,18 +21,28 @@
         <h5 class="mt-4">{{ pregunta.enunciado }}</h5>
 
         <div  class="mt-4 border border-success rounded p-3">
-
+        <form action="">
              @for (preguntasMix of mezclar(pregunta); track $index){
-            <p (click)="selectRespuesta(pregunta, preguntasMix.correcta)">Opcion {{$index + 1 }}: {{ preguntasMix.texto}}</p>
+            <!-- <p (click)="selectRespuesta(pregunta, preguntasMix.correcta)">Opcion {{$index + 1 }}: {{ preguntasMix.texto}}</p> -->
             <!-- <p>Opcion 2: {{ pregunta.respuesta_incorrecta1 }}</p>
             <p>Opcion 3: {{ pregunta.respuesta_incorrecta2 }}</p>
             <p>Opcion 4: {{ pregunta.respuesta_incorrecta3 }}</p> -->
-             }
+            <div class="form-check">
+            <input  class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1 "
+                checked formControlName="respuesta_correcta">
+            <label class="form-check-label" (click)="selectRespuesta(pregunta, preguntasMix.correcta)" for="exampleRadios1">
+                {{preguntasMix.texto}}
+            </label>
             
         </div>
+             }
+            </form>
+        </div>
+
 
     </div>
 
 
     }
+    <button (click)="goToPreguntas()" class="btn btn-light border border-success col-12 col-lg-2">Nueva Pregunta</button>
 </div>
