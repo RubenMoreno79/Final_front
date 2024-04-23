@@ -4,11 +4,12 @@ import { UsuariosService } from '../../services/usuarios.service';
 import { Router } from '@angular/router';
 import { Alumno } from '../../interfaces/alumno.interface';
 import { AlumnosService } from '../../services/alumnos.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'card-usuario',
   standalone: true,
-  imports: [],
+  imports: [DatePipe],
   templateUrl: './card-usuario.component.html',
   styleUrl: './card-usuario.component.css'
 })

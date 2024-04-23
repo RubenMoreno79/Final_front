@@ -11,7 +11,7 @@
                     <p><strong>Username:</strong> {{ usuario.username }}</p>
                     <p><strong>Email:</strong> {{ usuario.email }}</p>
                     <p><strong>Rol:</strong> {{ usuario.rol }}</p>
-                    <p><strong>Fecha Nacimiento:</strong> {{ usuario.fecha_nacimiento }}</p>
+                    <p><strong>Fecha Nacimiento:</strong> {{ usuario.fecha_nacimiento | date:'dd-MM-yyyy' }}</p>
                     <p><strong>Telefono:</strong> {{ usuario.telefono }}</p>
                     <p><strong>Genero:</strong> {{ usuario.genero }}</p>
                     <p><strong>Interés:</strong> {{alumno!.campoInteres}}</p>
