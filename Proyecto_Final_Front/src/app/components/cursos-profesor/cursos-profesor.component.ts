@@ -11,21 +11,23 @@ import { Router, RouterLink } from '@angular/router';
   styleUrl: './cursos-profesor.component.css'
 })
 export class CursosProfesorComponent {
-arrCursosProfesor:Curso[] = [];
-profesoresService= inject(ProfesoresService);
-router = inject(Router);
+  arrCursosProfesor: Curso[] = [];
+  profesoresService = inject(ProfesoresService);
+  router = inject(Router);
 
 
   async ngOnInit() {
-
-this.arrCursosProfesor= await this.profesoresService.getMisCursos();
-
+    console.log('entra')
 
 
+    this.arrCursosProfesor = await this.profesoresService.getMisCursos();
+    console.log(this.arrCursosProfesor)
 
 
 
-}
+
+
+  }
 
 
 

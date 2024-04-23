@@ -40,6 +40,9 @@ export const routes: Routes = [
             { path: 'cusosprofesor', component: CursosProfesorComponent },
             { path: 'card', component: CardProfesorComponent },
             { path: 'editar', component: EditarProfesorComponent },
+            { path: 'listacursos', component: ListaCursosComponent },
+            { path: 'nuevocursoprofesor', component: NuevoCursoComponent },
+
         ]
     },
 
@@ -50,7 +53,6 @@ export const routes: Routes = [
     { path: 'alumnos/editar', component: EditarUsuarioComponent },
     { path: 'newprofesor/:usuarios_id', component: ProfesorFormularioComponent },
     { path: 'newalumno/:usuarios_id', component: AlumnoFormularioComponent },
-    { path: 'usuarios/profesor', component: HomeProfesorComponent },
     { path: 'newpregunta/:cursoid', component: ExamenPreguntasComponent },
     { path: 'examen/:cursoid', component: ExamenComponent },
 

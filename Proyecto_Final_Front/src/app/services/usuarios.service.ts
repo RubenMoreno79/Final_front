@@ -26,6 +26,8 @@ type LoginResponse = {
 })
 export class UsuariosService {
 
+    private tokenKey = 'myAppToken';
+
 
     getAll(): Usuario[] {
         return USUARIOS
@@ -60,7 +62,7 @@ export class UsuariosService {
         )
     }
 
-        getProfesor() {
+    getProfesor() {
         return firstValueFrom(
             this.httpClient.get(`${this.baseUrl}/profesores/profesor`)
         )
@@ -73,7 +75,7 @@ export class UsuariosService {
         )
     }
 
-       editProfesor(profesorId: number, profesor: any) {
+    editProfesor(profesorId: number, profesor: any) {
         profesor.id = profesor
         return firstValueFrom(
             this.httpClient.put(`${this.baseUrl}/profesor/editar`, profesor)
@@ -110,21 +112,18 @@ export class UsuariosService {
         return decoded
     }
 
-      isProfesorEdit() {
+    isProfesorEdit() {
         const decoded2: JwtPayloadCustom = jwtDecode(localStorage.getItem('token_crm')!);
         console.log(decoded2)
         return decoded2
     }
 
-    // getById(alumnoId: string) {
-    //     return firstValueFrom(
-    //         this.httpClient.get<Usuario>(`${this.baseUrl}/${alumnoId}`)
-    //     )
-    // }
-
-
 
 }
+
+
+
+
 
 
 

@@ -13,10 +13,10 @@ import dayjs from 'dayjs';
   styleUrl: './editar-profesor.component.css'
 })
 export class EditarProfesorComponent {
- activatedRoute = inject(ActivatedRoute);
+  activatedRoute = inject(ActivatedRoute);
 
   usuariosService = inject(UsuariosService);
-  profesoresService= inject(ProfesoresService)
+  profesoresService = inject(ProfesoresService)
 
   profesor: any | null = null
   profesor2: any | null = null
@@ -33,7 +33,7 @@ export class EditarProfesorComponent {
     experiencia: new FormControl(null),
     descripcion_experiencia: new FormControl(null),
     especialidad: new FormControl(null),
-    foto:new FormControl(null),
+    foto: new FormControl(null),
   });
   router: any;
 
@@ -41,11 +41,11 @@ export class EditarProfesorComponent {
 
   async ngOnInit() {
 
-   
-    const respuesta= await this.usuariosService.getProfesor();
-      const respuesta2= await this.profesoresService.getProfesor();
+
+    const respuesta = await this.usuariosService.getProfesor();
+    const respuesta2 = await this.profesoresService.getProfesor();
     console.log(respuesta2)
-   
+
 
     this.profesor = respuesta;
     this.profesor2 = respuesta2;
@@ -59,7 +59,8 @@ export class EditarProfesorComponent {
       genero: this.profesor[0].genero,
       experiencia: this.profesor2[0].experiencia,
       descripcion_experiencia: this.profesor2[0].descripcion_experiencia,
-        foto: this.profesor2[0].foto,
+      foto: this.profesor2[0].foto,
+      especialidad: this.profesor2[0].especialidad,
     });
 
   };
@@ -68,7 +69,7 @@ export class EditarProfesorComponent {
   async onSubmit() {
     console.log(this.profesor[0].id)
     const respuesta = await this.usuariosService.editProfesor(this.profesor[0].id, this.formulario.value)
-   
+
     console.log(respuesta)
   }
 
