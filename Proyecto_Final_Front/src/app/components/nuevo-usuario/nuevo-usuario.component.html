@@ -28,9 +28,6 @@
     </div>
     <div class="mb-3">
 
-        @if (checkError("rol", "required")) {
-        <p class="error">Debe seleccionar un rol</p>
-        }
 
         <label class="form-label">Rol</label>
         <select class="form-select border border-success" formControlName="rol">
@@ -38,9 +35,12 @@
             <option value="alumno">Alumno</option>
             <option value="profesor">Profesor</option>
 
-
-
         </select>
+
+        @if (checkError("rol", "required")) {
+        <p class="error">Debe seleccionar un rol</p>
+        }
+
     </div>
     <div class="mb-3">
         <label class="form-label">Teléfono</label>
@@ -71,9 +71,7 @@
 
     </div>
     <div class="mb-3">
-        @if (checkError("genero", "required")) {
-        <p class="error">Debe seleccionar el campo genero</p>
-        }
+
         <label class="form-label">Genero</label>
         <select class="form-select border border-success" formControlName="genero">
 
@@ -81,9 +79,10 @@
             <option value="h">Hombre</option>
             <option value="m">Mujer</option>
             <option value="o">Otro</option>
-
-
         </select>
+        @if (checkError("genero", "required")) {
+        <p class="error">Debe seleccionar el campo genero</p>
+        }
     </div>
     <div class="mb-3">
         <label class="form-label ">Contraseña</label>

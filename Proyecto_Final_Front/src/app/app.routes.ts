@@ -19,6 +19,7 @@ import { AlumnoFormularioComponent } from './components/alumno-formulario/alumno
 import { ExamenPreguntasComponent } from './components/examen-preguntas/examen-preguntas.component';
 import { ExamenComponent } from './components/examen/examen.component';
 import { MisCursosComponent } from './components/mis-cursos/mis-cursos.component';
+import { authGuard } from './core/guards/auth.guard';
 
 
 export const routes: Routes = [
@@ -26,29 +27,30 @@ export const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'cursos', component: ListaCursosComponent },
     { path: 'cursos/:cursoId', component: DetalleCursoComponent },
-    { path: 'curso/nuevo', component: NuevoCursoComponent },
-    { path: 'usuarios', component: ListaUsuarioComponent },
+    { path: 'curso/nuevo', component: NuevoCursoComponent, canActivate: [authGuard] },
+    { path: 'usuarios', component: ListaUsuarioComponent, canActivate: [authGuard] },
     { path: 'usuarios/nuevo', component: NuevoUsuarioComponent },
     { path: 'usuarios/login', component: LoginUsuarioComponent },
     {
-        path: 'usuarios/alumno', component: HomeAlumnoComponent,
+        path: 'usuarios/alumno', component: HomeAlumnoComponent, canActivate: [authGuard],
         children: [
 
-            { path: 'card', component: CardUsuarioComponent },
-            { path: 'miscursos', component: MisCursosComponent },
-            { path: 'editar', component: EditarUsuarioComponent },
-            { path: 'buscarnuevocurso', component: ListaCursosComponent },
+            { path: 'card', component: CardUsuarioComponent, canActivate: [authGuard] },
+            { path: 'miscursos', component: MisCursosComponent, canActivate: [authGuard] },
+            { path: 'editar', component: EditarUsuarioComponent, canActivate: [authGuard] },
+            { path: 'buscarnuevocurso', component: ListaCursosComponent, canActivate: [authGuard] },
+
 
         ]
     },
-    { path: 'usuarios/profesor', component: HomeProfesorComponent },
-    { path: 'temario', component: TemarioCursoComponent },
-    { path: 'leccion/:temarioId', component: CardCursoComponent },
-    { path: 'newprofesor', component: ProfesorFormularioComponent },
-    { path: 'usuarios/profesor', component: HomeProfesorComponent },
-    { path: 'newalumno', component: AlumnoFormularioComponent },
-    { path: 'newpregunta', component: ExamenPreguntasComponent },
-    { path: 'examen', component: ExamenComponent },
+    { path: 'usuarios/profesor', component: HomeProfesorComponent, canActivate: [authGuard] },
+    { path: 'temario', component: TemarioCursoComponent, canActivate: [authGuard] },
+    { path: 'leccion/:temarioId', component: CardCursoComponent, canActivate: [authGuard] },
+    { path: 'newprofesor', component: ProfesorFormularioComponent, canActivate: [authGuard] },
+    { path: 'usuarios/profesor', component: HomeProfesorComponent, canActivate: [authGuard] },
+    { path: 'newalumno', component: AlumnoFormularioComponent, canActivate: [authGuard] },
+    { path: 'newpregunta', component: ExamenPreguntasComponent, canActivate: [authGuard] },
+    { path: 'examen', component: ExamenComponent, canActivate: [authGuard] },
 
 
 

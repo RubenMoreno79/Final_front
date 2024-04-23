@@ -16,6 +16,8 @@ p {
 .usuario-imagen img {
     margin-right: 30px;
     border-radius: 5%;
+    width: 150px;
+    height: 200px;
 
 }
 
@@ -23,4 +25,7 @@ p {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    overflow: hidden;
+
+
 }

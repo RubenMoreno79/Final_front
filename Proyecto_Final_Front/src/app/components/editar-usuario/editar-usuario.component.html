@@ -8,43 +8,75 @@
             <div class="mb-3 mt-4">
                 <label class="form-label">Foto URL</label>
                 <input type="text" class="form-control" formControlName="foto">
+                @if (checkError("foto", "required")) {
+                <p class="error">Es obligatorio tener una foto en su perfil</p>
+                }
+
             </div>
             <div class="mb-3 mt-4">
                 <label class="form-label">Nombre</label>
                 <input type="text" class="form-control" formControlName="nombre">
+                @if (checkError("nombre", "required")) {
+                <p class="error">El campo nombre no puede estar vacío</p>
+                }
+
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Apellidos</label>
                 <input type="text" class="form-control" formControlName="apellidos">
+                @if (checkError("apellidos", "required")) {
+                <p class="error">El campo apellidos no puede estar vacío</p>
+                }
+
 
             </div>
             <div class="mb-3">
                 <label class="form-label">Username</label>
                 <input type="text" class="form-control" formControlName="username">
+                @if (checkError("username", "required")) {
+                <p class="error">El campo username no puede estar vacío</p>
+                }
+
 
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Fecha Nacimiento</label>
                 <input type="date" class="form-control" formControlName="fecha_nacimiento">
+                @if (checkError("fecha_nacimiento", "required")) {
+                <p class="error">El campo Fecha Nacimiento no puede estar vacío</p>
+                }
+
 
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Telefono</label>
                 <input type="text" class="form-control" formControlName="telefono">
+                @if (checkError("telefono", "required")) {
+                <p class="error">El campo telefono no puede estar vacío</p>
+                }
+
 
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Género</label>
                 <input type="text" class="form-control" formControlName="genero">
+                @if (checkError("genero", "required")) {
+                <p class="error">El campo genero no puede estar vacío</p>
+                }
+
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Interés</label>
                 <input type="text" class="form-control" formControlName="campoInteres">
+                @if (checkError("campoInteres", "required")) {
+                <p class="error">El campo interés no puede estar vacío</p>
+                }
+
             </div>
 
             <input type="submit" value="Actualizar">

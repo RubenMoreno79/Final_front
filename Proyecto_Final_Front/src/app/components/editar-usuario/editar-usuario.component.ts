@@ -27,14 +27,14 @@ export class EditarUsuarioComponent {
 
 
   formulario: FormGroup = new FormGroup({
-    foto: new FormControl(null),
-    nombre: new FormControl(null),
-    apellidos: new FormControl(null),
-    username: new FormControl(null),
-    fecha_nacimiento: new FormControl(null),
-    telefono: new FormControl(null),
-    genero: new FormControl(null),
-    campoInteres: new FormControl(null)
+    foto: new FormControl(null, Validators.required),
+    nombre: new FormControl(null, Validators.required),
+    apellidos: new FormControl(null, Validators.required),
+    username: new FormControl(null, Validators.required),
+    fecha_nacimiento: new FormControl(null, Validators.required),
+    telefono: new FormControl(null, Validators.required),
+    genero: new FormControl(null, Validators.required),
+    campoInteres: new FormControl(null, Validators.required)
   });
   router: any;
 
@@ -69,6 +69,12 @@ export class EditarUsuarioComponent {
     const respuesta = await this.usuariosService.editAlumno(this.alumno[0].id, this.formulario.value)
 
     console.log(respuesta)
-  }
+  };
+
+  checkError(controlName: string, errorName: string) {
+    return this.formulario.get(controlName)!.hasError(errorName) &&
+      this.formulario.get(controlName)!.touched;
+  };
+
 
 }
