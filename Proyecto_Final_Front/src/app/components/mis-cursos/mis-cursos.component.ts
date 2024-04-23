@@ -16,6 +16,7 @@ export class MisCursosComponent {
   arrCursos: Curso[] = [];
 
   alumnosServices = inject(AlumnosService);
+  
   router = inject(Router);
 
 

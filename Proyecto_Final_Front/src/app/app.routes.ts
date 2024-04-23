@@ -37,7 +37,7 @@ export const routes: Routes = [
             { path: 'card', component: CardUsuarioComponent },
             { path: 'miscursos', component: MisCursosComponent },
             { path: 'editar', component: EditarUsuarioComponent },
-
+            { path: 'buscarnuevocurso', component: ListaCursosComponent },
 
         ]
     },
