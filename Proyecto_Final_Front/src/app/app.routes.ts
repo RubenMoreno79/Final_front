@@ -51,6 +51,17 @@ export const routes: Routes = [
     { path: 'newalumno', component: AlumnoFormularioComponent, canActivate: [authGuard] },
     { path: 'newpregunta', component: ExamenPreguntasComponent, canActivate: [authGuard] },
     { path: 'examen', component: ExamenComponent, canActivate: [authGuard] },
+    { path: 'usuarios/alumno', component: HomeAlumnoComponent, canActivate: [authGuard] },
+    { path: 'usuarios/profesor', component: HomeProfesorComponent, canActivate: [authGuard] },
+    { path: 'temario/:cursoId', component: TemarioCursoComponent, canActivate: [authGuard] },
+    { path: 'leccion/:temarioId', component: CardCursoComponent, canActivate: [authGuard] },
+    { path: 'usuarios/card', component: CardUsuarioComponent, canActivate: [authGuard] },
+    { path: 'alumnos/editar', component: EditarUsuarioComponent, canActivate: [authGuard] },
+    { path: 'newprofesor/:usuarios_id', component: ProfesorFormularioComponent, canActivate: [authGuard] },
+    { path: 'newalumno/:usuarios_id', component: AlumnoFormularioComponent, canActivate: [authGuard] },
+    { path: 'usuarios/profesor', component: HomeProfesorComponent, canActivate: [authGuard] },
+    { path: 'newpregunta/:cursoid', component: ExamenPreguntasComponent, canActivate: [authGuard] },
+    { path: 'examen/:cursoid', component: ExamenComponent, canActivate: [authGuard] },
 
 
 

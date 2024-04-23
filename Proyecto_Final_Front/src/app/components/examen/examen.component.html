@@ -13,22 +13,33 @@
 <hr>
 
 <div>
-    @for (pregunta of arrPreguntas; track pregunta.id) {
-    <div class="pregunta col-12 mt-2 ">
+    <form action="" (submit)="onSubmit()">
+        @for (pregunta of arrPreguntasMezcladas; track pregunta.id) {
+        <div class="pregunta col-12 mt-2 ">
 
-        <h4 class="mt-5 text-center">Enunciado pregunta {{ pregunta.id }}</h4>
-        <hr class="col 6 text-success  col-6">
-        <h5 class="mt-4">{{ pregunta.titulo }}</h5>
+            <h4 class="mt-5 text-center">Enunciado pregunta {{ pregunta.id }}</h4>
+            <hr class="col 6 text-success  col-6">
+            <h5 class="mt-4">{{ pregunta.enunciado }}</h5>
 
-        <div class="mt-4 border border-success rounded p-3">
-            <p>Opcion 1: {{ pregunta.opcion1 }}</p>
-            <p>Opcion 2: {{ pregunta.opcion2 }}</p>
-            <p>Opcion 3: {{ pregunta.opcion3 }}</p>
-            <p>Opcion 4: {{ pregunta.opcion4 }}</p>
+            <div class="mt-4 border border-success rounded p-3">
+
+                @for(respuesta of pregunta.respuestas; track $index){
+                <div class="form-check" name="exampleRadios" id="exampleRadios1">
+                    <input class="form-check-input" type="radio" (click)="selectRespuesta(pregunta, respuesta.correcta)"
+                        name="flexRadioDefault" id="flexRadioDefault{{$index}}">
+                    <label class="form-check-label" for="flexRadioDefault{{$index}}">
+                        {{respuesta.texto}}
+                    </label>
+                </div>
+                }
+            </div>
+
         </div>
 
-    </div>
 
-
-    }
+        }
+        <input type="submit" class="btn" value="Terminar">
+    </form>
+    <button (click)="goToPreguntas()" class="btn btn-light border border-success col-12 col-lg-2">Nueva
+        Pregunta</button>
 </div>

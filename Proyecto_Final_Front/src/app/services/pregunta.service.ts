@@ -1,6 +1,8 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { PREGUNTA } from '../data/pregunta.data'
 import { Pregunta } from '../interfaces/pregunta.interface';
+import { firstValueFrom } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 
 @Injectable({
@@ -8,8 +10,13 @@ import { Pregunta } from '../interfaces/pregunta.interface';
 })
 export class PreguntasService {
 
-    getAll(): Pregunta[] {
-        return PREGUNTA
+    private baseUrl: string = 'http://localhost:3000/api';
+    private httpClient = inject(HttpClient);
+
+    getAllProfesor(cursoId: Number) {
+        return firstValueFrom(
+            this.httpClient.get<Pregunta[]>(`${this.baseUrl}/preguntas/all/profesores/${cursoId}`)
+        )
     }
 
     getByNombre(nombre: string): Pregunta[] {

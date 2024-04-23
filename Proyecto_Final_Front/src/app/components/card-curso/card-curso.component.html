@@ -18,35 +18,43 @@
 
             <div class="list-group mt-4">
                 <a href="" class="list-group-item list-group-item-action list-group-item-light">Volver a mi Perfil</a>
-                <a href="" class="list-group-item list-group-item-action list-group-item-light">TEMA 1</a>
-                <a href="" class="list-group-item list-group-item-action list-group-item-light">TEMA 2</a>
-                <a href="" class="list-group-item list-group-item-action list-group-item-light">TEMA 3</a>
-                <a href="" class="list-group-item list-group-item-action list-group-item-light">TEMA 4</a>
+                @for(tema of arrTemas; track $index){
+                    <a href="" [routerLink]="'/leccion/' + tema.id" class="list-group-item list-group-item-action list-group-item-light">{{$index}} - {{tema.tema}}</a>
+                }
+                <a href="" class="list-group-item list-group-item-action list-group-item-light">Examen Final</a>
             </div>
 
         </div>
     </div>
     <div class="curso">
-        <h2 class="mt-4 text-center">{{ temario.tema }}</h2>
+        <h2 class="mt-4 text-center">{{ temario[0].tema }}</h2>
+        @if(temario[0].video.includes('https://www.youtube.com/')){
         <div clase="imagen">
             <div class="ratio ratio-16x9 mb-4">
                 <iframe [src]="urlSafe" width="300" height="200" frameborder="0"></iframe>
             </div>
-
         </div>
+        }@else{
+            <div clase="imagen">
+         
+               <h3>Video no disponible</h3>
+           
+        </div> 
+        }
+       
 
         <h4 class="mt-4 mb-4">Contenido de la Lección</h4>
-        <p>{{ temario.texto }}</p>
-        <img [src]="temario.imagen" class="img-fluid rounded mx-auto d-block mt-4 mb-4" alt="Responsive image">
+        <p>{{ temario[0].texto }}</p>
+        <img [src]="temario[0].imagen" class="img-fluid rounded mx-auto d-block mt-4 mb-4" alt="Responsive image">
 
 
         <nav aria-label="text-success mt-4">
             <ul class="pagination justify-content-center">
-                <li class="page-item "><a class="page-link" href="#">Anterior</a></li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">Siguiente</a></li>
+                <!-- <li class="page-item "><a class="page-link" href="#">Anterior</a></li> -->
+                @for(tema of arrTemas; track $index){
+                    <li class="page-item"><a class="page-link" [routerLink]="'/leccion/'+tema.id" href="#">{{$index + 1}}</a></li>
+                }
+                <!-- <li class="page-item"><a class="page-link" href="#">Siguiente</a></li> -->
             </ul>
         </nav>
 

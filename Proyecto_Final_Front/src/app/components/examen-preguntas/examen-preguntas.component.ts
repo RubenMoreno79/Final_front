@@ -25,6 +25,7 @@ export class ExamenPreguntasComponent {
   PreguntaService = inject(PreguntasService);
   router = inject(Router);
 
+
   onSubmit() {
     this.PreguntaService.create(this.Formulario.value)
     this.router.navigateByUrl('examen')

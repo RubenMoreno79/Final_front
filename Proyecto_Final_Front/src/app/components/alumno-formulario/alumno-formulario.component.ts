@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
-import { AlumnosService } from '../../services/alumno.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AlumnosService } from '../../services/alumnos.service';
 
 @Component({
   selector: 'app-alumno-formulario',
@@ -19,11 +19,25 @@ export class AlumnoFormularioComponent {
     foto: new FormControl(),
   })
 
+  usuarios_id: Number = 0;
   AlumnoService = inject(AlumnosService);
   router = inject(Router);
+  activatedRoute = inject(ActivatedRoute);
 
-  onSubmit() {
-    this.AlumnoService.create(this.formulario.value)
+
+  async onSubmit() {
+    const respuesta = await this.AlumnoService.create(this.formulario.value, this.usuarios_id)
+
+
     this.router.navigateByUrl('')
+
+
   }
+  ngOnInit() {
+    this.activatedRoute.params.subscribe(params => {
+      this.usuarios_id = (params['usuarios_id']);
+
+    });
+  };
+
 }

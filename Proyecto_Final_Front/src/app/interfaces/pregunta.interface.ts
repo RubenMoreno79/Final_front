@@ -2,10 +2,10 @@ export interface Pregunta {
     id?: number,
     titulo: string,
     enunciado: string,
-    opcion1: string,
-    opcion2: string,
-    opcion3: string,
-    opcion4: string,
+    respuesta_correcta: string,
+    respuesta_incorrecta1: string,
+    respuesta_incorrecta2: string,
+    respuesta_incorrecta3: string,
 
 
 }
