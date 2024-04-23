@@ -15,10 +15,10 @@ export class ExamenPreguntasComponent {
     id: new FormControl(),
     titulo: new FormControl(),
     enunciado: new FormControl(),
-    opcion1: new FormControl(),
-    opcion2: new FormControl(),
-    opcion3: new FormControl(),
-    opcion4: new FormControl(),
+    respuesta_correcta: new FormControl(),
+    respuesta_incorrecta1: new FormControl(),
+    respuesta_incorrecta2: new FormControl(),
+    respuesta_incorrecta3: new FormControl(),
 
   })
 
