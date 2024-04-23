@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
+import { Curso } from '../interfaces/cursos.interface';
 import { ALUMNO } from '../data/alumno.data'
 import { Alumno } from '../interfaces/alumno.interface';
 
@@ -29,29 +30,14 @@ export class AlumnosService {
 
   getAlumno() {
     return firstValueFrom(
-      this.httpClient.get(`${this.baseUrl}/alumnos/alumno`)
+      this.httpClient.get(`${this.baseUrl}/alumnos/alumno2`)
     )
-  }
+  };
 
-
-  getById(alumnoId: number): Alumno | null {
-    for (let alumno of ALUMNO) {
-      if (alumno.id === alumnoId) {
-        return alumno;
-      }
-    }
-    return null;
-  }
-
-
-
-  create(Alumno: Alumno, usuarios_id: any) {
-    const body = { ...Alumno, usuarios_id }
+  getMisCursos() {
     return firstValueFrom(
-      this.httpClient.post(`${this.baseUrl}/alumnos/nuevo`, body)
+      this.httpClient.get<Curso[]>(`${this.baseUrl}/alumnoscursos/todos`)
     )
-  }
-
-
+  };
 
 };

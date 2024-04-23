@@ -18,6 +18,8 @@ import { AlumnoFormularioComponent } from './components/alumno-formulario/alumno
 
 import { ExamenPreguntasComponent } from './components/examen-preguntas/examen-preguntas.component';
 import { ExamenComponent } from './components/examen/examen.component';
+import { MisCursosComponent } from './components/mis-cursos/mis-cursos.component';
+import { authGuard } from './core/guards/auth.guard';
 import { CardProfesorComponent } from './components/card-profesor/card-profesor.component';
 import { EditarProfesorComponent } from './components/editar-profesor/editar-profesor.component';
 import { CursosProfesorComponent } from './components/cursos-profesor/cursos-profesor.component';
@@ -29,37 +31,37 @@ export const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'cursos', component: ListaCursosComponent },
     { path: 'cursos/:cursoId', component: DetalleCursoComponent },
-    { path: 'curso/nuevo', component: NuevoCursoComponent },
-    { path: 'usuarios', component: ListaUsuarioComponent },
+    { path: 'curso/nuevo', component: NuevoCursoComponent, canActivate: [authGuard] },
+    { path: 'usuarios', component: ListaUsuarioComponent, canActivate: [authGuard] },
     { path: 'usuarios/nuevo', component: NuevoUsuarioComponent },
     { path: 'usuarios/login', component: LoginUsuarioComponent },
+    {
+        path: 'usuarios/alumno', component: HomeAlumnoComponent, canActivate: [authGuard],
+        children: [
+            { path: 'card', component: CardUsuarioComponent, canActivate: [authGuard] },
+            { path: 'miscursos', component: MisCursosComponent, canActivate: [authGuard] },
+            { path: 'editar', component: EditarUsuarioComponent, canActivate: [authGuard] },
+            { path: 'buscarnuevocurso', component: ListaCursosComponent, canActivate: [authGuard] },
+        ]
+    },
+
+    { path: 'temario/:cursoId', component: TemarioCursoComponent, canActivate: [authGuard] },
+    { path: 'leccion/:temarioId', component: CardCursoComponent, canActivate: [authGuard] },
+    { path: 'usuarios/card', component: CardUsuarioComponent, canActivate: [authGuard] },
+    { path: 'newpregunta/:cursoid', component: ExamenPreguntasComponent, canActivate: [authGuard] },
+    { path: 'examen/:cursoid', component: ExamenComponent, canActivate: [authGuard] },
     { path: 'usuarios/alumno', component: HomeAlumnoComponent },
     {
         path: 'usuarios/profesor', component: HomeProfesorComponent,
         children: [
-            { path: 'cusosprofesor', component: CursosProfesorComponent },
-            { path: 'card', component: CardProfesorComponent },
-            { path: 'editar', component: EditarProfesorComponent },
+            { path: 'cusosprofesor', component: CursosProfesorComponent, canActivate: [authGuard] },
+            { path: 'card', component: CardProfesorComponent, canActivate: [authGuard] },
+            { path: 'editar', component: EditarProfesorComponent, canActivate: [authGuard] },
         ]
     },
-
-
-    { path: 'temario', component: TemarioCursoComponent },
-    { path: 'leccion/:temarioId', component: CardCursoComponent },
-    { path: 'usuarios/card', component: CardUsuarioComponent },
-    { path: 'alumnos/editar', component: EditarUsuarioComponent },
-    { path: 'newprofesor/:usuarios_id', component: ProfesorFormularioComponent },
-    { path: 'newalumno/:usuarios_id', component: AlumnoFormularioComponent },
-    { path: 'usuarios/profesor', component: HomeProfesorComponent },
-    { path: 'newpregunta/:cursoid', component: ExamenPreguntasComponent },
-    { path: 'examen/:cursoid', component: ExamenComponent },
-
-
-
-
-
-
-
-
-
+    { path: 'newprofesor/:usuarios_id', component: ProfesorFormularioComponent, canActivate: [authGuard] },
+    { path: 'newalumno/:usuarios_id', component: AlumnoFormularioComponent, canActivate: [authGuard] },
+    { path: 'usuarios/profesor', component: HomeProfesorComponent, canActivate: [authGuard] },
+    { path: 'newpregunta/:cursoid', component: ExamenPreguntasComponent, canActivate: [authGuard] },
+    { path: 'examen/:cursoid', component: ExamenComponent, canActivate: [authGuard] },
 ];

@@ -3,6 +3,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { ActivatedRoute } from '@angular/router';
 import { UsuariosService } from '../../services/usuarios.service';
 import dayjs from 'dayjs';
+import { AlumnosService } from '../../services/alumnos.service';
 
 @Component({
   selector: 'app-editar-usuario',
@@ -18,16 +19,22 @@ export class EditarUsuarioComponent {
 
   usuariosService = inject(UsuariosService);
 
+  alumnosService = inject(AlumnosService);
+
+
   alumno: any | null = null
+  alumno2: any | null = null
 
 
   formulario: FormGroup = new FormGroup({
-    nombre: new FormControl(null),
-    apellidos: new FormControl(null),
-    username: new FormControl(null),
-    fecha_nacimiento: new FormControl(null),
-    telefono: new FormControl(null),
-    genero: new FormControl(null),
+    foto: new FormControl(null, Validators.required),
+    nombre: new FormControl(null, Validators.required),
+    apellidos: new FormControl(null, Validators.required),
+    username: new FormControl(null, Validators.required),
+    fecha_nacimiento: new FormControl(null, Validators.required),
+    telefono: new FormControl(null, Validators.required),
+    genero: new FormControl(null, Validators.required),
+    campoInteres: new FormControl(null, Validators.required)
   });
   router: any;
 
@@ -36,16 +43,22 @@ export class EditarUsuarioComponent {
   async ngOnInit() {
 
     const resupuesta = await this.usuariosService.getAlumno();
+    const respuesta2 = await this.alumnosService.getAlumno()
 
     this.alumno = resupuesta;
+    this.alumno2 = respuesta2;
 
     this.formulario.setValue({
+      foto: this.alumno2[0].foto,
       nombre: this.alumno[0].nombre,
       apellidos: this.alumno[0].apellidos,
       username: this.alumno[0].username,
       fecha_nacimiento: dayjs(this.alumno[0].fecha_nacimiento).format('YYYY-MM-DD'),
       telefono: this.alumno[0].telefono,
       genero: this.alumno[0].genero,
+      campoInteres: this.alumno2[0].campoInteres
+
+
     });
 
   };
@@ -56,6 +69,12 @@ export class EditarUsuarioComponent {
     const respuesta = await this.usuariosService.editAlumno(this.alumno[0].id, this.formulario.value)
 
     console.log(respuesta)
-  }
+  };
+
+  checkError(controlName: string, errorName: string) {
+    return this.formulario.get(controlName)!.hasError(errorName) &&
+      this.formulario.get(controlName)!.touched;
+  };
+
 
 }

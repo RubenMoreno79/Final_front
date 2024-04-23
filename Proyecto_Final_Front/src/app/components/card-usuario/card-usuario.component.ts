@@ -4,11 +4,12 @@ import { UsuariosService } from '../../services/usuarios.service';
 import { Router } from '@angular/router';
 import { Alumno } from '../../interfaces/alumno.interface';
 import { AlumnosService } from '../../services/alumnos.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'card-usuario',
   standalone: true,
-  imports: [],
+  imports: [DatePipe],
   templateUrl: './card-usuario.component.html',
   styleUrl: './card-usuario.component.css'
 })
@@ -28,15 +29,15 @@ export class CardUsuarioComponent {
     this.alumno = alumno2[0];
     console.log(alumno)
     this.usuario = alumno[0];
-    console.log(alumno2)
+
   }
 
   editarUsuario() {
-    if (this.usuario?.rol==='profesor'){
-        this.router.navigateByUrl('/profesores/editar');
-      
-    }else{
-       this.router.navigateByUrl('/alumnos/editar');
+    if (this.usuario?.rol === 'profesor') {
+      this.router.navigateByUrl('/profesores/editar');
+
+    } else {
+      this.router.navigateByUrl('/alumnos/editar');
     }
   }
 }

@@ -4,6 +4,7 @@ import { UsuariosService } from '../../services/usuarios.service';
 import { Router } from '@angular/router';
 import { UpperCasePipe } from '@angular/common';
 
+
 @Component({
   selector: 'nuevo-usuario',
   standalone: true,
