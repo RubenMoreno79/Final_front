@@ -14,7 +14,7 @@ export const roleGuard: CanActivateFn = (route, state) => {
     if (decode.user_role === 'profesor') {
         return true;
     }
-    Swal.fire('No puedes acceder', 'Esta funcionalidad está limitada solo para usuarios administradores', 'warning');
+    Swal.fire('No puedes acceder', 'Esta funcionalidad está limitada solo para profesores', 'warning');
 
     router.navigateByUrl('/home')
 
