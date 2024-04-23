@@ -42,6 +42,7 @@ export const routes: Routes = [
             { path: 'miscursos', component: MisCursosComponent, canActivate: [authGuard] },
             { path: 'editar', component: EditarUsuarioComponent, canActivate: [authGuard] },
             { path: 'buscarnuevocurso', component: ListaCursosComponent, canActivate: [authGuard] },
+
         ]
     },
 
@@ -57,11 +58,21 @@ export const routes: Routes = [
             { path: 'cusosprofesor', component: CursosProfesorComponent, canActivate: [authGuard] },
             { path: 'card', component: CardProfesorComponent, canActivate: [authGuard] },
             { path: 'editar', component: EditarProfesorComponent, canActivate: [authGuard] },
+            { path: 'listacursos', component: ListaCursosComponent, canActivate: [authGuard] },
+            { path: 'nuevocursoprofesor', component: NuevoCursoComponent, canActivate: [authGuard] },
+
         ]
     },
-    { path: 'newprofesor/:usuarios_id', component: ProfesorFormularioComponent, canActivate: [authGuard] },
-    { path: 'newalumno/:usuarios_id', component: AlumnoFormularioComponent, canActivate: [authGuard] },
-    { path: 'usuarios/profesor', component: HomeProfesorComponent, canActivate: [authGuard] },
-    { path: 'newpregunta/:cursoid', component: ExamenPreguntasComponent, canActivate: [authGuard] },
-    { path: 'examen/:cursoid', component: ExamenComponent, canActivate: [authGuard] },
+
+    { path: 'newpregunta/:cursoid', component: ExamenPreguntasComponent },
+    { path: 'examen/:cursoid', component: ExamenComponent },
+
+
+
+
+
+
+
+
+
 ];

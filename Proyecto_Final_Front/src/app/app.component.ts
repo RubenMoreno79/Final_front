@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { ListaCursosComponent } from './components/lista-cursos/lista-cursos.component';
 import { FormsModule } from '@angular/forms';
 import { NuevoCursoComponent } from './components/nuevo-curso/nuevo-curso.component';
@@ -18,6 +18,8 @@ import { AlumnoFormularioComponent } from './components/alumno-formulario/alumno
 
 import { ExamenPreguntasComponent } from './components/examen-preguntas/examen-preguntas.component';
 import { ExamenComponent } from './components/examen/examen.component';
+import { UsuariosService } from './services/usuarios.service';
+import Swal from 'sweetalert2';
 
 
 
@@ -30,4 +32,12 @@ import { ExamenComponent } from './components/examen/examen.component';
 })
 export class AppComponent {
   title = 'Proyecto_Final_Front';
+  router = inject(Router);
+  usuariosService = inject(UsuariosService);
+
+  onClickLogout() {
+    localStorage.removeItem('token_crm');
+    Swal.fire('Hasta pronto');
+    this.router.navigateByUrl('/usuarios/login');
+  }
 }
