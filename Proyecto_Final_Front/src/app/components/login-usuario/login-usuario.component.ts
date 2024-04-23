@@ -22,7 +22,7 @@ export class LoginUsuarioComponent {
 
   async onSubmit() {
     const response = await this.usuariosService.login(this.formulario.value);
-    console.log(response)
+
     // Comprobamos la respuesta
     if (response.success) {
       Swal.fire('Login correcto', 'Tu datos son correctos', 'success');

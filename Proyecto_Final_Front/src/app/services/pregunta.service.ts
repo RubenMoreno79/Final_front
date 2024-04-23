@@ -19,6 +19,12 @@ export class PreguntasService {
         )
     }
 
+    getAllAlumno(cursoId: Number) {
+        return firstValueFrom(
+            this.httpClient.get<Pregunta[]>(`${this.baseUrl}/preguntas/all/alumnos/${cursoId}`)
+        )
+    }
+
     getByNombre(nombre: string): Pregunta[] {
         return PREGUNTA.filter(pregunta => pregunta.titulo === nombre)
     }
@@ -34,5 +40,11 @@ export class PreguntasService {
 
     create(Pregunta: Pregunta) {
         PREGUNTA.push(Pregunta);
+    }
+
+    enviarNota(nota: number, cursoId: Number) {
+        return firstValueFrom(
+            this.httpClient.put(`${this.baseUrl}/alumnoscursos/nota/${nota}/${cursoId}`, {})
+        )
     }
 }

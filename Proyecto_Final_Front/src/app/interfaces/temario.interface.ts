@@ -5,5 +5,6 @@ export interface Temario {
     video: string,
     imagen: string,
     texto: string,
+    curso_id: Number
 
 } 

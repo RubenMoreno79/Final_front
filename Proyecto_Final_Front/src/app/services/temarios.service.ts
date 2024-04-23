@@ -37,6 +37,11 @@ export class TemariosService {
             this.httpClient.get<Temario[]>(`${this.baseUrl}/lecciones/all/profesores/${curso_id}`)
         )
     }
+    getAllLeccionesAlumno(curso_id: Number) {
+        return firstValueFrom(
+            this.httpClient.get<Temario[]>(`${this.baseUrl}/lecciones/all/alumnos/${curso_id}`)
+        )
+    }
 
     create(Temario: Temario, cursoId: Number) {
         return firstValueFrom(

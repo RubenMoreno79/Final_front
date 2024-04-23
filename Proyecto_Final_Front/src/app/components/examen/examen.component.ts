@@ -3,12 +3,14 @@ import { Pregunta } from '../../interfaces/pregunta.interface';
 import { PreguntasService } from '../../services/pregunta.service';
 import { PREGUNTA } from '../../data/pregunta.data';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import Swal from 'sweetalert2';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Component({
   selector: 'app-examen',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, ReactiveFormsModule],
   templateUrl: './examen.component.html',
   styleUrl: './examen.component.css'
 })
@@ -16,6 +18,7 @@ export class ExamenComponent {
 
   cursoId: Number = 0
   resultadoExamen: Number[] = []
+  nota: number = 0
 
   arrPreguntas: Pregunta[] = [];
   preguntasService = inject(PreguntasService)
@@ -24,18 +27,32 @@ export class ExamenComponent {
   arrPreguntasMezcladas: any[] = []
 
   formulario: FormGroup = new FormGroup({
-
+    valor: new FormControl(0)
   }
-
   )
+  preguntasServices = inject(PreguntasService)
+
+  botonesDeshabilitados: { [key: number]: boolean } = {};
+
+  obtenerDatosUsuario() {
+    const jwtHelper = new JwtHelperService();
+    const token = localStorage.getItem('token_crm');
+    const decodedToken = jwtHelper.decodeToken(token!);
+    return decodedToken;
+  }
 
 
 
   async ngOnInit() {
+    const rol = this.obtenerDatosUsuario()
     this.activatedRoutes.params.subscribe(params => {
       this.cursoId = Number(params['cursoid'])
     })
-    this.arrPreguntas = await this.preguntasService.getAllProfesor(this.cursoId);
+    if (rol.rol === 'profesor') {
+      this.arrPreguntas = await this.preguntasService.getAllProfesor(this.cursoId);
+    } else if (rol.rol === 'alumno') {
+      this.arrPreguntas = await this.preguntasService.getAllAlumno(this.cursoId)
+    }
     for (let pregunta of this.arrPreguntas) {
       const preguntaFinal = {
         respuestas: this.mezclar(pregunta),
@@ -45,9 +62,8 @@ export class ExamenComponent {
       }
       this.arrPreguntasMezcladas.push(preguntaFinal)
     }
-    console.log(this.arrPreguntasMezcladas)
-
   }
+
   async onChange($event: any) {
     if ($event.target.value === 'todas') {
       this.arrPreguntas = await this.preguntasService.getAllProfesor(this.cursoId);
@@ -70,16 +86,44 @@ export class ExamenComponent {
   }
 
   selectRespuesta(pregunta: Pregunta, acertado: boolean) {
-    console.log(acertado)
-    if (acertado) {
 
+    if (acertado) {
+      this.formulario.value.valor = 1
+    } else {
+      this.formulario.value.valor = 0
     }
   }
-
+  //todo: cambiar la url para que sea para cualquier examen
   goToPreguntas() {
     this.router.navigateByUrl('newpregunta/16')
   }
   onSubmit() {
-    console.log()
+    if (this.formulario.value.valor === 1) {
+      this.nota++
+    }
+
+  }
+  onClickBoton(id: number) {
+    setTimeout(() => {
+      { this.botonesDeshabilitados[id] = true }
+
+    }, 1000);
+  }
+  calcularNota() {
+    return (this.nota / this.arrPreguntas.length) * 10
+  }
+
+  terminarExamen() {
+    const resultado = Number(this.calcularNota().toFixed(2))
+    if (resultado >= 5) {
+      Swal.fire('Examen aprobado', `Felicidades tu nota es de ${resultado}`, 'success');
+      this.preguntasService.enviarNota(resultado, this.cursoId)
+    } else {
+      Swal.fire('Examen suspendido', `Tu nota fue de ${resultado} vuelve a intentarlo`, 'error');
+    }
+
+    this.router.navigateByUrl('')
   }
 }
+
+

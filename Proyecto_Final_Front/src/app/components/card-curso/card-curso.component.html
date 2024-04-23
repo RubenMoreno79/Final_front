@@ -19,9 +19,11 @@
             <div class="list-group mt-4">
                 <a href="" class="list-group-item list-group-item-action list-group-item-light">Volver a mi Perfil</a>
                 @for(tema of arrTemas; track $index){
-                    <a href="" [routerLink]="'/leccion/' + tema.id" class="list-group-item list-group-item-action list-group-item-light">{{$index}} - {{tema.tema}}</a>
+                <a href="" [routerLink]="'/leccion/' + tema.id"
+                    class="list-group-item list-group-item-action list-group-item-light">{{$index}} - {{tema.tema}}</a>
                 }
-                <a href="" class="list-group-item list-group-item-action list-group-item-light">Examen Final</a>
+                <a href="" [routerLink]="'/examen/' + curso_id"
+                    class="list-group-item list-group-item-action list-group-item-light">Examen Final</a>
             </div>
 
         </div>
@@ -35,13 +37,13 @@
             </div>
         </div>
         }@else{
-            <div clase="imagen">
-         
-               <h3>Video no disponible</h3>
-           
-        </div> 
+        <div clase="imagen">
+
+            <h3>Video no disponible</h3>
+
+        </div>
         }
-       
+
 
         <h4 class="mt-4 mb-4">Contenido de la Lección</h4>
         <p>{{ temario[0].texto }}</p>
@@ -52,7 +54,8 @@
             <ul class="pagination justify-content-center">
                 <!-- <li class="page-item "><a class="page-link" href="#">Anterior</a></li> -->
                 @for(tema of arrTemas; track $index){
-                    <li class="page-item"><a class="page-link" [routerLink]="'/leccion/'+tema.id" href="#">{{$index + 1}}</a></li>
+                <li class="page-item"><a class="page-link" [routerLink]="'/leccion/'+tema.id" href="#">{{$index +
+                        1}}</a></li>
                 }
                 <!-- <li class="page-item"><a class="page-link" href="#">Siguiente</a></li> -->
             </ul>

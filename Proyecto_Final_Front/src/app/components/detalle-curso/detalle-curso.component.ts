@@ -1,9 +1,11 @@
-import { Component, inject } from '@angular/core';
+import { Component, Inject, inject } from '@angular/core';
 import { Curso } from '../../interfaces/cursos.interface';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CursosService } from '../../services/cursos.service';
 import { AlumnosService } from '../../services/alumnos.service';
 import { TemariosService } from '../../services/temarios.service';
+import { JwtHelperService } from '@auth0/angular-jwt';
+
 
 
 @Component({
@@ -26,16 +28,29 @@ export class DetalleCursoComponent {
   temarioSercice = inject(TemariosService)
   router = inject(Router)
 
+  obtenerDatosUsuario() {
+    const jwtHelper = new JwtHelperService();
+    const token = localStorage.getItem('token_crm');
+    const decodedToken = jwtHelper.decodeToken(token!);
+    return decodedToken;
+  }
   async ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
       this.cursoId = Number(params['cursoId']);
 
     })
-    this.curso = await this.cursosService.getById(this.cursoId);;
+    const rol = this.obtenerDatosUsuario()
 
-    const respuesta = await this.temarioSercice.getAllLeccionesProfesor(this.cursoId)
+    this.curso = await this.cursosService.getById(this.cursoId);
+    if (rol.rol === 'profesor') {
+      const respuesta = await this.temarioSercice.getAllLeccionesProfesor(this.cursoId)
+      this.leccionId = respuesta[0].id
 
-    this.leccionId = respuesta[0].id
+    } else if (rol.rol === 'alumno') {
+      const respuesta2 = await this.temarioSercice.getAllLeccionesAlumno(this.cursoId)
+      this.leccionId = respuesta2[0].id
+    }
+
 
 
   };
@@ -47,7 +62,6 @@ export class DetalleCursoComponent {
   };
 
   goToLecciones() {
-    console.log('entra')
     this.router.navigateByUrl(`leccion/${this.leccionId}`)
   }
 
