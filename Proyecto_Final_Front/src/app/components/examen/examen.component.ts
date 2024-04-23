@@ -3,6 +3,7 @@ import { Pregunta } from '../../interfaces/pregunta.interface';
 import { PreguntasService } from '../../services/pregunta.service';
 import { PREGUNTA } from '../../data/pregunta.data';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-examen',
@@ -14,11 +15,19 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 export class ExamenComponent {
 
   cursoId: Number = 0
+  resultadoExamen: Number[] = []
 
   arrPreguntas: Pregunta[] = [];
   preguntasService = inject(PreguntasService)
   activatedRoutes = inject(ActivatedRoute)
   router = inject(Router)
+  arrPreguntasMezcladas: any[] = []
+
+  formulario: FormGroup = new FormGroup({
+
+  }
+
+  )
 
 
 
@@ -27,7 +36,17 @@ export class ExamenComponent {
       this.cursoId = Number(params['cursoid'])
     })
     this.arrPreguntas = await this.preguntasService.getAllProfesor(this.cursoId);
-    console.log(this.arrPreguntas)
+    for (let pregunta of this.arrPreguntas) {
+      const preguntaFinal = {
+        respuestas: this.mezclar(pregunta),
+        enunciado: pregunta.enunciado,
+        titulo: pregunta.titulo,
+        id: pregunta.id
+      }
+      this.arrPreguntasMezcladas.push(preguntaFinal)
+    }
+    console.log(this.arrPreguntasMezcladas)
+
   }
   async onChange($event: any) {
     if ($event.target.value === 'todas') {
@@ -51,11 +70,16 @@ export class ExamenComponent {
   }
 
   selectRespuesta(pregunta: Pregunta, acertado: boolean) {
-    console.log(pregunta, acertado)
+    console.log(acertado)
+    if (acertado) {
 
+    }
   }
 
   goToPreguntas() {
     this.router.navigateByUrl('newpregunta/16')
+  }
+  onSubmit() {
+    console.log()
   }
 }
