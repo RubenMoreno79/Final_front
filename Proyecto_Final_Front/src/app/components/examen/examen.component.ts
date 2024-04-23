@@ -40,10 +40,18 @@ export class ExamenComponent {
   getNombres(): string[] {
     return [...new Set(PREGUNTA.map(pregunta => pregunta.titulo))]
   }
-  mezclar(opcion1: string, opcion2: string, opcion3: string, opcion4: string) {
-    let opciones = [opcion1, opcion2, opcion3, opcion4];
+  mezclar(pregunta: Pregunta): { texto: string, correcta: boolean }[] {
+    let opciones = [
+      { texto: pregunta.respuesta_correcta, correcta: true },
+      { texto: pregunta.respuesta_incorrecta1, correcta: false },
+      { texto: pregunta.respuesta_incorrecta2, correcta: false },
+      { texto: pregunta.respuesta_incorrecta3, correcta: false }];
     let opcionesMix = opciones.sort(() => Math.random() - 0.5);
     return opcionesMix
+  }
+
+  selectRespuesta(pregunta: Pregunta, acertado: boolean) {
+    console.log(pregunta, acertado)
 
   }
 }

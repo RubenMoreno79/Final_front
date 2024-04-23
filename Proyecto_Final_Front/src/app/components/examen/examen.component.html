@@ -22,8 +22,8 @@
 
         <div  class="mt-4 border border-success rounded p-3">
 
-             @for (preguntasMix of mezclar(pregunta.respuesta_correcta, pregunta.respuesta_incorrecta1, pregunta.respuesta_incorrecta2, pregunta.respuesta_incorrecta3); track $index){
-            <p>Opcion {{$index + 1 }}: {{ preguntasMix}}</p>
+             @for (preguntasMix of mezclar(pregunta); track $index){
+            <p (click)="selectRespuesta(pregunta, preguntasMix.correcta)">Opcion {{$index + 1 }}: {{ preguntasMix.texto}}</p>
             <!-- <p>Opcion 2: {{ pregunta.respuesta_incorrecta1 }}</p>
             <p>Opcion 3: {{ pregunta.respuesta_incorrecta2 }}</p>
             <p>Opcion 4: {{ pregunta.respuesta_incorrecta3 }}</p> -->
