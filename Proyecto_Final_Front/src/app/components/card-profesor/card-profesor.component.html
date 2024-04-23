@@ -1,0 +1,20 @@
+@if (usuario) {
+<div class="profesor">
+    <h2>{{ usuario.nombre }} {{ usuario.apellidos }}</h2>
+    <img [src]="profesor!.foto" alt="" />
+    <hr>
+    <p>Username: {{ usuario.username }}</p>
+    <p>Email: {{ usuario.email }}</p>
+    <p>Rol: {{ usuario.rol }}</p>
+    <p>Fecha Nacimiento: {{ usuario.fecha_nacimiento }}</p>
+    <p>Telefono: {{ usuario.telefono }}</p>
+    <p>Genero: {{ usuario.genero }}</p>
+    <p>Experiencia: {{profesor!.experiencia}}</p>
+    <p>Especialidad: {{profesor!.especialidad}}</p>
+    <p>Descripcion_experiencia: {{profesor!.descripcion_experiencia}}</p>
+       
+    <button (click)="editarUsuario()" class="btn btn-light border border-success col-12 col-lg-1">Editar</button>
+</div>
+}
+
+

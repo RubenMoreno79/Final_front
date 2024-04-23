@@ -32,6 +32,11 @@ export class CardUsuarioComponent {
   }
 
   editarUsuario() {
-    this.router.navigateByUrl('/alumnos/editar');
+    if (this.usuario?.rol==='profesor'){
+        this.router.navigateByUrl('/profesores/editar');
+      
+    }else{
+       this.router.navigateByUrl('/alumnos/editar');
+    }
   }
 }
