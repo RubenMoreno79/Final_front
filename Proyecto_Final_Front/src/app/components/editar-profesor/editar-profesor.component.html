@@ -1,0 +1,61 @@
+<div class="container">
+
+    <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+
+        <div class="mb-3 mt-4">
+            <label class="form-label">Nombre</label>
+            <input type="text" class="form-control" formControlName="nombre">
+
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Apellidos</label>
+            <input type="text" class="form-control" formControlName="apellidos">
+
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Username</label>
+            <input type="text" class="form-control" formControlName="username">
+
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Fecha_nacimiento</label>
+            <input type="date" class="form-control" formControlName="fecha_nacimiento">
+
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Telefono</label>
+            <input type="text" class="form-control" formControlName="telefono">
+
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Género</label>
+            <input type="text" class="form-control" formControlName="genero">
+        </div>
+
+     <div class="mb-3">
+        <label class="form-label">Experiencia</label>
+        <input type="text" class="form-control" formControlName="experiencia">
+    </div>
+
+        <div class="mb-3">
+            <label class="form-label">Descripción_experiencia</label>
+            <input type="text" class="form-control" formControlName="descripcion_experiencia">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Especialidad</label>
+            <input type="text" class="form-control" formControlName="especialidad">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Foto</label>
+            <input type="text" class="form-control" formControlName="foto">
+        </div>
+
+        <input type="submit" value="Actualizar">
+
+    </form>
+
+</div>

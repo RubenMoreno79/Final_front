@@ -59,10 +59,23 @@ export class UsuariosService {
         )
     }
 
+        getProfesor() {
+        return firstValueFrom(
+            this.httpClient.get(`${this.baseUrl}/profesores/profesor`)
+        )
+    }
+
     editAlumno(userId: number, usuario: any) {
         usuario.id = userId
         return firstValueFrom(
             this.httpClient.put(`${this.baseUrl}/alumnos/editar`, usuario)
+        )
+    }
+
+       editProfesor(profesorId: number, profesor: any) {
+        profesor.id = profesor
+        return firstValueFrom(
+            this.httpClient.put(`${this.baseUrl}/profesor/editar`, profesor)
         )
     }
 
@@ -94,6 +107,12 @@ export class UsuariosService {
         const decoded: JwtPayloadCustom = jwtDecode(localStorage.getItem('token_crm')!);
         console.log(decoded)
         return decoded
+    }
+
+      isProfesorEdit() {
+        const decoded2: JwtPayloadCustom = jwtDecode(localStorage.getItem('token_crm')!);
+        console.log(decoded2)
+        return decoded2
     }
 
     // getById(alumnoId: string) {

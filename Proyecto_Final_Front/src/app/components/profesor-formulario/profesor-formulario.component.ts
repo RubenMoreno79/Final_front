@@ -15,8 +15,8 @@ export class ProfesorFormularioComponent {
   formulario: FormGroup = new FormGroup({
 
     experiencia: new FormControl(),
-    campoExperiencia: new FormControl(),
-    descripcionExperiencia: new FormControl(),
+    campo_experiencia: new FormControl(),
+    descripcion_experiencia: new FormControl(),
     foto: new FormControl(),
   })
 
@@ -25,6 +25,6 @@ export class ProfesorFormularioComponent {
 
   onSubmit() {
     this.ProfesorService.create(this.formulario.value)
-    this.router.navigateByUrl('')
+    this.router.navigateByUrl('usuarios/profesor')
   }
 }

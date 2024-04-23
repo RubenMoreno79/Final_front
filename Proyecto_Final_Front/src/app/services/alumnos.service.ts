@@ -19,11 +19,7 @@ export class AlumnosService {
 
   };
 
-  getCurso() {
-    return firstValueFrom(
-      this.httpClient.get(`${this.baseUrl}/info/${cursoId}`)
-    )
-  }
+ 
 
   getAlumno() {
     return firstValueFrom(

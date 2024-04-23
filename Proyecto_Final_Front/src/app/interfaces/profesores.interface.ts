@@ -1,8 +1,8 @@
 export interface Profesor {
     id: number,
-    experiencia: number,
-    campoExperiencia: string,
-    descripcionExperiencia: string,
+    experiencia: string,
+    descripcion_experiencia: string,
+    especialidad:string,
     foto: string,
 
 }

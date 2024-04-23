@@ -1,6 +1,9 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { PROFESORES } from '../data/profesores.data'
 import { Profesor } from '../interfaces/profesores.interface';
+import { firstValueFrom } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Curso } from '../interfaces/cursos.interface';
 
 
 @Injectable({
@@ -8,12 +11,28 @@ import { Profesor } from '../interfaces/profesores.interface';
 })
 export class ProfesoresService {
 
+
+
+    private baseUrl: string = 'http://localhost:3000/api';
+    private httpClient = inject(HttpClient);
+
+    getProfesor() {
+        return firstValueFrom(
+            this.httpClient.get(`${this.baseUrl}/profesores/profesor2`)
+        )
+    }
+    getProfesor2() {
+        return firstValueFrom(
+            this.httpClient.get(`${this.baseUrl}/profesores/profesor`)
+        )
+    }
+
     getAll(): Profesor[] {
         return PROFESORES
     }
 
-    getByEspecializad(especialidad: string): Profesor[] {
-        return PROFESORES.filter(profesor => profesor.campoExperiencia === especialidad)
+    getByEspecialidad(especialidad: string): Profesor[] {
+        return PROFESORES.filter(profesor => profesor.experiencia === especialidad)
     }
 
     getById(profesorId: number): Profesor | null {
@@ -23,9 +42,19 @@ export class ProfesoresService {
             }
         }
         return null;
-    }
 
+
+    }
     create(Profesor: Profesor) {
         PROFESORES.push(Profesor);
     }
+
+
+
+    getMisCursos() {
+        return firstValueFrom(
+            this.httpClient.get<Curso[]>(`${this.baseUrl}/cursos/getbyprofesor`)
+        )
+    };
+
 }
