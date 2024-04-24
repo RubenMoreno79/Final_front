@@ -48,4 +48,10 @@ export class TemariosService {
             this.httpClient.post<RegistroResponse>(`${this.baseUrl}/lecciones/new/${cursoId}`, Temario)
         )
     }
+
+    borrarLeccions(leccionId: number) {
+        return firstValueFrom(
+            this.httpClient.delete(`${this.baseUrl}/lecciones/delete/${leccionId}`)
+        )
+    }
 }
