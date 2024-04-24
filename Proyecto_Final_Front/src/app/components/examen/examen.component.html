@@ -1,27 +1,18 @@
 <h2 class="mt-4 text-success">Tu Examen</h2>
 
-<div class="filtros ">
-    <select (change)="onChange($event)" class="rounded col-12 col-lg-4 border border-success">
-        <option value="todas">Todas las preguntas</option>
-        <option value="Pregunta 1">Pregunta 1</option>
-        <option value="Pregunta 2">Pregunta 2</option>
-        <option value="Pregunta 3">Pregunta 3</option>
 
-    </select>
-</div>
 
 <hr>
 
 <div>
-    <h1>{{nota}}</h1>
-    @for (pregunta of arrPreguntasMezcladas; track pregunta.id) {
+    @for (pregunta of arrPreguntasMezcladas; track $index) {
     <div class="pregunta col-12 mt-2 ">
 
-        <h4 class="mt-5 text-center">Enunciado pregunta {{ pregunta.id }}</h4>
+        <h4 class="mt-5 text-center">{{ $index +1 }}</h4>
         <hr class="col 6 text-success  col-6">
         <h5 class="mt-4">{{ pregunta.enunciado }}</h5>
 
-        <div class="mt-4 border border-success rounded p-3">
+        <div class="mt-4 caja border border-3 border-success rounded p-3">
             <form [formGroup]="formulario" (ngSubmit)="onSubmit() ">
                 @for(respuesta of pregunta.respuestas; track $index){
                 <div class="form-check" name="exampleRadios" id="exampleRadios1">
@@ -32,18 +23,39 @@
                     </label>
                 </div>
                 }
-                <input type="submit" class="btn btn-success" value="Guardar Respuesta" (click)="onClickBoton($index)"
-                    [disabled]="botonesDeshabilitados[$index]">
+                @if(!mostrar){
+                <div class="boton1">
+                    <input type="submit" class="btn btn-success boton1" value="Guardar Respuesta"
+                        (click)="onClickBoton($index)" [disabled]="botonesDeshabilitados[$index]">
+                </div>
+                }
+
+
             </form>
         </div>
-        <input class="btn btn-danger" (click)="borrarPregunta(pregunta.id)" value="Borrar Pregunta">
-        <input class="btn btn-warning" (click)="editarPregunta(pregunta.id)" value="Editar Pregunta">
+        @if(mostrar){
+        <div class="botones">
+            <input class="btn btn-danger boton2" (click)="borrarPregunta(pregunta.id)" value="Borrar Pregunta">
+            <input class="btn btn-warning boton3" (click)="editarPregunta(pregunta.id)" value="Editar Pregunta">
+        </div>
+
+        }
     </div>
 
 
     }
-    <input (click)="terminarExamen()" class="btn" value="Terminar">
+    @if(!mostrar){
+    <div class="terminado">
+        <input (click)="terminarExamen()" class="btn btn-success" value="Terminar">
 
-    <button (click)="goToPreguntas()" class="btn btn-light border border-success col-12 col-lg-2">Nueva
-        Pregunta</button>
+    </div>
+
+    }
+    @if(mostrar){
+    <div class="preguntas">
+        <button (click)="goToPreguntas()" class="btn boton4 btn-success border border-success col-12 col-lg-2">Nueva
+            Pregunta</button>
+    </div>
+    }
+
 </div>

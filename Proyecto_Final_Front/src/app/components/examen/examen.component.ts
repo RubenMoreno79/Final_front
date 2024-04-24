@@ -20,11 +20,13 @@ export class ExamenComponent {
   resultadoExamen: Number[] = []
   nota: number = 0
 
+
   arrPreguntas: Pregunta[] = [];
   preguntasService = inject(PreguntasService)
   activatedRoutes = inject(ActivatedRoute)
   router = inject(Router)
   arrPreguntasMezcladas: any[] = []
+  mostrar: boolean = false
 
   formulario: FormGroup = new FormGroup({
     valor: new FormControl(0)
@@ -50,6 +52,7 @@ export class ExamenComponent {
     })
     if (rol.rol === 'profesor') {
       this.arrPreguntas = await this.preguntasService.getAllProfesor(this.cursoId);
+      this.mostrar = true
     } else if (rol.rol === 'alumno') {
       this.arrPreguntas = await this.preguntasService.getAllAlumno(this.cursoId)
     }

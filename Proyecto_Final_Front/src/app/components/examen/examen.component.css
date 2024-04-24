@@ -2,3 +2,54 @@ hr {
     align-items: center;
     margin: 0 auto
 }
+
+div.boton1 {
+    display: flex;
+    justify-content: center;
+    margin: -15px;
+
+
+}
+
+.caja {
+    margin-bottom: 80px;
+}
+
+input.boton1 {
+    position: relative;
+    padding: 0px 5px;
+    top: 50px;
+
+
+}
+
+.botones {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+    top: -60px;
+
+}
+
+input.boton2 {
+    padding: 0px;
+}
+
+input.boton3 {
+    padding: 0px;
+}
+
+.preguntas {
+    display: flex;
+    justify-content: center;
+}
+
+.boton4 {
+    padding: 0px;
+}
+
+.terminado {
+    display: flex;
+    justify-content: end;
+}
