@@ -24,8 +24,10 @@ export class CursosService {
     return CURSOS
   };
 
-  getByNombre(nombre: string): Curso[] {
-    return CURSOS.filter(curso => curso.nombre === nombre)
+  getByCategory(categoria: string) {
+    return firstValueFrom(
+      this.httpClient.get<Curso[]>(`${this.baseUrl}/cursos/category/${categoria}`)
+    )
   }
 
   getById(cursoId: Number) {
@@ -46,6 +48,14 @@ export class CursosService {
     return firstValueFrom(this.httpClient.get<Curso[]>(`${this.baseUrl}/cursos`));
 
 
+  }
+
+  borrarCurso(cursoid: number) {
+    return firstValueFrom(this.httpClient.delete(`${this.baseUrl}/cursos/${cursoid}`))
+  }
+
+  editarCurso(cursoid: number, body: any) {
+    return firstValueFrom(this.httpClient.put(`${this.baseUrl}/cursos/${cursoid}`, body))
   }
 
 

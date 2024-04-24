@@ -19,10 +19,10 @@
             <div class="list-group mt-4">
                 <a href="" class="list-group-item list-group-item-action list-group-item-light">Volver a mi Perfil</a>
                 @for(tema of arrTemas; track $index){
-                <a href="" [routerLink]="'/leccion/' + tema.id"
+                <a [routerLink]="'/leccion/' + tema.id"
                     class="list-group-item list-group-item-action list-group-item-light">{{$index}} - {{tema.tema}}</a>
                 }
-                <a href="" [routerLink]="'/examen/' + temario[0].curso_id"
+                <a [routerLink]="'/examen/' + temario[0].curso_id"
                     class="list-group-item list-group-item-action list-group-item-light">Examen Final</a>
             </div>
 
@@ -62,6 +62,8 @@
                 <!-- <li class="page-item"><a class="page-link" href="#">Siguiente</a></li> -->
             </ul>
         </nav>
+        <input class="btn btn-danger" value="Borrar Leccion" (click)="borrarLeccion()">
+        <input class="btn btn-warning" value="Editar Leccions" (click)="editarLeccion()">
     </div>
     }@else {
     <p>El curso NO EXISTE</p>

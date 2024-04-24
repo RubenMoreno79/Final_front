@@ -1,0 +1,52 @@
+<form [formGroup]="Formulario" (ngSubmit)="onSubmit()">
+
+    <h3 class="text-center text-success mt-4">Crea tu Pregunta</h3>
+    <div class="descripcion text-success ">
+        <div class="mb-3 mt-5">
+            <h5>Introduce el nombre de la pregunta</h5>
+            <label for="exampleFormControlTextarea1"></label>
+            <textarea class=" nombre form-control" id="exampleFormControlTextarea1" rows="3"
+                formControlName="titulo"></textarea>
+        </div>
+        <div class="mb-3 mt-5">
+            <h5>Introduce el enunciado de la pregunta</h5>
+            <label for="exampleFormControlTextarea1"></label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                formControlName="enunciado"></textarea>
+        </div>
+        <h5>Introduce las diferentes opciones</h5>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Texto de la
+                Respuesta Correcta</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" formControlName="respuesta_correcta"
+                rows="3"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Texto de
+                la Respuesta INCORRECTA 1</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" formControlName="respuesta_incorrecta1"
+                rows="3"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Texto de
+                la Respuesta INCORRECTA 2</label>
+            <textarea class="form-control" id="exampleFormControlTextarea2" formControlName="respuesta_incorrecta2"
+                rows="3"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Texto de
+                la Respuesta INCORRECTA 3</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" formControlName="respuesta_incorrecta3"
+                rows="3"></textarea>
+        </div>
+
+
+
+        <div class="boton mx-4">
+            <input type="submit" value="Editar Pregunta" class="btn btn-light border border-success col-12 col-lg-2" />
+        </div>
+    </div>
+</form>

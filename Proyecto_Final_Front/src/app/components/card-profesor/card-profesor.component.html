@@ -6,7 +6,8 @@
     <p>Username: {{ usuario.username }}</p>
     <p>Email: {{ usuario.email }}</p>
     <p>Rol: {{ usuario.rol }}</p>
-    <p>Fecha Nacimiento: {{ usuario.fecha_nacimiento }}</p>
+    <p>Fecha Nacimiento: {{ usuario.fecha_nacimiento|date:'dd-MM-yyyy'
+ }}</p>
     <p>Telefono: {{ usuario.telefono }}</p>
     <p>Genero: {{ usuario.genero }}</p>
     <p>Experiencia: {{profesor!.experiencia}}</p>

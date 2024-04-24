@@ -28,7 +28,7 @@ export class ListaCursosComponent {
     if ($event.target.value === 'todas') {
       this.arrCursos = await this.cursosService.listaCursos();
     } else {
-      this.arrCursos = this.cursosService.getByNombre($event.target.value);
+      this.arrCursos = await this.cursosService.getByCategory($event.target.value);
     }
   };
 

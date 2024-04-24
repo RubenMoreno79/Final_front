@@ -30,7 +30,7 @@ export class ExamenComponent {
     valor: new FormControl(0)
   }
   )
-  preguntasServices = inject(PreguntasService)
+
 
   botonesDeshabilitados: { [key: number]: boolean } = {};
 
@@ -123,6 +123,36 @@ export class ExamenComponent {
     }
 
     this.router.navigateByUrl('')
+  }
+
+  borrarPregunta(preguntaId: number) {
+
+
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        this.preguntasService.borrrarPregunta(preguntaId)
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your file has been deleted.",
+          icon: "success"
+        });
+        setTimeout(() => {
+          location.reload()
+        }, 1500);
+      }
+    });
+  }
+
+  editarPregunta(preguntaid: number) {
+    this.router.navigateByUrl(`/editar/pregunta/${preguntaid}/${this.cursoId}`)
   }
 }
 

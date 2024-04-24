@@ -2,16 +2,17 @@
 
 <!-- TODO: lista automática de categorías -->
 <div class="filtros ">
-    <select (change)="onChange($event)" class="rounded col-12 col-lg-3 border border-success">
-        <option value="todas">Todas las Categorias</option>
-        <option value="Nombre1">Nombre1</option>
-        <option value="Nombre2">Nombre2</option>
-        <option value="Nombre3">Nombre3</option>
+    <select (change)="onChange($event)" class="rounded col-12 col-lg-4 border border-success">
+        <option value="todas">Selecciona Categoría</option>
+        <option value="Ciber">Ciberseguridad</option>
+        <option value="Data">Data Science</option>
+        <option value="FullStack">Full Stack</option>
+        <option value="Marketing">Marketing Online</option>
 
     </select>
 </div>
 
-<hr>
+<hr class="text-success font-weight-bold">
 
 <div class="cursos row ">
     @for (curso of arrCursos; track curso.id) {
@@ -26,7 +27,7 @@
                 <p class="card-title"><strong>Categorias:</strong> {{ curso.categoria }}</p>
                 <p class="card-title"><strong>Contenido: </strong>{{ curso.descripcion }}</p>
 
-                <a [routerLink]="['/cursos',curso.id]" class="btn btn-success mt-3">Ir al Curso</a>
+                <a [routerLink]="['/cursos',curso.id]" class="btn btn-success mt-3 col-12">Ir al Curso</a>
             </div>
         </div>
 

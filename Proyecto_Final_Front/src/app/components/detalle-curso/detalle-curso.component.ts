@@ -5,6 +5,7 @@ import { CursosService } from '../../services/cursos.service';
 import { AlumnosService } from '../../services/alumnos.service';
 import { TemariosService } from '../../services/temarios.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import Swal from 'sweetalert2';
 
 
 
@@ -20,7 +21,7 @@ export class DetalleCursoComponent {
   curso: Curso[] = []
   leccionId: Number = 0
 
-  cursoId: Number = 0;
+  cursoId: number = 0;
 
   activatedRoute = inject(ActivatedRoute);
   cursosService = inject(CursosService);
@@ -67,7 +68,30 @@ export class DetalleCursoComponent {
   addLeccion() {
     this.router.navigateByUrl(`temario/${this.cursoId}`)
   }
+  borrarCurso() {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.cursosService.borrarCurso(this.cursoId)
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your file has been deleted.",
+          icon: "success"
+        });
+      }
+    });
+  }
 
+  editarCurso() {
+    this.router.navigateByUrl(`editar/curso/${this.cursoId}`)
+  }
 
 
 }

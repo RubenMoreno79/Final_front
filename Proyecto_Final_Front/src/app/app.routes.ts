@@ -23,6 +23,9 @@ import { authGuard } from './core/guards/auth.guard';
 import { CardProfesorComponent } from './components/card-profesor/card-profesor.component';
 import { EditarProfesorComponent } from './components/editar-profesor/editar-profesor.component';
 import { CursosProfesorComponent } from './components/cursos-profesor/cursos-profesor.component';
+import { EditarCursoComponent } from './componets/editar-curso/editar-curso.component';
+import { EditarLeccionesComponent } from './componets/editar-lecciones/editar-lecciones.component';
+import { EditarPreguntasComponent } from './components/editar-preguntas/editar-preguntas.component';
 
 
 
@@ -64,14 +67,9 @@ export const routes: Routes = [
     },
     { path: 'newalumno/:usuarios_id', component: AlumnoFormularioComponent },
     { path: 'newprofesor/:usuarios_id', component: ProfesorFormularioComponent },
-
-
-
-
-
-
-
-
+    { path: 'editar/curso/:cursoid', component: EditarCursoComponent },
+    { path: 'editar/leccion/:leccionid', component: EditarLeccionesComponent },
+    { path: 'editar/pregunta/:preguntaid/:cursoid', component: EditarPreguntasComponent }
 
 
 
