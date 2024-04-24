@@ -150,6 +150,10 @@ export class ExamenComponent {
       }
     });
   }
+
+  editarPregunta(preguntaid: number) {
+    this.router.navigateByUrl(`/editar/pregunta/${preguntaid}/${this.cursoId}`)
+  }
 }
 
 

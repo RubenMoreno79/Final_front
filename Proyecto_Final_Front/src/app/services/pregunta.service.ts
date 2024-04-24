@@ -29,13 +29,10 @@ export class PreguntasService {
         return PREGUNTA.filter(pregunta => pregunta.titulo === nombre)
     }
 
-    getById(preguntaId: number): Pregunta | null {
-        for (let pregunta of PREGUNTA) {
-            if (pregunta.id === preguntaId) {
-                return pregunta;
-            }
-        }
-        return null;
+    getById(preguntaId: number) {
+        return firstValueFrom(
+            this.httpClient.get<Pregunta[]>(`${this.baseUrl}/preguntas/${preguntaId}`)
+        )
     }
 
     create(cursoid: number, Pregunta: Pregunta) {
@@ -53,6 +50,11 @@ export class PreguntasService {
     borrrarPregunta(preguntaId: number) {
         return firstValueFrom(
             this.httpClient.delete(`${this.baseUrl}/preguntas/borrar/${preguntaId}`)
+        )
+    }
+    editarOregunta(preguntaid: number, pregunta: Pregunta) {
+        return firstValueFrom(
+            this.httpClient.put(`${this.baseUrl}/preguntas/editar/${preguntaid}`, pregunta)
         )
     }
 }
