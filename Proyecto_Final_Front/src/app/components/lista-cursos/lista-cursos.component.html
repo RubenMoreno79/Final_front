@@ -1,4 +1,4 @@
-<h2 class="mt-4 text-success">Lista de Cursos Disponibles</h2>
+<h2 class="titulo mt-4 text-success">Lista de Cursos Disponibles</h2>
 
 <!-- TODO: lista automática de categorías -->
 <div class="filtros ">
@@ -16,17 +16,16 @@
 
 <div class="cursos row ">
     @for (curso of arrCursos; track curso.id) {
-    <div class="curso col-lg-3 mt-2 ">
-        <div class="card rounded">
+    <div class="curso col-lg-3 mt-4 ">
+        <div class="cardCurso card rounded">
 
-            <img [src]="curso.Imagen" class="card-img-top" alt="">
+            <img [src]="curso.Imagen" alt="" />
             <div class="card-body">
+                <h5 class="card-title">{{ curso.nombre }}</h5>
+                <p class="card-title"><strong>Horas:</strong> {{ curso.horas }}</p>
 
-                <h5 class="card-title text-success">{{ curso.nombre }}</h5>
-                <p class="font-weight-bold"><strong>Horas: {{ curso.horas }}</strong></p>
-
-                <p class="card-title">Categorias: {{ curso.categoria }}</p>
-                <p class="card-title">Contenido: {{ curso.descripcion }}</p>
+                <p class="card-title"><strong>Categorias:</strong> {{ curso.categoria }}</p>
+                <p class="card-title"><strong>Contenido: </strong>{{ curso.descripcion }}</p>
 
                 <a [routerLink]="['/cursos',curso.id]" class="btn btn-success mt-3 col-12">Ir al Curso</a>
             </div>

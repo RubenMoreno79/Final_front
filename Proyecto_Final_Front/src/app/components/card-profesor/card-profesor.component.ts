@@ -14,32 +14,32 @@ import { Profesor } from '../../interfaces/profesores.interface';
 })
 export class CardProfesorComponent {
   @Input() usuario: Usuario | null = null;
-  @Input() profesor: Profesor| null = null;
+  @Input() profesor: Profesor | null = null;
 
   usuariosService = inject(UsuariosService);
- profesoresService = inject(ProfesoresService)
+  profesoresService = inject(ProfesoresService)
 
   router = inject(Router);
 
   async ngOnInit() {
     const profesor: any = await this.profesoresService.getProfesor();
-    const usuario:any = await this.profesoresService.getProfesor2();
-      console.log(usuario);
- 
+    const usuario: any = await this.profesoresService.getProfesor2();
+    console.log(usuario);
+
     this.profesor = profesor[0];
     this.usuario = usuario[0];
-   
+
   }
 
 
   editarUsuario() {
     console.log('entra')
-    if (this.usuario?.rol==='profesor'){
-        this.router.navigateByUrl('/usuarios/profesor/editar');
-      
-    }else{
-       this.router.navigateByUrl('/alumnos/editar');
-           }
+    if (this.usuario?.rol === 'profesor') {
+      this.router.navigateByUrl('/usuarios/profesor/editar');
+
+    } else {
+      this.router.navigateByUrl('/usuarios/alumno/editar');
+    }
   }
 }
 

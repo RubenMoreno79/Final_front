@@ -1,3 +1,9 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+@import url(https://fonts.googleapis.com/css?family=Oswald:200,300,regular,500,600,700);
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic);
+
+
+
 img {
     display: block;
     height: auto;
@@ -8,7 +14,7 @@ img {
 }
 
 .card {
-    min-height: 400px;
+    min-height: 200px;
 }
 
 
@@ -22,6 +28,37 @@ article {
     height: 150px;
 }
 
-hr {
-    height: 4px;
+.card-body {
+    font-family: Oswald;
+    text-align: center;
+
+    & {
+        h5 {
+            color: rgba(68, 124, 84);
+            font-size: 22px;
+        }
+    }
+
+}
+
+
+.cardCurso {
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+    transition: .4s;
+
+
+
+    &:hover {
+        cursor: pointer;
+        box-shadow: 1px 5px 5px rgba(68, 124, 84);
+        transform: scale(1.05);
+    }
+}
+
+.filtros {
+    font-family: roboto;
 }

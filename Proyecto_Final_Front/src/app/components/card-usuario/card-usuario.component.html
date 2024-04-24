@@ -3,11 +3,12 @@
         <div class="col-md-10">
             @if (usuario) {
             <div class="usuario">
-                <div class="usuario-imagen">
-                    <img [src]="alumno!.foto" alt="" />
+                <div class="usuario-imagen  mt-5">
+                    <img [src]="alumno!.foto" class="rounded-circle" alt="" />
                 </div>
                 <div class="contenido">
-                    <h2>{{ usuario.nombre }} {{ usuario.apellidos }}</h2>
+                    <hr class="linea">
+                    <h2 class="">{{ usuario.nombre }} {{ usuario.apellidos }}</h2>
                     <p><strong>Username:</strong> {{ usuario.username }}</p>
                     <p><strong>Email:</strong> {{ usuario.email }}</p>
                     <p><strong>Rol:</strong> {{ usuario.rol }}</p>
@@ -16,7 +17,7 @@
                     <p><strong>Genero:</strong> {{ usuario.genero }}</p>
                     <p><strong>Interés:</strong> {{alumno!.campoInteres}}</p>
                     <button (click)="editarUsuario()"
-                        class="btn btn-light border border-success col-12 col-lg-2">Editar</button>
+                        class="btn btn-success border border-success col-12 col-lg-2">Editar</button>
                 </div>
             </div>
             }
