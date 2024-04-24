@@ -10,6 +10,7 @@
 
                 <p class="card-title">Categorias: {{ curso.categoria }}</p>
                 <p class="card-title">Contenido: {{ curso.descripcion }}</p>
+                <p class="card-title">Progreso: {{curso.progreso}}%</p>
 
                 <a [routerLink]="['/cursos',curso.id]" class="btn btn-success mt-3">Ir al curso</a>
             </div>

@@ -20,6 +20,7 @@
                 <a [routerLink]="'/usuarios/alumno/card'"
                     class="list-group-item list-group-item-action list-group-item-success">Volver a mi Perfil</a>
                 @for(tema of arrTemas; track $index){
+                @if(!isProfesor){
 
                 @if(progreso >= ((100 / arrTemas.length) * ($index))){ <input
                     [routerLink]="'/leccion/' + tema.id + '/' + ($index + 1)"
@@ -31,8 +32,15 @@
                     [value]="($index + 1) +' - '+ tema.tema" [disabled]="true">
                 }
 
+                }@else {
+                <input [routerLink]="'/leccion/' + tema.id + '/' + ($index + 1)"
+                    class="list-group-item list-group-item-action list-group-item-success"
+                    [value]="($index + 1) +' - '+ tema.tema">
 
                 }
+
+                }
+                @if(!isProfesor){
                 @if(!examenHabilitado){
                 <input [routerLink]="'/examen/' +  temario[0].curso_id" [disabled]="true"
                     class="list-group-item list-group-item-action list-group-item-danger" value="Examen Final">
@@ -40,6 +48,12 @@
                 <input [routerLink]="'/examen/' +  temario[0].curso_id" [disabled]="false"
                     class="list-group-item list-group-item-action list-group-item-success" value="Examen Final">
                 }
+
+                }@else {
+                <input [routerLink]="'/examen/' +  temario[0].curso_id" [disabled]="false"
+                    class="list-group-item list-group-item-action list-group-item-success" value="Examen Final">
+                }
+
 
             </div>
 
@@ -66,13 +80,22 @@
         <p>{{ temario[0].texto }}</p>
         <img [src]="temario[0].imagen" class="img-fluid rounded mx-auto d-block mt-4 mb-4" alt="Responsive image">
 
-        <button (click)="addLeccion()" class="btn btn-light border border-success col-12 col-lg-2">Añadir
-            lecciones</button>
-        <button (click)="completarLeccion()" class="btn btn-info">Completar leccion</button>
+        @if(isProfesor){
+        <div class="botones">
+            <button (click)="addLeccion()" class="btn btn-info border border-success col-12 col-lg-2">Añadir
+                lecciones ✏️</button>
+            <input class="btn btn-danger" value="Borrar Leccion 🗑️" (click)="borrarLeccion()">
+            <input class="btn btn-warning" value="Editar Leccions 🔧" (click)="editarLeccion()">
 
 
-        <input class="btn btn-danger" value="Borrar Leccion" (click)="borrarLeccion()">
-        <input class="btn btn-warning" value="Editar Leccions" (click)="editarLeccion()">
+        </div>
+
+        }@else {
+        <div class="botonContinuar">
+            <button (click)="completarLeccion()" class="btn btn-success">Completar leccion ➡️</button>
+        </div>
+        }
+
     </div>
     }@else {
     <p>El curso NO EXISTE</p>

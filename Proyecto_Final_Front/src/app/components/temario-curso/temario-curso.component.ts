@@ -34,7 +34,7 @@ export class TemarioCursoComponent {
     const respuesta = await this.TemarioService.create(this.formulario.value, this.cursoId)
     console.log(respuesta);
     console.log(this.cursoId);
-    this.router.navigateByUrl(`leccion/${respuesta.insertId}`)
+    this.router.navigateByUrl(`leccion/${respuesta.insertId}/1`)
   }
 
   ngOnInit() {

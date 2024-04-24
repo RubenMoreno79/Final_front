@@ -28,6 +28,7 @@ export class CardCursoComponent {
   examenHabilitado: boolean = false
   curso: Curso[] = []
   progreso: number = 0
+  isProfesor: boolean = false
 
   activatedRoute = inject(ActivatedRoute);
   temariosService = inject(TemariosService)
@@ -57,6 +58,7 @@ export class CardCursoComponent {
 
       if (rol.rol === 'profesor') {
         this.arrTemas = await this.temariosService.getAllLeccionesProfesor(this.temario[0].curso_id)
+        this.isProfesor = true
       } else if (rol.rol === 'alumno') {
         this.arrTemas = await this.temariosService.getAllLeccionesAlumno(this.temario[0].curso_id)
       }

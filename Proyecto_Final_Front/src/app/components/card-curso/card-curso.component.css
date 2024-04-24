@@ -5,3 +5,13 @@ p {
 ul {
     list-style: none;
 }
+
+.botonContinuar {
+    display: flex;
+    justify-content: end;
+}
+
+.botones {
+    display: flex;
+    justify-content: space-between;
+}
