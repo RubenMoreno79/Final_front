@@ -75,10 +75,10 @@ export class UsuariosService {
         )
     }
 
-    editProfesor(profesorId: number, profesor: any) {
-        profesor.id = profesor
+    editProfesor(profesor: any) {
+
         return firstValueFrom(
-            this.httpClient.put(`${this.baseUrl}/profesor/editar`, profesor)
+            this.httpClient.put(`${this.baseUrl}/profesores/editar`, profesor)
         )
     }
 

@@ -66,13 +66,4 @@ export const routes: Routes = [
     { path: 'newprofesor/:usuarios_id', component: ProfesorFormularioComponent },
 
 
-
-
-
-
-
-
-
-
-
 ];

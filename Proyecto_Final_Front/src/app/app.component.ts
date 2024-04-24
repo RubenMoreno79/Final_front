@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { NavigationEnd, Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { ListaCursosComponent } from './components/lista-cursos/lista-cursos.component';
 import { FormsModule } from '@angular/forms';
 import { NuevoCursoComponent } from './components/nuevo-curso/nuevo-curso.component';
@@ -32,6 +32,7 @@ import Swal from 'sweetalert2';
 })
 export class AppComponent {
   title = 'Proyecto_Final_Front';
+  show: boolean = false
   router = inject(Router);
   usuariosService = inject(UsuariosService);
 
@@ -39,5 +40,14 @@ export class AppComponent {
     localStorage.removeItem('token_crm');
     Swal.fire('Hasta pronto');
     this.router.navigateByUrl('/usuarios/login');
+  }
+  ngOnInit() {
+    console.log(this.router.url)
+    this.router.events.subscribe((event) => {
+
+      if (event instanceof NavigationEnd) {
+        this.show = !event.url.startsWith('/usuarios/profesor') && !event.url.startsWith('/usuarios/alumno')
+      }
+    });
   }
 }
