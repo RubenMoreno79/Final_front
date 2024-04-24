@@ -20,6 +20,7 @@ import { ExamenPreguntasComponent } from './components/examen-preguntas/examen-p
 import { ExamenComponent } from './components/examen/examen.component';
 import { UsuariosService } from './services/usuarios.service';
 import Swal from 'sweetalert2';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 
 
@@ -36,18 +37,47 @@ export class AppComponent {
   router = inject(Router);
   usuariosService = inject(UsuariosService);
 
-  onClickLogout() {
-    localStorage.removeItem('token_crm');
-    Swal.fire('Hasta pronto');
-    this.router.navigateByUrl('/usuarios/login');
+  // onClickLogout() {
+  //   localStorage.removeItem('token_crm');
+  //   Swal.fire('Hasta pronto');
+  //   this.router.navigateByUrl('/usuarios/login');
+  // }
+
+  obtenerDatosUsuario() {
+
+    const jwtHelper = new JwtHelperService();
+
+    const token = localStorage.getItem('token_crm');
+
+    const decodedToken = jwtHelper.decodeToken(token!);
+
+    return decodedToken;
+
   }
   ngOnInit() {
+
+
     console.log(this.router.url)
     this.router.events.subscribe((event) => {
 
       if (event instanceof NavigationEnd) {
         this.show = !event.url.startsWith('/usuarios/profesor') && !event.url.startsWith('/usuarios/alumno')
       }
+
+
     });
   }
+  miportal() {
+
+    const rol = this.obtenerDatosUsuario();
+    console.log(rol)
+    if (rol.rol === 'profesor') {
+      this.router.navigateByUrl('/usuarios/profesor');
+    } else if (rol.rol === 'alumno') {
+      this.router.navigateByUrl('/usuarios/alumno');
+
+    }
+
+  }
+
 }
