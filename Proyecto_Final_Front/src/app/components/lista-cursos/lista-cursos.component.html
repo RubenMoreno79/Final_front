@@ -3,15 +3,16 @@
 <!-- TODO: lista automática de categorías -->
 <div class="filtros ">
     <select (change)="onChange($event)" class="rounded col-12 col-lg-4 border border-success">
-        <option value="todas">Todas las Categorias</option>
-        <option value="Nombre1">Nombre1</option>
-        <option value="Nombre2">Nombre2</option>
-        <option value="Nombre3">Nombre3</option>
+        <option value="todas">Selecciona Categoría</option>
+        <option value="Ciber">Ciberseguridad</option>
+        <option value="Data">Data Science</option>
+        <option value="FullStack">Full Stack</option>
+        <option value="Marketing">Marketing Online</option>
 
     </select>
 </div>
 
-<hr>
+<hr class="text-success font-weight-bold">
 
 <div class="cursos row ">
     @for (curso of arrCursos; track curso.id) {
@@ -20,14 +21,14 @@
 
             <img [src]="curso.Imagen" class="card-img-top" alt="">
             <div class="card-body">
-                <img [src]="curso.Imagen" alt="" />
-                <h5 class="card-title">{{ curso.nombre }}</h5>
-                <p class="card-title">Horas: {{ curso.horas }}</p>
+
+                <h5 class="card-title text-success">{{ curso.nombre }}</h5>
+                <p class="font-weight-bold"><strong>Horas: {{ curso.horas }}</strong></p>
 
                 <p class="card-title">Categorias: {{ curso.categoria }}</p>
                 <p class="card-title">Contenido: {{ curso.descripcion }}</p>
 
-                <a [routerLink]="['/cursos',curso.id]" class="btn btn-success mt-3">Ir al Curso</a>
+                <a [routerLink]="['/cursos',curso.id]" class="btn btn-success mt-3 col-12">Ir al Curso</a>
             </div>
         </div>
 

@@ -3,7 +3,7 @@ img {
     height: auto;
     width: 100%;
     margin-bottom: 15px;
-    border-radius: 20px;
+
 
 }
 
@@ -20,4 +20,8 @@ section {
 article {
     width: 100%;
     height: 150px;
+}
+
+hr {
+    height: 4px;
 }
