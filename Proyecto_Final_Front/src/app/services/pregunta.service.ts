@@ -38,8 +38,10 @@ export class PreguntasService {
         return null;
     }
 
-    create(Pregunta: Pregunta) {
-        PREGUNTA.push(Pregunta);
+    create(cursoid: number, Pregunta: Pregunta) {
+        return firstValueFrom(
+            this.httpClient.post(`${this.baseUrl}/preguntas/nuevo/${cursoid}`, Pregunta)
+        )
     }
 
     enviarNota(nota: number, cursoId: Number) {

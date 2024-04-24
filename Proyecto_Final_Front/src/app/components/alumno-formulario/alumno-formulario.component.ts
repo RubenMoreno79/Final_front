@@ -26,7 +26,7 @@ export class AlumnoFormularioComponent {
 
 
   async onSubmit() {
-    //const respuesta = await this.AlumnoService.create(this.formulario.value, this.usuarios_id)
+    const respuesta = await this.AlumnoService.create(this.formulario.value, this.usuarios_id)
 
 
     this.router.navigateByUrl('')

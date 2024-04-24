@@ -48,7 +48,7 @@ export class ProfesoresService {
 
     }
 
-    create(Profesor: Profesor, usuarios_id: any) {
+    create(Profesor: Profesor, usuarios_id: number) {
         const body = { ...Profesor, usuarios_id }
         return firstValueFrom(
             this.httpClient.post(`${this.baseUrl}/profesores/nuevo`, body))

@@ -1,6 +1,6 @@
 import { Component, Inject, inject } from '@angular/core';
 import { Curso } from '../../interfaces/cursos.interface';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { CursosService } from '../../services/cursos.service';
 import { AlumnosService } from '../../services/alumnos.service';
 import { TemariosService } from '../../services/temarios.service';
@@ -11,7 +11,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 @Component({
   selector: 'detalle-curso',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './detalle-curso.component.html',
   styleUrl: './detalle-curso.component.css'
 })
@@ -63,6 +63,9 @@ export class DetalleCursoComponent {
 
   goToLecciones() {
     this.router.navigateByUrl(`leccion/${this.leccionId}`)
+  }
+  addLeccion() {
+    this.router.navigateByUrl(`temario/${this.cursoId}`)
   }
 
 
