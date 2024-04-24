@@ -126,7 +126,7 @@ export class ExamenComponent {
       Swal.fire('Examen suspendido', `Tu nota fue de ${resultado} vuelve a intentarlo`, 'error');
     }
 
-    this.router.navigateByUrl('')
+    this.router.navigateByUrl('/usuarios/alumno/logros')
   }
 
   borrarPregunta(preguntaId: number) {

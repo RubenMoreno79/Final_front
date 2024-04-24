@@ -5,6 +5,7 @@ import { TemariosService } from '../../services/temarios.service'
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import Swal from 'sweetalert2';
+import { AlumnosService } from '../../services/alumnos.service';
 
 
 
@@ -22,9 +23,12 @@ export class CardCursoComponent {
   arrTemas: Temario[] = []
   curso_id: Number = 0
   temarioId: number = 0
+  index: number = 0
+  examenHabilitado: boolean = false
 
   activatedRoute = inject(ActivatedRoute);
   temariosService = inject(TemariosService)
+  alumnosService = inject(AlumnosService)
   router = inject(Router)
   urlSafe: SafeResourceUrl = "";
 
@@ -54,6 +58,11 @@ export class CardCursoComponent {
         this.arrTemas = await this.temariosService.getAllLeccionesAlumno(this.temario[0].curso_id)
       }
       this.curso_id = this.temario[0].curso_id
+      const respuesta2 = await this.alumnosService.info(this.curso_id)
+      console.log(respuesta2[0].progreso)
+      if (respuesta2[0].progreso === 100) {
+        this.examenHabilitado = true
+      }
     });
   }
 
@@ -85,6 +94,16 @@ export class CardCursoComponent {
 
   editarLeccion() {
     this.router.navigateByUrl(`/editar/leccion/${this.temarioId}`)
+  }
+
+  async completarLeccion() {
+    this.activatedRoute.params.subscribe(async params => {
+      this.index = Number(params['index']);
+    })
+    const progreso = 100 / this.arrTemas.length * this.index
+
+    const respuesta = await this.alumnosService.newProgress(progreso, this.curso_id)
+
   }
 
 }

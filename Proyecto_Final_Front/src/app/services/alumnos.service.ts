@@ -46,4 +46,16 @@ export class AlumnosService {
     )
   };
 
+  newProgress(progreso: number, idcurso: Number) {
+    return firstValueFrom(
+      this.httpClient.put(`${this.baseUrl}/alumnoscursos/newprogress/${progreso}/${idcurso}`, {})
+    )
+  }
+
+  info(idcurso: Number) {
+    return firstValueFrom(
+      this.httpClient.get<Curso[]>(`${this.baseUrl}/alumnoscursos/info/${idcurso}`)
+    )
+  }
+
 };

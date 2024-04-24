@@ -52,7 +52,7 @@ export const routes: Routes = [
     },
 
     { path: 'temario/:cursoId', component: TemarioCursoComponent, canActivate: [authGuard] },
-    { path: 'leccion/:temarioId', component: CardCursoComponent, canActivate: [authGuard] },
+    { path: 'leccion/:temarioId/:index', component: CardCursoComponent, canActivate: [authGuard] },
     { path: 'usuarios/card', component: CardUsuarioComponent, canActivate: [authGuard] },
     { path: 'newpregunta/:cursoid', component: ExamenPreguntasComponent, canActivate: [authGuard] },
     { path: 'examen/:cursoid', component: ExamenComponent, canActivate: [authGuard] },

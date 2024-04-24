@@ -17,13 +17,15 @@
 
 
             <div class="list-group mt-4">
-                <a href="" class="list-group-item list-group-item-action list-group-item-light">Volver a mi Perfil</a>
+                <a [routerLink]="'/usuarios/alumno/card'"
+                    class="list-group-item list-group-item-action list-group-item-light">Volver a mi Perfil</a>
                 @for(tema of arrTemas; track $index){
-                <a [routerLink]="'/leccion/' + tema.id"
-                    class="list-group-item list-group-item-action list-group-item-light">{{$index}} - {{tema.tema}}</a>
+                <a [routerLink]="'/leccion/' + tema.id + '/' + ($index + 1)"
+                    class="list-group-item list-group-item-action list-group-item-light">{{$index + 1}} -
+                    {{tema.tema}}</a>
                 }
-                <a [routerLink]="'/examen/' + temario[0].curso_id"
-                    class="list-group-item list-group-item-action list-group-item-light">Examen Final</a>
+                <input [routerLink]="'/examen/' +  temario[0].curso_id" [disabled]="!examenHabilitado"
+                    class="list-group-item list-group-item-action list-group-item-light" value="Examen Final">
             </div>
 
         </div>
@@ -51,6 +53,7 @@
 
         <button (click)="addLeccion()" class="btn btn-light border border-success col-12 col-lg-2">Añadir
             lecciones</button>
+        <button (click)="completarLeccion()" class="btn btn-info">Completar leccion</button>
 
         <nav aria-label="text-success mt-4">
             <ul class="pagination justify-content-center">

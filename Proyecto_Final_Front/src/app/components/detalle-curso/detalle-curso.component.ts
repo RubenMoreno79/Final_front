@@ -63,7 +63,7 @@ export class DetalleCursoComponent {
   };
 
   goToLecciones() {
-    this.router.navigateByUrl(`leccion/${this.leccionId}`)
+    this.router.navigateByUrl(`leccion/${this.leccionId}/1`)
   }
   addLeccion() {
     this.router.navigateByUrl(`temario/${this.cursoId}`)
