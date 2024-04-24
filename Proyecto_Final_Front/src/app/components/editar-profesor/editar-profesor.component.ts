@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { UsuariosService } from '../../services/usuarios.service';
 import { ProfesoresService } from '../../services/profesores.service';
 import dayjs from 'dayjs';
@@ -17,6 +17,7 @@ export class EditarProfesorComponent {
 
   usuariosService = inject(UsuariosService);
   profesoresService = inject(ProfesoresService)
+  router = inject(Router)
 
   profesor: any | null = null
   profesor2: any | null = null
@@ -35,7 +36,7 @@ export class EditarProfesorComponent {
     especialidad: new FormControl(null),
     foto: new FormControl(null),
   });
-  router: any;
+
 
 
 
@@ -68,9 +69,8 @@ export class EditarProfesorComponent {
 
   async onSubmit() {
     console.log(this.profesor[0].id)
-    const respuesta = await this.usuariosService.editProfesor(this.profesor[0].id, this.formulario.value)
-
-    console.log(respuesta)
+    const respuesta = await this.usuariosService.editProfesor(this.formulario.value)
+    this.router.navigateByUrl('/usuarios/profesor/card')
   }
 
 }

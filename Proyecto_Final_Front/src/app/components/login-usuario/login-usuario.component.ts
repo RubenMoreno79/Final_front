@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { UsuariosService } from '../../services/usuarios.service';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'login-usuario',
@@ -13,6 +14,7 @@ import Swal from 'sweetalert2';
 export class LoginUsuarioComponent {
 
   usuariosService = inject(UsuariosService)
+  router = inject(Router);
 
   formulario: FormGroup = new FormGroup({
     email: new FormControl(),
@@ -22,6 +24,7 @@ export class LoginUsuarioComponent {
 
   async onSubmit() {
     const response = await this.usuariosService.login(this.formulario.value);
+    this.router.navigateByUrl('/home');
 
     // Comprobamos la respuesta
     if (response.success) {

@@ -1,5 +1,7 @@
 <div class="container ">
 
+
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-center bg-white mb-1">
         <div class="navbar-brand" [routerLink]="['/home']" routerLinkActive="activo"
             [routerLinkActiveOptions]="{ exact: true }">
@@ -25,14 +27,14 @@
                 <div class="login nav-link" [routerLink]="['/usuarios', 'login']" routerLinkActive="activo"
                     [routerLinkActiveOptions]="{ exact: true }">Login </div>
             </li>
-            <button (click)="onClickLogout()" class="btn btn-light mt-3 p-2 col-12 col-lg-2 mx-1 border border-success"
-                [routerLink]="['/home']" routerLinkActive="activo"
-                [routerLinkActiveOptions]="{ exact: true }">Logout</button>
+            <button (click)="miportal()" class="btn btn-light border border-success col-12 col-lg-2">Mi portal</button>
+
 
         </ul>
 
     </nav>
 
+    @if(show){
     <header class="bg-success text-white mt-1">
         <ul class="enlaces list-group list-group-horizontal justify-content-center ">
             <li class="mx-3 pt-2"><a [routerLink]="['/cursos']" routerLinkActive="activo"
@@ -47,6 +49,7 @@
 
         </ul>
     </header>
+    }
 
 
     <router-outlet></router-outlet>

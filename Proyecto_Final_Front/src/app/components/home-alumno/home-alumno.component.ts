@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import Swal from 'sweetalert2';
+import { UsuariosService } from '../../services/usuarios.service';
 
 @Component({
   selector: 'home-alumno',
@@ -9,4 +11,13 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
   styleUrl: './home-alumno.component.css'
 })
 export class HomeAlumnoComponent {
+
+  router = inject(Router);
+  usuariosService = inject(UsuariosService);
+
+  onClickLogout() {
+    localStorage.removeItem('token_crm');
+    Swal.fire('Hasta pronto');
+    this.router.navigateByUrl('/usuarios/login');
+  }
 }
