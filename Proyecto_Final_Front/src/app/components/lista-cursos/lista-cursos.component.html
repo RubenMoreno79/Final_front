@@ -3,10 +3,11 @@
 <!-- TODO: lista automática de categorías -->
 <div class="filtros ">
     <select (change)="onChange($event)" class="rounded col-12 col-lg-4 border border-success">
-        <option value="todas">Todas las Categorias</option>
-        <option value="Nombre1">Nombre1</option>
-        <option value="Nombre2">Nombre2</option>
-        <option value="Nombre3">Nombre3</option>
+        <option selected>Selecciona Categoría</option>
+        <option value="Ciber">Ciberseguridad</option>
+        <option value="Data">Data Science</option>
+        <option value="FullStack">Full Stack</option>
+        <option value="Marketing">Marketing Online</option>
 
     </select>
 </div>
@@ -18,7 +19,7 @@
     <div class="curso col-lg-3 mt-2 ">
         <div class="card rounded">
 
-            <img [src]="curso.imagen" class="card-img-top" alt="">
+            <img [src]="curso.Imagen" class="card-img-top" alt="">
             <div class="card-body">
                 <img [src]="curso.Imagen" alt="" />
                 <h5 class="card-title">{{ curso.nombre }}</h5>
