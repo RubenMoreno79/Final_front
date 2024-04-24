@@ -18,14 +18,29 @@
 
             <div class="list-group mt-4">
                 <a [routerLink]="'/usuarios/alumno/card'"
-                    class="list-group-item list-group-item-action list-group-item-light">Volver a mi Perfil</a>
+                    class="list-group-item list-group-item-action list-group-item-success">Volver a mi Perfil</a>
                 @for(tema of arrTemas; track $index){
-                <a [routerLink]="'/leccion/' + tema.id + '/' + ($index + 1)"
-                    class="list-group-item list-group-item-action list-group-item-light">{{$index + 1}} -
-                    {{tema.tema}}</a>
+
+                @if(progreso >= ((100 / arrTemas.length) * ($index))){ <input
+                    [routerLink]="'/leccion/' + tema.id + '/' + ($index + 1)"
+                    class="list-group-item list-group-item-action list-group-item-success"
+                    [value]="($index + 1) +' - '+ tema.tema">
+                }@else {
+                <input [routerLink]="'/leccion/' + tema.id + '/' + ($index + 1)"
+                    class="list-group-item list-group-item-action list-group-item-danger"
+                    [value]="($index + 1) +' - '+ tema.tema" [disabled]="true">
                 }
-                <input [routerLink]="'/examen/' +  temario[0].curso_id" [disabled]="!examenHabilitado"
-                    class="list-group-item list-group-item-action list-group-item-light" value="Examen Final">
+
+
+                }
+                @if(!examenHabilitado){
+                <input [routerLink]="'/examen/' +  temario[0].curso_id" [disabled]="true"
+                    class="list-group-item list-group-item-action list-group-item-danger" value="Examen Final">
+                }@else {
+                <input [routerLink]="'/examen/' +  temario[0].curso_id" [disabled]="false"
+                    class="list-group-item list-group-item-action list-group-item-success" value="Examen Final">
+                }
+
             </div>
 
         </div>
@@ -55,16 +70,7 @@
             lecciones</button>
         <button (click)="completarLeccion()" class="btn btn-info">Completar leccion</button>
 
-        <nav aria-label="text-success mt-4">
-            <ul class="pagination justify-content-center">
-                <!-- <li class="page-item "><a class="page-link" href="#">Anterior</a></li> -->
-                @for(tema of arrTemas; track $index){
-                <li class="page-item"><a class="page-link" [routerLink]="'/leccion/'+tema.id" href="#">{{$index +
-                        1}}</a></li>
-                }
-                <!-- <li class="page-item"><a class="page-link" href="#">Siguiente</a></li> -->
-            </ul>
-        </nav>
+
         <input class="btn btn-danger" value="Borrar Leccion" (click)="borrarLeccion()">
         <input class="btn btn-warning" value="Editar Leccions" (click)="editarLeccion()">
     </div>

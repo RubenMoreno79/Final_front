@@ -6,6 +6,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import Swal from 'sweetalert2';
 import { AlumnosService } from '../../services/alumnos.service';
+import { Curso } from '../../interfaces/cursos.interface';
 
 
 
@@ -25,6 +26,8 @@ export class CardCursoComponent {
   temarioId: number = 0
   index: number = 0
   examenHabilitado: boolean = false
+  curso: Curso[] = []
+  progreso: number = 0
 
   activatedRoute = inject(ActivatedRoute);
   temariosService = inject(TemariosService)
@@ -58,9 +61,10 @@ export class CardCursoComponent {
         this.arrTemas = await this.temariosService.getAllLeccionesAlumno(this.temario[0].curso_id)
       }
       this.curso_id = this.temario[0].curso_id
-      const respuesta2 = await this.alumnosService.info(this.curso_id)
-      console.log(respuesta2[0].progreso)
-      if (respuesta2[0].progreso === 100) {
+      this.curso = await this.alumnosService.info(this.curso_id)
+      this.progreso = this.curso[0].progreso
+      console.log(this.curso[0].progreso)
+      if (this.curso[0].progreso === 100) {
         this.examenHabilitado = true
       }
     });
@@ -103,6 +107,12 @@ export class CardCursoComponent {
     const progreso = 100 / this.arrTemas.length * this.index
 
     const respuesta = await this.alumnosService.newProgress(progreso, this.curso_id)
+    if (this.arrTemas.length === this.index) {
+      this.router.navigateByUrl(`examen/${this.curso_id}`)
+
+    } else {
+      this.router.navigateByUrl(`leccion/${this.arrTemas[this.index].id}/${this.index + 1}`)
+    }
 
   }
 
