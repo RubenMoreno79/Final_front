@@ -1,10 +1,10 @@
 <div class="cursos row ">
     @for (curso of arrCursos; track curso.id) {
-    <div class="curso col-lg-3 mt-2 ">
-        <div class="card rounded">
+    <div class="curso col-lg-3 mt-4 ">
+        <div class="cardCurso card rounded">
 
+            <img [src]="curso.Imagen" alt="" />
             <div class="card-body">
-                <img [src]="curso.Imagen" alt="" />
                 <h5 class="card-title">{{ curso.nombre }}</h5>
                 <p class="card-title">Horas: {{ curso.horas }}</p>
 
