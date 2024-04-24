@@ -20,7 +20,7 @@ export class DetalleCursoComponent {
   curso: Curso[] = []
   leccionId: Number = 0
 
-  cursoId: Number = 0;
+  cursoId: number = 0;
 
   activatedRoute = inject(ActivatedRoute);
   cursosService = inject(CursosService);
@@ -67,7 +67,9 @@ export class DetalleCursoComponent {
   addLeccion() {
     this.router.navigateByUrl(`temario/${this.cursoId}`)
   }
-
+  borrarCurso() {
+    this.cursosService.borrarCurso(this.cursoId)
+  }
 
 
 }
