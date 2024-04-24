@@ -37,7 +37,7 @@ export class CardUsuarioComponent {
       this.router.navigateByUrl('/profesores/editar');
 
     } else {
-      this.router.navigateByUrl('/alumnos/editar');
+      this.router.navigateByUrl('/usuarios/alumno/editar');
     }
   }
 }

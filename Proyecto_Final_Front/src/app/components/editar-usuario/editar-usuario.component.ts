@@ -1,9 +1,10 @@
 import { Component, Input, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UsuariosService } from '../../services/usuarios.service';
 import dayjs from 'dayjs';
 import { AlumnosService } from '../../services/alumnos.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-editar-usuario',
@@ -21,6 +22,8 @@ export class EditarUsuarioComponent {
 
   alumnosService = inject(AlumnosService);
 
+  router = inject(Router)
+
 
   alumno: any | null = null
   alumno2: any | null = null
@@ -36,7 +39,6 @@ export class EditarUsuarioComponent {
     genero: new FormControl(null, Validators.required),
     campoInteres: new FormControl(null, Validators.required)
   });
-  router: any;
 
 
 
@@ -67,8 +69,8 @@ export class EditarUsuarioComponent {
   async onSubmit() {
     console.log(this.alumno[0].id)
     const respuesta = await this.usuariosService.editAlumno(this.alumno[0].id, this.formulario.value)
+    this.router.navigateByUrl('/usuarios/alumno/card');
 
-    console.log(respuesta)
   };
 
   checkError(controlName: string, errorName: string) {
