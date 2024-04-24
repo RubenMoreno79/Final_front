@@ -36,7 +36,7 @@ export const routes: Routes = [
     { path: 'usuarios/nuevo', component: NuevoUsuarioComponent },
     { path: 'usuarios/login', component: LoginUsuarioComponent },
     {
-        path: 'usuarios/alumno', component: HomeAlumnoComponent, canActivate: [authGuard],
+        path: 'usuarios/alumno', component: HomeAlumnoComponent,
         children: [
             { path: 'card', component: CardUsuarioComponent, canActivate: [authGuard] },
             { path: 'miscursos', component: MisCursosComponent, canActivate: [authGuard] },
@@ -51,7 +51,6 @@ export const routes: Routes = [
     { path: 'usuarios/card', component: CardUsuarioComponent, canActivate: [authGuard] },
     { path: 'newpregunta/:cursoid', component: ExamenPreguntasComponent, canActivate: [authGuard] },
     { path: 'examen/:cursoid', component: ExamenComponent, canActivate: [authGuard] },
-    { path: 'usuarios/alumno', component: HomeAlumnoComponent },
     {
         path: 'usuarios/profesor', component: HomeProfesorComponent,
         children: [
@@ -63,9 +62,10 @@ export const routes: Routes = [
 
         ]
     },
+    { path: 'newalumno/:usuarios_id', component: AlumnoFormularioComponent },
+    { path: 'newprofesor/:usuarios_id', component: ProfesorFormularioComponent },
 
-    { path: 'newpregunta/:cursoid', component: ExamenPreguntasComponent },
-    { path: 'examen/:cursoid', component: ExamenComponent },
+
 
 
 

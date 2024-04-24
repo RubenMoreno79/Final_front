@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Temario } from '../../interfaces/temario.interface';
 import { TemariosService } from '../../services/temarios.service'
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
@@ -20,29 +20,30 @@ export class CardCursoComponent {
   temario: Temario[] | null = null
   arrTemas: Temario[] = []
   curso_id: Number = 0
+  temarioId: number = 0
 
   activatedRoute = inject(ActivatedRoute);
   temariosService = inject(TemariosService)
-  router: any;
+  router = inject(Router)
   urlSafe: SafeResourceUrl = "";
 
   constructor(public sanitizer: DomSanitizer) {
 
   }
   obtenerDatosUsuario() {
-    const jwtHelper = new JwtHelperService(); // Crear una instancia de JwtHelperService
-    const token = localStorage.getItem('token_crm'); // Obtener el token de tu almacenamiento (ej. localStorage)
+    const jwtHelper = new JwtHelperService();
+    const token = localStorage.getItem('token_crm');
     const decodedToken = jwtHelper.decodeToken(token!);
-    return decodedToken; // Aquí puedes ver los datos del usuario
+    return decodedToken;
   }
 
-  //TODO: Acabar bien toda la funcionalidad de este componente, tanto para alumnos como para profesores.
+
   ngOnInit() {
     const rol = this.obtenerDatosUsuario()
     this.activatedRoute.params.subscribe(async params => {
-      const temarioId = Number(params['temarioId']);
+      this.temarioId = Number(params['temarioId']);
 
-      this.temario = await this.temariosService.getById(temarioId);
+      this.temario = await this.temariosService.getById(this.temarioId);
       console.log(this.temario[0].curso_id)
 
       this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.temario[0].video)
@@ -57,4 +58,9 @@ export class CardCursoComponent {
     });
 
   }
+
+  addLeccion() {
+    this.router.navigateByUrl(`temario/${this.temario![0].curso_id}`)
+  }
+
 }

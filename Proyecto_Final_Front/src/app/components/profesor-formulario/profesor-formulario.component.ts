@@ -20,7 +20,7 @@ export class ProfesorFormularioComponent {
     foto: new FormControl(),
   })
 
-  usuarios_id: Number = 0;
+  usuarios_id: number = 0;
   ProfesorService = inject(ProfesoresService);
   router = inject(Router);
   activatedRoute = inject(ActivatedRoute);

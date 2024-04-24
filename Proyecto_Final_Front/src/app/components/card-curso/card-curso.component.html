@@ -22,7 +22,7 @@
                 <a href="" [routerLink]="'/leccion/' + tema.id"
                     class="list-group-item list-group-item-action list-group-item-light">{{$index}} - {{tema.tema}}</a>
                 }
-                <a href="" [routerLink]="'/examen/' + curso_id"
+                <a href="" [routerLink]="'/examen/' + temario[0].curso_id"
                     class="list-group-item list-group-item-action list-group-item-light">Examen Final</a>
             </div>
 
@@ -49,6 +49,8 @@
         <p>{{ temario[0].texto }}</p>
         <img [src]="temario[0].imagen" class="img-fluid rounded mx-auto d-block mt-4 mb-4" alt="Responsive image">
 
+        <button (click)="addLeccion()" class="btn btn-light border border-success col-12 col-lg-2">Añadir
+            lecciones</button>
 
         <nav aria-label="text-success mt-4">
             <ul class="pagination justify-content-center">
@@ -60,7 +62,6 @@
                 <!-- <li class="page-item"><a class="page-link" href="#">Siguiente</a></li> -->
             </ul>
         </nav>
-
     </div>
     }@else {
     <p>El curso NO EXISTE</p>

@@ -48,6 +48,10 @@ export class CursosService {
 
   }
 
+  borrarCurso(cursoid: number) {
+    return firstValueFrom(this.httpClient.delete(`${this.baseUrl}/cursos/${cursoid}`))
+  }
+
 
 
 }

@@ -93,9 +93,9 @@ export class ExamenComponent {
       this.formulario.value.valor = 0
     }
   }
-  //todo: cambiar la url para que sea para cualquier examen
+
   goToPreguntas() {
-    this.router.navigateByUrl('newpregunta/16')
+    this.router.navigateByUrl(`newpregunta/${this.cursoId}`)
   }
   onSubmit() {
     if (this.formulario.value.valor === 1) {

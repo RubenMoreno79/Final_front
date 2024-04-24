@@ -19,22 +19,12 @@ export class CursosProfesorComponent {
   async ngOnInit() {
     console.log('entra')
 
-<<<<<<< HEAD
     this.arrCursosProfesor = await this.profesoresService.getMisCursos();
-=======
-
-    this.arrCursosProfesor = await this.profesoresService.getMisCursos();
-    console.log(this.arrCursosProfesor)
->>>>>>> a2fdf6351056fcfc35202369f56f4ae242db49c1
 
 
 
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a2fdf6351056fcfc35202369f56f4ae242db49c1
   }
 
 

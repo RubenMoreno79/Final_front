@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 import { Curso } from '../interfaces/cursos.interface';
-import { ALUMNO } from '../data/alumno.data'
 import { Alumno } from '../interfaces/alumno.interface';
 
 @Injectable({
@@ -21,6 +20,13 @@ export class AlumnosService {
       this.httpClient.post(`${this.baseUrl}/alumnoscursos/nuevo/${cursoId}`, {}))
 
   };
+
+  create(alumno: Alumno, usuarios_id: Number) {
+    const body = { ...alumno, usuarios_id }
+    return firstValueFrom(
+      this.httpClient.post(`${this.baseUrl}/alumnos/nuevo`, body)
+    )
+  }
 
   getCurso(cursoId: Number) {
     return firstValueFrom(
