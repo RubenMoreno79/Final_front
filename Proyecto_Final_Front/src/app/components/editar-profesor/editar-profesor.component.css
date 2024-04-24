@@ -1,0 +1,9 @@
+.error {
+    color: rgb(219, 2, 2);
+    font-size: 0.9rem;
+}
+
+.ficha {
+    flex-grow: 1;
+    margin-left: 20px;
+}

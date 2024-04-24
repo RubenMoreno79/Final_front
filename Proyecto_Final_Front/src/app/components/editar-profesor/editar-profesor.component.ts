@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { UsuariosService } from '../../services/usuarios.service';
 import { ProfesoresService } from '../../services/profesores.service';
@@ -25,16 +25,16 @@ export class EditarProfesorComponent {
 
 
   formulario: FormGroup = new FormGroup({
-    nombre: new FormControl(null),
-    apellidos: new FormControl(null),
-    username: new FormControl(null),
-    fecha_nacimiento: new FormControl(null),
-    telefono: new FormControl(null),
-    genero: new FormControl(null),
-    experiencia: new FormControl(null),
-    descripcion_experiencia: new FormControl(null),
-    especialidad: new FormControl(null),
-    foto: new FormControl(null),
+    nombre: new FormControl(null, Validators.required),
+    apellidos: new FormControl(null, Validators.required),
+    username: new FormControl(null, Validators.required),
+    fecha_nacimiento: new FormControl(null, Validators.required),
+    telefono: new FormControl(null, Validators.required),
+    genero: new FormControl(null, Validators.required),
+    experiencia: new FormControl(null, Validators.required),
+    descripcion_experiencia: new FormControl(null, Validators.required),
+    especialidad: new FormControl(null, Validators.required),
+    foto: new FormControl(null, Validators.required),
   });
 
 
@@ -72,6 +72,11 @@ export class EditarProfesorComponent {
     const respuesta = await this.usuariosService.editProfesor(this.formulario.value)
     this.router.navigateByUrl('/usuarios/profesor/card')
   }
+
+  checkError(controlName: string, errorName: string) {
+    return this.formulario.get(controlName)!.hasError(errorName) &&
+      this.formulario.get(controlName)!.touched;
+  };
 
 }
 

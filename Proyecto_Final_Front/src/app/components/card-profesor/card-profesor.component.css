@@ -1,0 +1,54 @@
+@import url(https://fonts.googleapis.com/css?family=Oswald:200,300,regular,500,600,700);
+
+h2 {
+    color: rgb(25, 135, 84);
+    font-family: oswald;
+    font-size: 45px;
+    margin-left: 20px;
+}
+
+p {
+    font-family: oswald;
+    line-height: 14px;
+    margin-left: 20px;
+}
+
+.usuario {
+    display: flex;
+}
+
+.usuario-imagen {
+    margin-right: 30px;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    padding: 10px;
+    border: 1px solid rgb(25, 135, 84);
+    background-color: white;
+    box-shadow: 0 0 0 10px white;
+    border-radius: 50%;
+
+}
+
+.contenido {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    position: relative;
+
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.linea {
+    position: absolute;
+    height: 77%;
+    width: 3px;
+    background-color: rgb(25, 135, 84);
+
+}
