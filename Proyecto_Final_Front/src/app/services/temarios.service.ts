@@ -54,4 +54,10 @@ export class TemariosService {
             this.httpClient.delete(`${this.baseUrl}/lecciones/delete/${leccionId}`)
         )
     }
+
+    editarLeccion(leccionid: number, body: any) {
+        return firstValueFrom(
+            this.httpClient.put(`${this.baseUrl}/lecciones/update/${leccionid}`, body)
+        )
+    }
 }

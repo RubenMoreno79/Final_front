@@ -44,8 +44,6 @@ export class EditarCursoComponent {
       contenido: respuesta[0].contenido,
       Imagen: respuesta[0].Imagen,
     })
-
-
   }
 
 

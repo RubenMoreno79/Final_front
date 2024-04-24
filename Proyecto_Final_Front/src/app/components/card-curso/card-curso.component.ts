@@ -43,20 +43,18 @@ export class CardCursoComponent {
     const rol = this.obtenerDatosUsuario()
     this.activatedRoute.params.subscribe(async params => {
       this.temarioId = Number(params['temarioId']);
+      this.temario = await this.temariosService.getById(this.temarioId);
 
 
-    }); this.temario = await this.temariosService.getById(this.temarioId);
+      this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.temario[0].video)
 
-    this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.temario[0].video)
-
-    if (rol.rol === 'profesor') {
-      this.arrTemas = await this.temariosService.getAllLeccionesProfesor(this.temario[0].curso_id)
-    } else if (rol.rol === 'alumno') {
-      this.arrTemas = await this.temariosService.getAllLeccionesAlumno(this.temario[0].curso_id)
-    }
-    this.curso_id = this.temario[0].curso_id
-
-    console.log(this.arrTemas[0])
+      if (rol.rol === 'profesor') {
+        this.arrTemas = await this.temariosService.getAllLeccionesProfesor(this.temario[0].curso_id)
+      } else if (rol.rol === 'alumno') {
+        this.arrTemas = await this.temariosService.getAllLeccionesAlumno(this.temario[0].curso_id)
+      }
+      this.curso_id = this.temario[0].curso_id
+    });
   }
 
   addLeccion() {
@@ -83,6 +81,10 @@ export class CardCursoComponent {
         this.router.navigateByUrl(`cursos/${this.arrTemas[0].curso_id}`)
       }
     });
+  }
+
+  editarLeccion() {
+    this.router.navigateByUrl(`/editar/leccion/${this.temarioId}`)
   }
 
 }
