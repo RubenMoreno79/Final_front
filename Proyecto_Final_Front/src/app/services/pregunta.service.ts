@@ -57,4 +57,10 @@ export class PreguntasService {
             this.httpClient.put(`${this.baseUrl}/preguntas/editar/${preguntaid}`, pregunta)
         )
     }
+
+    isFinish(cursoid: number) {
+        return firstValueFrom(
+            this.httpClient.put(`${this.baseUrl}/alumnoscursos/finish/${cursoid}`, {})
+        )
+    }
 }

@@ -26,6 +26,7 @@ import { CursosProfesorComponent } from './components/cursos-profesor/cursos-pro
 import { EditarCursoComponent } from './componets/editar-curso/editar-curso.component';
 import { EditarLeccionesComponent } from './componets/editar-lecciones/editar-lecciones.component';
 import { EditarPreguntasComponent } from './components/editar-preguntas/editar-preguntas.component';
+import { LogrosComponent } from './components/logros/logros.component';
 
 
 
@@ -45,6 +46,7 @@ export const routes: Routes = [
             { path: 'miscursos', component: MisCursosComponent, canActivate: [authGuard] },
             { path: 'editar', component: EditarUsuarioComponent, canActivate: [authGuard] },
             { path: 'buscarnuevocurso', component: ListaCursosComponent, canActivate: [authGuard] },
+            { path: 'logros', component: LogrosComponent, canActivate: [authGuard] }
 
         ]
     },

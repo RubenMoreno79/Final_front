@@ -7,6 +7,10 @@ export interface Curso {
     Imagen: string,
     descripcion: string,
     contenido: string,
+    nota: number,
+    finalizado: number,
+    progreso: number
+
 
 
 }

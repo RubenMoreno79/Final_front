@@ -16,7 +16,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 })
 export class ExamenComponent {
 
-  cursoId: Number = 0
+  cursoId: number = 0
   resultadoExamen: Number[] = []
   nota: number = 0
 
@@ -121,6 +121,7 @@ export class ExamenComponent {
     if (resultado >= 5) {
       Swal.fire('Examen aprobado', `Felicidades tu nota es de ${resultado}`, 'success');
       this.preguntasService.enviarNota(resultado, this.cursoId)
+      this.preguntasService.isFinish(this.cursoId)
     } else {
       Swal.fire('Examen suspendido', `Tu nota fue de ${resultado} vuelve a intentarlo`, 'error');
     }
