@@ -89,5 +89,9 @@ export class DetalleCursoComponent {
     });
   }
 
+  editarCurso() {
+    this.router.navigateByUrl(`editar/curso/${this.cursoId}`)
+  }
+
 
 }

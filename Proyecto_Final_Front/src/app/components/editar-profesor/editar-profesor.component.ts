@@ -44,7 +44,7 @@ export class EditarProfesorComponent {
 
     const respuesta = await this.usuariosService.getProfesor();
     const respuesta2 = await this.profesoresService.getProfesor();
-    console.log(respuesta2)
+
 
 
     this.profesor = respuesta;

@@ -52,6 +52,10 @@ export class CursosService {
     return firstValueFrom(this.httpClient.delete(`${this.baseUrl}/cursos/${cursoid}`))
   }
 
+  editarCurso(cursoid: number, body: any) {
+    return firstValueFrom(this.httpClient.put(`${this.baseUrl}/cursos/${cursoid}`, body))
+  }
+
 
 
 }
