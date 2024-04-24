@@ -1,16 +1,16 @@
 @if (curso[0]) {
 
 <div class="curso">
-    <h2 class="mt-4 text-center">{{ curso[0].nombre }}</h2>
     <div clase="imagen">
 
         <img [src]="curso[0].Imagen" class="img-fluid rounded mx-auto d-block mt-4" alt="Responsive image">
     </div>
-    <h3 class="mt-4">Horas de Duración:</h3>
+    <h2 class="mt-4 text-left">{{ curso[0].nombre }}</h2>
+    <h5 class="mt-4 mb-1">Horas de Duración:</h5>
     <p>Tiempo estimado de realización {{ curso[0].horas }}h</p>
-    <h3 class="mt-4">Descripción del curso: </h3>
+    <h5 class="mt-4 mb-1">Descripción del curso: </h5>
     <p>{{ curso[0].descripcion }}</p>
-    <h3 class="mt-4">Contenido del curso </h3>
+    <h5 class="mt-4 mb-1">Contenido del curso </h5>
     <p class="contenido">{{ curso[0].contenido }}</p>
     <button (click)="addCurso()" class="btn btn-light border border-success col-12 col-lg-2">Añadir</button>
     <button (click)="goToLecciones()" class="btn btn-light border border-success col-12 col-lg-2">Ver el curso</button>

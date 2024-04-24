@@ -22,7 +22,7 @@ export class EditarUsuarioComponent {
 
   alumnosService = inject(AlumnosService);
 
-  router = inject(Router)
+  router = inject(Router);
 
 
   alumno: any | null = null

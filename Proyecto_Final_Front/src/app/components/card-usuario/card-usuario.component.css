@@ -26,7 +26,7 @@ p {
     border: 1px solid rgb(25, 135, 84);
     background-color: white;
     box-shadow: 0 0 0 10px white;
-    border-radius: 5px;
+    border-radius: 50%;
 
 }
 
