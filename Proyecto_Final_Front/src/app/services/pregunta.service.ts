@@ -49,4 +49,10 @@ export class PreguntasService {
             this.httpClient.put(`${this.baseUrl}/alumnoscursos/nota/${nota}/${cursoId}`, {})
         )
     }
+
+    borrrarPregunta(preguntaId: number) {
+        return firstValueFrom(
+            this.httpClient.delete(`${this.baseUrl}/preguntas/borrar/${preguntaId}`)
+        )
+    }
 }
