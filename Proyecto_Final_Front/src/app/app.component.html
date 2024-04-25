@@ -2,39 +2,30 @@
 
 
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-center bg-white mb-1">
-        <div class="navbar-brand" [routerLink]="['/home']" routerLinkActive="activo"
+    <section class="row just justify-content-center ">
+        <div class="col-3" [routerLink]="['/home']" routerLinkActive="activo"
             [routerLinkActiveOptions]="{ exact: true }">
-            <img class="logo"
+            <img class="logo mx-lg-2"
                 src="https://trello.com/1/cards/661924093f54d924ae84872c/attachments/661d44bf0fcbdba13294e36c/previews/661d44c00fcbdba13294e3bb/download/logo_pequar_horizontal.jpg"
                 width="120" height="70" alt="">
         </div>
-        <div class="row mx-5 col-lg-6">
-            <form class=" my-2 col-8">
-                <input class="form-control" type="search" aria-label="Search">
-
-            </form>
-            <button class="btn  col-2" type="submit">Buscar</button>
+        <div class="col-12 col-lg-4">
+            <div class="container-fluid">
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Buscar</button>
+                </form>
+            </div>
         </div>
-        <ul class="navbar-nav mt-2">
-            <li class=" nav-item active">
-                <div class="registrar nav-link" [routerLink]="['/usuarios', 'nuevo']" routerLinkActive="activo"
-                    [routerLinkActiveOptions]="{ exact: true }">
-                    Registrate
-                </div>
-            </li>
-            <li class="nav-item active mt-2">|</li>
-            <li class="nav-item active">
-                <div class="login nav-link" [routerLink]="['/usuarios', 'login']" routerLinkActive="activo"
-                    [routerLinkActiveOptions]="{ exact: true }">Login </div>
-            </li>
-            <button (click)="miportal()" class="btn btn-dark border border-success col-12 col-lg-5">Mi
-                portal</button>
+        <div class="col-12 col-lg-5 ">
+            <button type="button" class="btn btn-light col-12 col-lg-3" [routerLink]="['/usuarios', 'nuevo']"
+                routerLinkActive="activo" [routerLinkActiveOptions]="{ exact: true }">Registrate</button>
+            <button type="button" class="btn btn-light mx-lg-1 col-12 col-lg-3" [routerLink]="['/usuarios', 'login']"
+                routerLinkActive="activo" [routerLinkActiveOptions]="{ exact: true }">Login</button>
+            <button (click)="miportal()" type="button" class="btn btn-light col-12 col-lg-3">Mi Portal</button>
+        </div>
+    </section>
 
-
-        </ul>
-
-    </nav>
 
     @if(show){
     <header class="bg-success text-white mt-1">
@@ -57,7 +48,6 @@
     <router-outlet></router-outlet>
 
 </div>
-
 
 
 
