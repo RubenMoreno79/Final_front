@@ -1,0 +1,41 @@
+* {
+
+    box-sizing: border-box;
+
+    margin-bottom: 10px;
+
+}
+
+.enlaces {
+
+    list-style: none;
+
+    font-size: 20px;
+
+    gap: 10px;
+
+}
+
+
+
+li {
+
+    cursor: pointer;
+
+}
+
+.container {
+
+    margin-top: 20px;
+
+    margin-bottom: 10px;
+
+    padding-bottom: 20%;
+
+}
+
+ul {
+
+    padding: 0;
+
+}
