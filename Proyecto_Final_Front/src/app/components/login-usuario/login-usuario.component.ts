@@ -34,7 +34,7 @@ export class LoginUsuarioComponent {
 
 
     } else {
-      Swal.fire('Error', 'Revisa la información de login', 'error');
+      Swal.fire('Error', 'Revisa tu usuario y/o contraseña', 'error');
     }
   }
 

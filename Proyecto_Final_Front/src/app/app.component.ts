@@ -21,13 +21,16 @@ import { ExamenComponent } from './components/examen/examen.component';
 import { UsuariosService } from './services/usuarios.service';
 import Swal from 'sweetalert2';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { NosotrosComponent } from './components/nosotros/nosotros.component';
+import { FaqComponent } from './components/faq/faq.component';
+
 
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ListaCursosComponent, FormsModule, NuevoCursoComponent, RouterLink, RouterLinkActive, CardUsuarioComponent, ListaUsuarioComponent, NuevoUsuarioComponent, LoginUsuarioComponent, HomeAlumnoComponent, HomeProfesorComponent, DetalleCursoComponent, TemarioCursoComponent, CardUsuarioComponent, ProfesorFormularioComponent, AlumnoFormularioComponent, ExamenPreguntasComponent, ExamenComponent],
+  imports: [RouterOutlet, ListaCursosComponent, FormsModule, NuevoCursoComponent, RouterLink, RouterLinkActive, CardUsuarioComponent, ListaUsuarioComponent, NuevoUsuarioComponent, LoginUsuarioComponent, HomeAlumnoComponent, HomeProfesorComponent, DetalleCursoComponent, TemarioCursoComponent, CardUsuarioComponent, ProfesorFormularioComponent, AlumnoFormularioComponent, ExamenPreguntasComponent, ExamenComponent, NosotrosComponent, FaqComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

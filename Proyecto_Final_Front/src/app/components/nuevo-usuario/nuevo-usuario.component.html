@@ -1,4 +1,7 @@
-<form class="text-success" [formGroup]="formulario" (ngSubmit)="onSubmit()">
+<h1 class=" text-center text-success mt-5">
+    "¡Únete y despega con nosotros!"</h1>
+
+<form class="text-success mt-5" [formGroup]="formulario" (ngSubmit)="onSubmit()">
     <div class="mb-3">
         <label class="form-label">Nombre</label>
         <input type="text" class="form-control border border-success" formControlName="nombre" />
@@ -93,6 +96,8 @@
 
 
     </div>
-    <input type="submit" value="Siguiente" class="btn btn-light border border-success col-12 col-lg-2" />
+    <div class=" text-center mt-4">
+        <input type="submit" value="Siguiente" class="btn btn-light border border-success col-12 col-lg-2" />
+    </div>
 
 </form>

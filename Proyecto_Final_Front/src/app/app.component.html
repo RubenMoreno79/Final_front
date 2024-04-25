@@ -23,6 +23,7 @@
                     Registrate
                 </div>
             </li>
+            <li class="nav-item active mt-2">|</li>
             <li class="nav-item active">
                 <div class="login nav-link" [routerLink]="['/usuarios', 'login']" routerLinkActive="activo"
                     [routerLinkActiveOptions]="{ exact: true }">Login </div>
@@ -39,12 +40,12 @@
         <ul class="enlaces list-group list-group-horizontal justify-content-center ">
             <li class="mx-3 pt-2"><a [routerLink]="['/cursos']" routerLinkActive="activo"
                     [routerLinkActiveOptions]="{ exact: true }">Lista de Cursos</a></li>
-            <li class="mx-3 pt-2"><a [routerLink]="['/usuarios', 'nuevo']" routerLinkActive="activo"
-                    [routerLinkActiveOptions]="{ exact: true }">Nuevo Usuario</a> </li>
-            <li class="mx-3 pt-2"><a [routerLink]="['/curso', 'nuevo']" routerLinkActive="activo"
-                    [routerLinkActiveOptions]="{ exact: true }">Nuevo Curso</a> </li>
-            <li class="mx-3 pt-2"><a [routerLink]="['/usuarios', 'login']" routerLinkActive="activo"
-                    [routerLinkActiveOptions]="{ exact: true }">Login</a> </li>
+            <li class="mx-3 pt-2"><a [routerLink]="['/nosotros']" routerLinkActive="activo"
+                    [routerLinkActiveOptions]="{ exact: true }">Conócenos</a> </li>
+            <li class="mx-3 pt-2"><a [routerLink]="['/faq']" routerLinkActive="activo"
+                    [routerLinkActiveOptions]="{ exact: true }">Preguntas Frecuentes</a> </li>
+            <li class="mx-3 pt-2"><a [routerLink]="['/home']" routerLinkActive="activo"
+                    [routerLinkActiveOptions]="{ exact: true }">Home</a> </li>
 
 
         </ul>
