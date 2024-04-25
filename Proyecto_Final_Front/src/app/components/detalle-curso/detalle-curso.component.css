@@ -14,3 +14,8 @@
 h2 {
     color: rgba(68, 124, 84);
 }
+
+.botonesAlumno {
+    display: flex;
+    justify-content: space-between;
+}

@@ -38,7 +38,6 @@ export class DetalleCursoComponent {
   }
   async ngOnInit() {
 
-
     this.activatedRoute.params.subscribe(params => {
       this.cursoId = Number(params['cursoId']);
 
@@ -52,15 +51,18 @@ export class DetalleCursoComponent {
       this.leccionId = respuesta[0].id
 
     } else if (rol.rol === 'alumno') {
+      const respuestaCurso = await this.alumnoService.info(this.cursoId)
+      console.log(respuestaCurso)
+      if (respuestaCurso.length < 1) {
+        this.tieneCurso = true
+      }
       this.mostrar = false
       const respuesta2 = await this.temarioSercice.getAllLeccionesAlumno(this.cursoId)
+      console.log(respuesta2)
       this.leccionId = respuesta2[0].id
     }
-    const respuestaCurso = await this.alumnoService.info(this.cursoId)
 
-    if (respuestaCurso.length < 1) {
-      this.tieneCurso = true
-    }
+
 
 
 
