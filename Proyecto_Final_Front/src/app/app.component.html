@@ -17,6 +17,7 @@
             <button class="btn  col-2" type="submit">Buscar</button>
         </div>
         <ul class="navbar-nav mt-2">
+            @if(!islogged){
             <li class=" nav-item active">
                 <div class="registrar nav-link" [routerLink]="['/usuarios', 'nuevo']" routerLinkActive="activo"
                     [routerLinkActiveOptions]="{ exact: true }">
@@ -28,8 +29,11 @@
                 <div class="login nav-link" [routerLink]="['/usuarios', 'login']" routerLinkActive="activo"
                     [routerLinkActiveOptions]="{ exact: true }">Login </div>
             </li>
+            }@else {
             <button (click)="miportal()" class="btn btn-dark border border-success col-12 col-lg-5">Mi
                 portal</button>
+            }
+
 
 
         </ul>

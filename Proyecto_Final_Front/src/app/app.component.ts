@@ -40,6 +40,7 @@ export class AppComponent {
   router = inject(Router);
   usuariosService = inject(UsuariosService);
   mostrar: boolean = false
+  islogged: boolean = false
 
   // onClickLogout() {
   //   localStorage.removeItem('token_crm');
@@ -59,7 +60,10 @@ export class AppComponent {
 
   }
   ngOnInit() {
-
+    const respuesta = this.obtenerDatosUsuario()
+    if (respuesta !== null) {
+      this.islogged = true
+    }
     this.router.events.subscribe((event) => {
 
       if (event instanceof NavigationEnd) {
@@ -73,7 +77,7 @@ export class AppComponent {
   miportal() {
 
     const rol = this.obtenerDatosUsuario();
-    console.log(rol)
+
     if (rol.rol === 'profesor') {
       this.router.navigateByUrl('/usuarios/profesor');
       this.mostrar = true
