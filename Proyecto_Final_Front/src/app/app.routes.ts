@@ -26,12 +26,17 @@ import { CursosProfesorComponent } from './components/cursos-profesor/cursos-pro
 import { EditarCursoComponent } from './componets/editar-curso/editar-curso.component';
 import { EditarLeccionesComponent } from './componets/editar-lecciones/editar-lecciones.component';
 import { EditarPreguntasComponent } from './components/editar-preguntas/editar-preguntas.component';
+import { NosotrosComponent } from './components/nosotros/nosotros.component';
+import { FaqComponent } from './components/faq/faq.component';
+
 
 
 
 export const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: 'home' },
     { path: 'home', component: HomeComponent },
+    { path: 'nosotros', component: NosotrosComponent },
+    { path: 'faq', component: FaqComponent },
     { path: 'cursos', component: ListaCursosComponent },
     { path: 'cursos/:cursoId', component: DetalleCursoComponent },
     { path: 'curso/nuevo', component: NuevoCursoComponent, canActivate: [authGuard] },

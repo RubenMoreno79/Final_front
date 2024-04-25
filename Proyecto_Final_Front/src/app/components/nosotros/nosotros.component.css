@@ -1,0 +1,10 @@
+img {
+    display: block;
+    width: 100%;
+    display: auto;
+}
+
+p {
+    text-align: justify;
+    color: black;
+}
