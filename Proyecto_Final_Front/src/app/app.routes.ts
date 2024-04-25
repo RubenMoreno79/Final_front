@@ -29,7 +29,11 @@ import { EditarPreguntasComponent } from './components/editar-preguntas/editar-p
 import { LogrosComponent } from './components/logros/logros.component';
 import { NosotrosComponent } from './components/nosotros/nosotros.component';
 import { FaqComponent } from './components/faq/faq.component';
+<<<<<<< HEAD
 import { TextProfesorComponent } from './components/text-profesor/text-profesor.component';
+=======
+import { TextoAlumnoComponent } from './components/texto-alumno/texto-alumno.component';
+>>>>>>> 1d5f3155c6e8998532b714790d7ffb668f91e6c8
 
 
 
@@ -48,6 +52,7 @@ export const routes: Routes = [
     {
         path: 'usuarios/alumno', component: HomeAlumnoComponent,
         children: [
+            { path: '', component: TextoAlumnoComponent, canActivate: [authGuard] },
             { path: 'card', component: CardUsuarioComponent, canActivate: [authGuard] },
             { path: 'miscursos', component: MisCursosComponent, canActivate: [authGuard] },
             { path: 'editar', component: EditarUsuarioComponent, canActivate: [authGuard] },
