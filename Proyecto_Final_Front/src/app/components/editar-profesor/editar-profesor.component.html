@@ -2,59 +2,93 @@
 
     <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
 
-        <div class="mb-3 mt-4">
-            <label class="form-label">Nombre</label>
-            <input type="text" class="form-control" formControlName="nombre">
+        <div class="ficha">
 
+            <div class="mb-3 mt-4">
+                <label class="form-label">Nombre</label>
+                <input type="text" class="form-control" formControlName="nombre">
+                @if (checkError("nombre", "required")) {
+                <p class="error">El campo nombre no puede estar vacío</p>
+                }
+
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Apellidos</label>
+                <input type="text" class="form-control" formControlName="apellidos">
+                @if (checkError("apellidos", "required")) {
+                <p class="error">El campo apellidos no puede estar vacío</p>
+                }
+
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Username</label>
+                <input type="text" class="form-control" formControlName="username">
+                @if (checkError("username", "required")) {
+                <p class="error">El campo username no puede estar vacío</p>
+                }
+
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Fecha nacimiento</label>
+                <input type="date" class="form-control" formControlName="fecha_nacimiento">
+                @if (checkError("fecha_nacimiento", "required")) {
+                <p class="error">El campo fecha nacimiento no puede estar vacío</p>
+                }
+
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Telefono</label>
+                <input type="text" class="form-control" formControlName="telefono">
+                @if (checkError("telefono", "required")) {
+                <p class="error">El campo telefono no puede estar vacío</p>
+                }
+
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Género</label>
+                <input type="text" class="form-control" formControlName="genero">
+                @if (checkError("genero", "required")) {
+                <p class="error">El campo genero no puede estar vacío</p>
+                }
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Experiencia</label>
+                <input type="text" class="form-control" formControlName="experiencia">
+                @if (checkError("experiencia", "required")) {
+                <p class="error">El campo experiencia no puede estar vacío</p>
+                }
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Descripción experiencia</label>
+                <input type="text" class="form-control" formControlName="descripcion_experiencia">
+                @if (checkError("descripcion_experiencia", "required")) {
+                <p class="error">El campo descripción experiencia no puede estar vacío</p>
+                }
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Especialidad</label>
+                <input type="text" class="form-control" formControlName="especialidad">
+                @if (checkError("especialidad", "required")) {
+                <p class="error">El campo especialidad experiencia no puede estar vacío</p>
+                }
+
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Foto</label>
+                <input type="text" class="form-control" formControlName="foto">
+                @if (checkError("foto", "required")) {
+                <p class="error">El campo foto experiencia no puede estar vacío</p>
+                }
+            </div>
+
+            <input class="btn btn-success border border-success col-12 col-lg-2" type="submit" value="Actualizar">
         </div>
-
-        <div class="mb-3">
-            <label class="form-label">Apellidos</label>
-            <input type="text" class="form-control" formControlName="apellidos">
-
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Username</label>
-            <input type="text" class="form-control" formControlName="username">
-
-        </div>
-
-        <div class="mb-3">
-            <label class="form-label">Fecha_nacimiento</label>
-            <input type="date" class="form-control" formControlName="fecha_nacimiento">
-
-        </div>
-
-        <div class="mb-3">
-            <label class="form-label">Telefono</label>
-            <input type="text" class="form-control" formControlName="telefono">
-
-        </div>
-
-        <div class="mb-3">
-            <label class="form-label">Género</label>
-            <input type="text" class="form-control" formControlName="genero">
-        </div>
-
-     <div class="mb-3">
-        <label class="form-label">Experiencia</label>
-        <input type="text" class="form-control" formControlName="experiencia">
-    </div>
-
-        <div class="mb-3">
-            <label class="form-label">Descripción_experiencia</label>
-            <input type="text" class="form-control" formControlName="descripcion_experiencia">
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Especialidad</label>
-            <input type="text" class="form-control" formControlName="especialidad">
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Foto</label>
-            <input type="text" class="form-control" formControlName="foto">
-        </div>
-
-        <input type="submit" value="Actualizar">
 
     </form>
 
