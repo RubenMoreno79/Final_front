@@ -1,9 +1,26 @@
-h3 {
-    color: rgb(25, 135, 84);
-    text-align: center;
-    margin-top: 35px;
+* {
+    box-sizing: border-box;
+    margin-bottom: 10px;
 }
 
-p {
-    text-align: center;
+.enlaces {
+    list-style: none;
+    font-size: 20px;
+    gap: 10px;
+
+}
+
+
+li {
+    cursor: pointer;
+}
+
+.container {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding-bottom: 20%;
+}
+
+ul {
+    padding: 0;
 }

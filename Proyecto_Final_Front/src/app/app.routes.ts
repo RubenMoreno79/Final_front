@@ -29,6 +29,7 @@ import { EditarPreguntasComponent } from './components/editar-preguntas/editar-p
 import { LogrosComponent } from './components/logros/logros.component';
 import { NosotrosComponent } from './components/nosotros/nosotros.component';
 import { FaqComponent } from './components/faq/faq.component';
+import { TextoAlumnoComponent } from './components/texto-alumno/texto-alumno.component';
 
 
 
@@ -47,6 +48,7 @@ export const routes: Routes = [
     {
         path: 'usuarios/alumno', component: HomeAlumnoComponent,
         children: [
+            { path: '', component: TextoAlumnoComponent, canActivate: [authGuard] },
             { path: 'card', component: CardUsuarioComponent, canActivate: [authGuard] },
             { path: 'miscursos', component: MisCursosComponent, canActivate: [authGuard] },
             { path: 'editar', component: EditarUsuarioComponent, canActivate: [authGuard] },

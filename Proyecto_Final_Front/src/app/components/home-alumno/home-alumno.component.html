@@ -2,62 +2,32 @@
     <ul class="botones text-center">
 
 
+        <header class="bg-success text-white mt-1">
+            <ul class="enlaces list-group list-group-horizontal justify-content-center ">
 
-        <li class="btn btn-success mt-3 p-2 col-12 col-lg-2 mx-1 border border-success"
-            [routerLink]="['/usuarios/alumno/miscursos']" routerLinkActive="activo"
-            [routerLinkActiveOptions]="{ exact: true }">
-            Mis Cursos
-        </li>
-        <li class="btn btn-success mt-3 p-2 col-12 col-lg-2 mx-1 border border-success"
-            [routerLink]="['/usuarios/alumno/buscarnuevocurso']" routerLinkActive="activo"
-            [routerLinkActiveOptions]="{ exact: true }">
-            Buscar Nuevo Curso
-        </li>
-        <li class="btn btn-success mt-3 p-2 col-12 col-lg-2 mx-1 border border-success"
-            [routerLink]="['/usuarios/alumno/logros']" routerLinkActive="activo"
-            [routerLinkActiveOptions]="{ exact: true }">
-            Mis Logros
-        </li>
-        <li class="btn btn-success mt-3 p-2 col-12 col-lg-2 mx-1 border border-success"
-            [routerLink]="['/usuarios','alumno', 'card']" routerLinkActive="activo"
-            [routerLinkActiveOptions]="{ exact: true }">
-            Perfil
-        </li>
+                <li class="mx-3 pt-2" [routerLink]="['/usuarios/alumno/miscursos']" routerLinkActive="activo"
+                    [routerLinkActiveOptions]="{ exact: true }">
+                    Mis Cursos
+                </li>
+                <li class="mx-3 pt-2" [routerLink]="['/usuarios/alumno/buscarnuevocurso']" routerLinkActive="activo"
+                    [routerLinkActiveOptions]="{ exact: true }">
+                    Buscar Nuevo Curso
+                </li>
+                <li class="mx-3 pt-2" [routerLink]="['/usuarios/alumno/logros']" routerLinkActive="activo"
+                    [routerLinkActiveOptions]="{ exact: true }">
+                    Mis Logros
+                </li>
+                <li class="mx-3 pt-2" [routerLink]="['/usuarios','alumno', 'card']" routerLinkActive="activo"
+                    [routerLinkActiveOptions]="{ exact: true }">
+                    Perfil
+                </li>
 
-        <button (click)="onClickLogout()"
-            class="btn btn-outline-success mt-3 p-2 col-12 col-lg-2 mx-1 border border-success" [routerLink]="['/home']"
-            routerLinkActive="activo" [routerLinkActiveOptions]="{ exact: true }">Logout</button>
+                <li (click)="onClickLogout()" class="mx-3 pt-2" [routerLink]="['/home']" routerLinkActive="activo"
+                    [routerLinkActiveOptions]="{ exact: true }">Logout</li>
+            </ul>
+        </header>
     </ul>
 </nav>
-<div>
-    <h3>Bienvenido/a a tu portal</h3>
-    <p>¡Bienvenido al curso de nuestra plataforma de cursos online!
 
-        Nos complace darte la más cordial bienvenida a nuestra comunidad educativa en línea. Sabemos que la decisión
-        de
-        inscribirte en un curso es un paso emocionante y significativo hacia el crecimiento personal y profesional,
-        y estamos
-        encantados de acompañarte en este viaje educativo.
-
-        En nuestra plataforma, te ofrecemos una amplia variedad de cursos diseñados para satisfacer tus necesidades
-        y objetivos
-        de aprendizaje. Desde habilidades técnicas hasta desarrollo personal, nuestra selección de cursos está
-        cuidadosamente
-        diseñada para brindarte el conocimiento y las herramientas necesarias para alcanzar tus metas.
-
-        Nuestro equipo de instructores altamente cualificados están comprometido a proporcionarte una experiencia de
-        aprendizaje
-        enriquecedora y gratificante. Con contenido de alta calidad, actividades interactivas y soporte
-        personalizado, estamos
-        aquí para ayudarte en cada paso del camino.
-
-        ¡Estamos emocionados de tenerte a bordo y esperamos verte prosperar en tu viaje educativo con nosotros! Si
-        tienes alguna
-        pregunta o necesitas ayuda, no dudes en ponerte en contacto con nuestro equipo de soporte en cualquier
-        momento.
-
-        Bienvenido nuevamente y <strong>¡feliz aprendizaje!</strong>
-    </p>
-</div>
 
 <router-outlet></router-outlet>
