@@ -1,29 +1,36 @@
 <nav>
     <ul class="botones text-center">
-        <li class="btn btn-light mt-3 p-2 col-12 col-lg-2 mx-1 border border-success"
+        <header class="bg-success text-white mt-1"> 
+            <ul class="enlaces list-group list-group-horizontal justify-content-center "> 
+
+        <li class="mx-3 pt-2"
             [routerLink]="['/usuarios/profesor/cusosprofesor']" routerLinkActive="activo"
             [routerLinkActiveOptions]="{ exact: true }">
             Mis Cursos
         </li>
-        <li class="btn btn-light mt-3 p-2 col-12 col-lg-3 mx-1 border border-success"
+        <li class="mx-3 pt-2"
             [routerLink]="['/usuarios/profesor/listacursos']" routerLinkActive="activo"
             [routerLinkActiveOptions]="{ exact: true }">
             Lista Cursos
         </li>
-        <li class="btn btn-light mt-3 p-2 col-12 col-lg-3 mx-1 border border-success"
+        <li class="mx-3 pt-2"
             [routerLink]="['/usuarios/profesor/nuevocursoprofesor']" routerLinkActive="activo"
             [routerLinkActiveOptions]="{ exact: true }">
             Nuevo Curso
         </li>
-        <li class="btn btn-light mt-3 p-2 col-12 col-lg-2 mx-1 border border-success"
+        <li class="mx-3 pt-2"
             [routerLink]="['/usuarios','profesor', 'card']" routerLinkActive="activo"
             [routerLinkActiveOptions]="{ exact: true }">
             Perfil
         </li>
-        <button (click)="onClickLogout()" class="btn btn-light mt-3 p-2 col-12 col-lg-2 mx-1 border border-success"
+        <li (click)="onClickLogout()" class="mx-3 pt-2"
             [routerLink]="['/home']" routerLinkActive="activo"
-            [routerLinkActiveOptions]="{ exact: true }">Logout</button>
+            [routerLinkActiveOptions]="{ exact: true }">Logout</li>
 
     </ul>
+    </header>
+    </ul>
+ 
 </nav>
+
 <router-outlet></router-outlet>

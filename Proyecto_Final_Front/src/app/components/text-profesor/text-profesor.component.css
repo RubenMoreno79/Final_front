@@ -1,0 +1,44 @@
+* {
+
+    text-align: justify;
+
+}
+
+h2 {
+
+    color: rgb(25, 135, 84);
+
+    text-align: left;
+
+    margin-top: 20px;
+
+    margin-bottom: 30px;
+
+    text-align: justify;
+
+}
+
+p {
+
+    text-align: left;
+
+    text-align: justify;
+
+}
+
+strong {
+
+    color: rgb(25, 135, 84);
+
+}
+
+img {
+
+    display: block;
+
+    width: 100%;
+
+    display: auto;
+
+    margin-top: 150px;
+}
