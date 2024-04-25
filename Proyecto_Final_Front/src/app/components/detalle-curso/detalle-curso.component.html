@@ -12,16 +12,19 @@
     <p>{{ curso[0].descripcion }}</p>
     <h5 class="mt-4 mb-1">Contenido del curso </h5>
     <p class="contenido">{{ curso[0].contenido }}</p>
+    @if(tieneCurso){
     <button (click)="addCurso()" class="btn btn-light border border-success col-12 col-lg-2">Añadir</button>
-    <button (click)="goToLecciones()" class="btn btn-light border border-success col-12 col-lg-2">Ver el curso</button>
-    
-    
-    @if(mostrar){
-<button (click)="editarCurso()" class="btn btn-light border border-success col-12 col-lg-2">Editar curso</button>
-<button (click)="borrarCurso()" class="btn btn-light border border-success col-12 col-lg-2">Borrar curso</button>
-<button (click)="addLeccion()" class="btn btn-light border border-success col-12 col-lg-2">Añadir lecciones</button>
     }
-    
+    <button (click)="goToLecciones()" class="btn btn-light border border-success col-12 col-lg-2">Ver el curso</button>
+
+
+
+    @if(mostrar){
+    <button (click)="editarCurso()" class="btn btn-light border border-success col-12 col-lg-2">Editar curso</button>
+    <button (click)="borrarCurso()" class="btn btn-light border border-success col-12 col-lg-2">Borrar curso</button>
+    <button (click)="addLeccion()" class="btn btn-light border border-success col-12 col-lg-2">Añadir lecciones</button>
+    }
+
 
 
 </div>

@@ -22,6 +22,7 @@ export class DetalleCursoComponent {
   leccionId: Number = 0
   mostrar: boolean = false
   cursoId: number = 0;
+  tieneCurso: boolean = false
 
   activatedRoute = inject(ActivatedRoute);
   cursosService = inject(CursosService);
@@ -36,6 +37,8 @@ export class DetalleCursoComponent {
     return decodedToken;
   }
   async ngOnInit() {
+
+
     this.activatedRoute.params.subscribe(params => {
       this.cursoId = Number(params['cursoId']);
 
@@ -53,6 +56,11 @@ export class DetalleCursoComponent {
       const respuesta2 = await this.temarioSercice.getAllLeccionesAlumno(this.cursoId)
       this.leccionId = respuesta2[0].id
     }
+    const respuestaCurso = await this.alumnoService.info(this.cursoId)
+
+    if (respuestaCurso.length < 1) {
+      this.tieneCurso = true
+    }
 
 
 
@@ -61,7 +69,7 @@ export class DetalleCursoComponent {
 
   async addCurso() {
     const respuesta = await this.alumnoService.addCurso(this.cursoId);
-    console.log(respuesta);
+    this.router.navigateByUrl(`usuarios/alumno/miscursos`)
   };
 
   goToLecciones() {
