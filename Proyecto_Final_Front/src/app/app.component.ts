@@ -36,6 +36,7 @@ export class AppComponent {
   show: boolean = false
   router = inject(Router);
   usuariosService = inject(UsuariosService);
+  mostrar: boolean = false
 
   // onClickLogout() {
   //   localStorage.removeItem('token_crm');
@@ -60,6 +61,7 @@ export class AppComponent {
 
       if (event instanceof NavigationEnd) {
         this.show = !event.url.startsWith('/usuarios/profesor') && !event.url.startsWith('/usuarios/alumno')
+
       }
 
 
@@ -71,8 +73,10 @@ export class AppComponent {
     console.log(rol)
     if (rol.rol === 'profesor') {
       this.router.navigateByUrl('/usuarios/profesor');
+      this.mostrar = true
     } else if (rol.rol === 'alumno') {
       this.router.navigateByUrl('/usuarios/alumno');
+      this.mostrar = false
 
     }
 

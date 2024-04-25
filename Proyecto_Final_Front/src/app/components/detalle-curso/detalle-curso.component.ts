@@ -20,7 +20,7 @@ export class DetalleCursoComponent {
 
   curso: Curso[] = []
   leccionId: Number = 0
-
+  mostrar: boolean = false
   cursoId: number = 0;
 
   activatedRoute = inject(ActivatedRoute);
@@ -44,10 +44,12 @@ export class DetalleCursoComponent {
 
     this.curso = await this.cursosService.getById(this.cursoId);
     if (rol.rol === 'profesor') {
+      this.mostrar = true
       const respuesta = await this.temarioSercice.getAllLeccionesProfesor(this.cursoId)
       this.leccionId = respuesta[0].id
 
     } else if (rol.rol === 'alumno') {
+      this.mostrar = false
       const respuesta2 = await this.temarioSercice.getAllLeccionesAlumno(this.cursoId)
       this.leccionId = respuesta2[0].id
     }

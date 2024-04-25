@@ -41,8 +41,9 @@
                     [routerLinkActiveOptions]="{ exact: true }">Lista de Cursos</a></li>
             <li class="mx-3 pt-2"><a [routerLink]="['/usuarios', 'nuevo']" routerLinkActive="activo"
                     [routerLinkActiveOptions]="{ exact: true }">Nuevo Usuario</a> </li>
+                    @if(mostrar){ 
             <li class="mx-3 pt-2"><a [routerLink]="['/curso', 'nuevo']" routerLinkActive="activo"
-                    [routerLinkActiveOptions]="{ exact: true }">Nuevo Curso</a> </li>
+                    [routerLinkActiveOptions]="{ exact: true }">Nuevo Curso</a> </li>}
             <li class="mx-3 pt-2"><a [routerLink]="['/usuarios', 'login']" routerLinkActive="activo"
                     [routerLinkActiveOptions]="{ exact: true }">Login</a> </li>
 
