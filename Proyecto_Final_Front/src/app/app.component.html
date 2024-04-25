@@ -18,11 +18,14 @@
             </div>
         </div>
         <div class="col-12 col-lg-5 ">
+            @if(!islogged){
             <button type="button" class="btn btn-light col-12 col-lg-3" [routerLink]="['/usuarios', 'nuevo']"
                 routerLinkActive="activo" [routerLinkActiveOptions]="{ exact: true }">Registrate</button>
             <button type="button" class="btn btn-light mx-lg-1 col-12 col-lg-3" [routerLink]="['/usuarios', 'login']"
                 routerLinkActive="activo" [routerLinkActiveOptions]="{ exact: true }">Login</button>
+            }@else{
             <button (click)="miportal()" type="button" class="btn btn-light col-12 col-lg-3">Mi Portal</button>
+            }
         </div>
     </section>
 
