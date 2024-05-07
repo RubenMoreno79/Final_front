@@ -62,6 +62,7 @@ export class DetalleCursoComponent {
   async addCurso() {
     const respuesta = await this.alumnoService.addCurso(this.cursoId);
     console.log(respuesta);
+    this.router.navigateByUrl(`usuarios/alumno/miscursos`)
   };
 
   goToLecciones() {

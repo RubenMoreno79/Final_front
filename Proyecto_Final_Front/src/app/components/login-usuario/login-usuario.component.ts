@@ -24,6 +24,7 @@ export class LoginUsuarioComponent {
 
   async onSubmit() {
     const response = await this.usuariosService.login(this.formulario.value);
+    console.log(response)
     this.router.navigateByUrl('/home');
 
     // Comprobamos la respuesta
