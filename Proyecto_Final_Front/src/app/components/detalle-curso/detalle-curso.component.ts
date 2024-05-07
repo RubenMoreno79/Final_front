@@ -22,6 +22,7 @@ export class DetalleCursoComponent {
   leccionId: Number = 0
   mostrar: boolean = false
   cursoId: number = 0;
+  tieneCurso: boolean = false
 
   activatedRoute = inject(ActivatedRoute);
   cursosService = inject(CursosService);
@@ -36,6 +37,7 @@ export class DetalleCursoComponent {
     return decodedToken;
   }
   async ngOnInit() {
+
     this.activatedRoute.params.subscribe(params => {
       this.cursoId = Number(params['cursoId']);
 
@@ -49,10 +51,18 @@ export class DetalleCursoComponent {
       this.leccionId = respuesta[0].id
 
     } else if (rol.rol === 'alumno') {
+      const respuestaCurso = await this.alumnoService.info(this.cursoId)
+      console.log(respuestaCurso)
+      if (respuestaCurso.length < 1) {
+        this.tieneCurso = true
+      }
       this.mostrar = false
       const respuesta2 = await this.temarioSercice.getAllLeccionesAlumno(this.cursoId)
+      console.log(respuesta2)
       this.leccionId = respuesta2[0].id
     }
+
+
 
 
 
@@ -61,7 +71,10 @@ export class DetalleCursoComponent {
 
   async addCurso() {
     const respuesta = await this.alumnoService.addCurso(this.cursoId);
+<<<<<<< HEAD
     console.log(respuesta);
+=======
+>>>>>>> 235befd7c791adaa1d4f9349da1c0a0ce8d9f30b
     this.router.navigateByUrl(`usuarios/alumno/miscursos`)
   };
 
